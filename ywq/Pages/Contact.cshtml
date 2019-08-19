@@ -1,19 +1,103 @@
 ﻿@page
-@model ContactModel
-@{
-    ViewData["Title"] = "Contact";
-}
-<h2>@ViewData["Title"]</h2>
-<h3>@Model.Message</h3>
+<html>
+<head>
+    <title>精品文章·一起帮</title>
+</head>
+<body>
+    <img src="~/images/logo-big.jpg" />
+    <p class="navbar-text pull-left">
+        <span style="font-size:18px;font-weight:600">一起帮</span>
+        <span class="visible-md-inline visible-lg-inline">·网络互助平台</span>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+    </p>
+    <p>2019年8月16日 17点43分</p>
+    <h1>
+        <a href="http://17bang.ren/Article/576">决定你IT路能走多远的那些因素：学历、英语和能力，还有运气……</a>
+    </h1>
+    <p>
+        学历问的人最多，其实是最不重要的一个。有，当然更好；没有，也不是无法弥补各行各业都有学历歧视，但IT行业，
+        相对来说是歧视最少的——因为IT他很“硬”：再高的学历，做不出来东西都是扯淡再低的学历，能干活就能领到工资当然，
+        没有学历，必然要比有学历付出更多艰辛，甚至屈辱。英语被太多太多同学忽视。之前：编程=数据结构+算法现在：编程=google+英语英语能力，
+        决定你能否：更快的入门（编程语言都是用英语书写）
+        找到更多解决问题的渠道（英语+中文>中文）了解最前沿的技术
+        （什么都等着翻译是不现实的，.NET开源之 ……
+    </p>
+    <div>
+        <lable>
+            "关键字："
+        </lable>
+        <span class="badge">编程</span>
+        <span class="badge">学历</span>
+        <span class="badge">英语</span>
+        <span class="badge">运气</span>
+    </div>
+    <p>2019年8月15日 17点40分</p>
+    <h1>
+        <a href="http://17bang.ren/Article/575">学好编程要有“三勤”</a>
+    </h1>
+    <p>
+        脑勤勤于思考，多问几个为什么辩证和独立手勤大胆假设，小心求证：我有一个idea，或者我有点拿不准那就试一试键盘敲烂，
+        月薪过万一定要上手熟练度非常重要编程是一个手艺活对自己的代码狠一点口勤多问：
+        不然你的线下学习就亏了哟，^_^多交流：同学之间，聊天多聊聊技术多表达：珍惜每天第四节课的模拟面试机会 ……
+    </p>
+    <div>
+        <lable>
+            "关键词："
+        </lable>
+        <span class="badge">编程</span>
+        <span class="badge">学习</span>
+        <span class="badge">方法</span>
+        <span class="badge">技巧</span>
+    </div>
+    <p>2019年8月13日 20点02分</p>
+    <h1>
+        <a href="http://17bang.ren/Article/574">源栈培训：其他ASP.NET项目</a>
+    </h1>
+    <p>
+        Web API 返回纯数据（JSON/XML/其他格式），而不是HTML页面推出背景：RESTful设计理念：
+        无状态（http）和 资源（url）通过动词（verb）确定动作：Get/Post/Put/Delete……
+        （问题：GET/POST就已经有些“无所谓”了，再添加PUT和DELETE，概念进一步混淆）和MVC最大的不同：
+        route配置在：WebApiConfig.cs，注意：默认有action！根据Request的method，在ApiController的
+        子类controller中找Action ……
+    </p>
+    <div>
+        <lable>
+            "关键词："
+        </lable>
+        <span class="badge">源栈培训</span>
+        <span class="badge">ASP.NET</span>
+    </div>
+    <p>2019年08月12日 09点20分</p>
+    <h1>
+        <a href="http://17bang.ren/Article/573">源栈培训：C#进阶：ADO.NET</a>
+    </h1>
+    <p>
+        在 Linq to SQL 面世之前，连接数据库的办法。是 EntityFramework 的底层实现工具。
+        数据库连接using (SqlConnection connection = new SqlConnection(connectionString))
+        { connection.Open(); //需要显式的Open()// Do work here. } 字符串Open()/Close()池
+        SqlCommand command = new SqlCommand();SqlCommand ……
+    </p>
+    <div>
+        <label>
+            "关键词："
+        </label>
+        <span class="badge">源栈培训</span>
+        <span class="badge">C#</span>
+        <span class="badge">ADO.NET</span>
+    </div>
+    <nav>
+        <ul class="pagination">
+            <li class="active">
+                <a id="1" href="http://17bang.ren/Article">1</a>
+            </li>
+            <li class="active">
+                <a id="2" href="http://17bang.ren/Article/Page-2">2</a>
+            </li>
+            <li class="active">
+                <a id="3" href="http://17bang.ren/Article/Page-3">3</a>
 
-<address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html>
