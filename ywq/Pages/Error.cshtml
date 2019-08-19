@@ -1,23 +1,39 @@
 ﻿@page
-@model ErrorModel
-@{
-    ViewData["Title"] = "Error";
-}
+<html>
+<head>
+    <title>用户登录·一起帮</title>
+</head>
+<body>
+    <img src="~/images/logo-big.jpg" width="48" height="48" />
+    <p class="navbar-text pull-left">
+        <span style="font-size:18px;font-weight:600">一起帮</span>
+        <span class="visible-md-inline visible-lg-inline">·网络互助平台</span>
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+    <p>用户登录</p>
+    <div class="form-group">
+        <label>用户名：（*必填）</label>
+        <input class="form-control" data-val="true"date-val-length="*用户名的长度不能大于20"
+               data-val-length-max="20" data-val-remote="*用户名不存在"
+               id="UserName" name="UserNema" placeholder="不是昵称，是登录用户名" type="text" value>
+        
+    </div>
+    <div class="form-group">
+        <label>密码：（*必填）</label>
+        <input class="form control" data-val="true" data-val-length="*密码长度不能小于4，大于20" 
+               data-val-required="*密码不能为空" id="password" name="password"
+               placeholder="不少于4个字符" type="password" />
+    </div>
+    <div class="form-group">
+        <label>验证码：（*必填）</label>
+        <input class="form-control" data-val="true" data-val-required="*验证码不能为空"
+               id="InputImageCode" name="InputImageCode"
+               style="width：80px；display：inline；" type="text" value />
+        <span zyf-image-code-reminder>点击输入框显示</span>
+    </div>
+    <div class=" submit">
+        <input type="submit" class="btn btn-primary loding" value="提交" zyf-submit-once />
+        <label class="checkbox-inline" style="margin-left：16px；"></label>
 
-@if (Model.ShowRequestId)
-{
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
-}
-
-<h3>Development Mode</h3>
-<p>
-    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
-</p>
-<p>
-    <strong>Development environment should not be enabled in deployed applications</strong>, as it can result in sensitive information from exceptions being displayed to end users. For local debugging, development environment can be enabled by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>, and restarting the application.
-</p>
+    </div>
+</body>
+</html>
