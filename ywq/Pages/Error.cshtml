@@ -128,34 +128,36 @@
         </article>
     <p>返回</p>
     <p>用户登录</p>
-    <div class="form-group">
-        <label>用户名：（*必填）</label>
-        <input class="form-control" data-val="true" date-val-length="*用户名的长度不能大于20"
-               data-val-length-max="20" data-val-remote="*用户名不存在"
-               id="UserName" name="UserNema" placeholder="不是昵称，是登录用户名" type="text" value>
+    <form>
+        <div class="form-group">
+            <label>用户名：（*必填）</label>
+            <input class="form-control" data-val="true" date-val-length="*用户名的长度不能大于20"
+                   data-val-length-max="20" data-val-remote="*用户名不存在"
+                   id="UserName" name="UserNema" placeholder="不是昵称，是登录用户名" type="text" value>
 
-    </div>
-    <div class="form-group">
-        <label>密码：（*必填）</label>
-        <input class="form control" data-val="true" data-val-length="*密码长度不能小于4，大于20"
-               data-val-required="*密码不能为空" id="password" name="password"
-               placeholder="不少于4个字符" type="password" />
-    </div>
-    <div class="form-group">
-        <label>验证码：（*必填）</label>
-        <input class="form-control" data-val="true" data-val-required="*验证码不能为空"
-                type="text"  />
-        <span zyf-image-code-reminder>点击输入框显示</span>
-    </div>
-    <div class=" submit">
-        <input type="submit" class="btn btn-primary loding" value="提交" zyf-submit-once />
-        <label><input type="checkbox" name="remember" />记住我</label>
+        </div>
+        <div class="form-group">
+            <label>密码：（*必填）</label>
+            <input class="form control" data-val="true" data-val-length="*密码长度不能小于4，大于20"
+                   data-val-required="*密码不能为空" id="password" name="password"
+                   placeholder="不少于4个字符" type="password" />
+        </div>
+        <div class="form-group">
+            <label>验证码：（*必填）</label>
+            <input class="form-control" data-val="true" data-val-required="*验证码不能为空"
+                   type="text" />
+            <span zyf-image-code-reminder>点击输入框显示</span>
+        </div>
+        <div class=" submit">
+            <input type="submit" class="btn btn-primary loding" value="提交" zyf-submit-once />
+            <label><input type="checkbox" name="remember" />记住我</label>
 
-    </div>
-    <div>
-        <a href="http://17bang.ren/Password/Forget"<span>忘了</span></a>
-        <a href="http://17bang.ren/Password/Forget"<span>注册</span></a>
-    </div>
+        </div>
+        <div>
+            <a href="http://17bang.ren/Password/Forget"<span>忘了</span></a>
+            <a href="http://17bang.ren/Password/Forget"<span>注册</span></a>
+        </div>
+    </form>
     <div>
         <h1>说明</h1>
         <p>1.我们希望通过一起帮，能直接解决大家在电脑操作/软件使用/编程学习等方面的具体问题。</p>
