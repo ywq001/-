@@ -1,15 +1,16 @@
 ﻿@page
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meat charset="utf-8"></meat>
+   
+    
     <title>用户登录·一起帮</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
     <style type="text/css">
-        body {
-            background-image: url(/images/timg.jpg);
-        }
-        
 
+      
         a {
             text-decoration: none
         }
@@ -30,9 +31,8 @@
                 color: blue;
             }
 
-        span {
-            font-size: 20px;
-            color: red;
+        .pass {
+            color: #777;
         }
 
         .divcss5 span {
@@ -45,35 +45,57 @@
             margin: 15px;
         }
 
+        nav > ul {
+            position: relative;
+            left: 900px;
+            bottom: 70px;
+        }
+
         li {
             list-style-type: square;
         }
+
         .user {
             position: relative;
-            left: 600px;
+            left: 900px;
             top: -180px;
         }
+
         .aed {
             position: relative;
-            left:600px;
-            top:-75px;
+            left: 600px;
+            top: -75px;
+        }
+
+        .post {
+            position: relative;
+            left: 300px;
+            top: 20px;
+            color: #777;
+        }
+
+        .pat {
+            position: relative;
+            left: 700px;
+            top: 100px;
         }
     </style>
 
 </head>
 <body>
+    <div class="post ">
+        <img src="~/images/logo-big.jpg" width="48" height="48" />
 
-    <img src="~/images/logo-big.jpg" width="48" height="48" />
-
-    <span style="font-size:18px;font-weight:600">一起帮</span>
-    <span class="visible-md-inline visible-lg-inline">·网络互助平台</span>
+        <span style="font-size:18px;font-weight:600">一起帮</span>
+        <span class="visible-md-inline visible-lg-inline">·网络互助平台</span>
+    </div>
     <article>
         <nav>
             <ul>
                 <li>
-                    <span>求助</span>
+                    <span class="pass">求助</span>
                     <ul style="margin:1px">
-                        <li>督导班</li>
+                        <li class="pass">督导班</li>
                         <li>
                             <a href="http://17bang.ren/Log/On?prepage=%2fCourse%2fConfusion%2fNew&role=%e7%99%bb%e5%bd%95%e7%94%a8%e6%88%b7">
                                 疑问发布
@@ -97,7 +119,7 @@
                     </ul>
                 </li>
                 <li>
-                    <span>督促</span>
+                    <span class="pass">督促</span>
                     <ul style="margin:1px">
                         <li>
                             <a href="http://17bang.ren/Plan/New">
@@ -127,7 +149,7 @@
                     </ul>
                 </li>
                 <li>
-                    <span>文章</span>
+                    <span class="pass">文章</span>
                     <ul style="margin:1px">
                         <li>
                             <a href="http://17bang.ren/Article">
@@ -142,7 +164,7 @@
                     </ul>
                 </li>
                 <li>
-                    <span>APP下载</span>
+                    <span class="pass">APP下载</span>
                     <ul style="margin:1px">
                         <li>
                             <a href="install-Android.apk">
@@ -156,32 +178,34 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <span>未登录</span>
-                    <ul style="margin:1px">
-                        <li>
-                            <a href="http://17bang.ren/Log/On">
-                                登录
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://17bang.ren/Register/Home">
-                                注册
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://17bang.ren/Password/Forget">
-                                忘记密码
-                            </a>
-                        </li>
-                    </ul>
-                </li>
             </ul>
         </nav>
     </article>
-    <p>返回</p>
-    <p>用户登录</p>
-    <form style="clear:both; margin-TOP:200px">
+    <ul>
+        <li>
+            <span class="pass">未登录</span>
+            <ul style="margin:1px">
+                <li>
+                    <a href="http://17bang.ren/Log/On">
+                        登录
+                    </a>
+                </li>
+                <li>
+                    <a href="http://17bang.ren/Register/Home">
+                        注册
+                    </a>
+                </li>
+                <li>
+                    <a href="http://17bang.ren/Password/Forget">
+                        忘记密码
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p class="pat">返回</p>
+
+    <form style="clear:both; margin-TOP:200px; margin-left:300px;">
         <div>
             <label>用户名：（*必填）</label>
             <input data-val="true" date-val-length="*用户名的长度不能大于20"
@@ -211,7 +235,7 @@
             <a href="http://17bang.ren/Password/Forget"><span>注册</span></a>
         </div>
     </form>
-    <div class="user">
+    <div class="user" ;>
         <h1>说明</h1>
         <p>1.我们希望通过一起帮，能直接解决大家在电脑操作/软件使用/编程学习等方面的具体问题。</p>
         <p>2.现在互联网远程技术（比如QQ桌面共享）已经非常成熟，当我们再遇到上述问题，如果别人能直接远程给予帮助，岂不是好？</p>
@@ -220,7 +244,7 @@
         <p>5.赶快加入我们，赚取帮帮币吧！</p>
     </div>
     <footer>
-        <div>
+        <div class="container">
             <a href="http://17bang.ren/About/Us">关于我们</a>
             |
             <a href="http://17bang.ren/FAQ">常见问题</a>
@@ -233,10 +257,10 @@
             |
             <a href="http://17bang.ren/About/Fund">融资2018</a>
         </div>
-        
+
         <p>友情链接</p>
-        
-        <p class="aed">     
+
+        <p class="aed">
             <a href="http://www.miitbeian.gov.cn/">渝ICP备18007191号（备案）</a>
             2019 首顾科技
         </p>
