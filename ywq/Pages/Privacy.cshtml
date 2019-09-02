@@ -21,8 +21,10 @@
         var scoers = [56, 58, 58, 75, 41, 39, 85, 95, 81, 79]
         for (var i = 0; i < scoers.length - 1; i++) {
             for (var j = 0; j < scoers.length - 1 - i; j++) {
-                if (scoers[j] > scoers[j+1]) {
-
+                if (scoers[j] > scoers[j + 1]) {
+                    tem = scoers[j];
+                    scoers[j] = scoers[j + 1];
+                    scoers[j + 1] = tem;
                 }
             }
         }
