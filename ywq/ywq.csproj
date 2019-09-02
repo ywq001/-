@@ -19,10 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Pages\LO\" />
     <Folder Include="Pages\NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Pages\Log\On.cshtml" />
     <None Include="wwwroot\images\banner1.svg" />
     <None Include="wwwroot\images\banner2.svg" />
     <None Include="wwwroot\images\banner3.svg" />
