@@ -1,42 +1,45 @@
 ﻿@page
 <html>
 <head>
-    <script type="text/javascript">
 
+    
+    <script type="text/javascript"> </script>
+    <script src="~/js/JavaScript.js"></script>
+
+
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
         //利用JavaScript计算出：[(23+7)x12-8]÷6的值
         // console.log([(23 + 7) * 12 - 8] / 6);
 
         //用循环，计算出2+4+6+8+...+100=?
 
 
-        var i = 0; j = 0;
-        while (j < 100) {
-            j = j + 2;
-            i = i + j;
+        //var i = 0, j = 0;
+        //while (j < 100) {
+        //    j = j + 2;
+        //    i = i + j;
 
-        }
-        console.log(i);
-        
-        
-        var scoers = [56, 58, 58, 75, 41, 39, 85, 95, 81, 79]
-        for (var i = 0; i < scoers.length - 1; i++) {
-            for (var j = 0; j < scoers.length - 1 - i; j++) {
-                if (scoers[j] > scoers[j + 1]) {
-                    tem = scoers[j];
-                    scoers[j] = scoers[j + 1];
-                    scoers[j + 1] = tem;
-                }
-            }
-        }
+        //}
+        //console.log(i);
 
-
+        sum();
+        //var scoers = [56, 58, 58, 75, 41, 39, 85, 95, 81, 79]
+        //for (var i = 0; i < scoers.length - 1; i++) {
+        //    for (var j = 0; j < scoers.length - 1 - i; j++) {
+        //        if (scoers[j] > scoers[j + 1]) {
+        //            tem = scoers[j];
+        //            scoers[j] = scoers[j + 1];
+        //            scoers[j + 1] = tem;
+        //        }
+        //    }
+        //}
     </script>
-</head>
-<body>
-    <p id="demo"></p>
-    <script>
-        document.getElementById("demo").innerHTML = "我的第一段 JavaScript";
-    </script>
+    
+
+    
 </body>
 </html>
 
