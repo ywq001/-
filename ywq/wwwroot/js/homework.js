@@ -53,9 +53,10 @@ function Swap() {
 
 
 //将源栈同学姓名 / 昵称装入数组，再根据该数组输出共有多少同学
-var studens = new Array();
+var students = new Array();
 var students = ["彭志强", "于维谦", "兴龙泰", "薛明林", "陈百万", "杨进文", "王新", "陈小丁", "陈晨"];
-var math= students.unshift("小余老师");
-console.log(studens, studens.length);
+var math = students.unshift("小余老师");
+var math = students.push('大飞哥');
+console.log(students, students.length);
 
 //在上述数组头部加上小鱼老师，末尾加上大飞哥
