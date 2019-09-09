@@ -67,9 +67,10 @@
 //    for (var i = 0; i < flame.length; i++) {
 //        for (var j = 0; j < flame.length; j++) {
 //            if (flame[j] > flame[j + 1]) {
-//                return function () {
-//                    return j;
-//                }
+//                //return function () {
+//                //    return j;
+//                //}
+//                Swap(flame, j, j + 1);
 //            }
 //        }
 //    }
@@ -90,47 +91,46 @@
 
 
 //删除一个数组里面重复的元素
-//Array.prototype.method = function () {
-//    var arr = [];
-//    for (var i = 0; i < this.length; i++) {
-//        if (arr.indexOf(this[i]) == -1) {
-//            arr.push(this[i])
+//function element(method) {
+    //var arr = [];
+    //for (var i = 0; i < method.length; i++) {
+        //if (arr.indexOf(method[i]) == -1) {
+            //arr.push(method[i])
 //        }
 //    }
 
-//    return arr;
+//    console.log(arr);
 //}
-//alert(['5', '7', '8', '7', '6', '1', '5'].method());
+//element([5, 6, 8, 5, 6, 8]);
+
+
 
 
 
 
 //使用JavaScript内置字符串函数，处理 “‘源栈’：飞哥小班教学，线下免费收看” ：“飞哥”改成“大神”，“线下”改成“线上”。
 //var str = "'源栈':飞哥小班教学，线下免费收看"
-//document.write(str.replace(/飞哥/, "大神"))
-//console.log(str)
-//document.write(str.replace(/线下/, "线上"))
-//console.log(str)
-
+//str = (str.replace("飞哥", "大神").replace("线下", "线上"));
 
 
 //将数组['why', 'gIT', 'vs2019', 'community', 'VERSION']规范化，所有字符串：
 //首字母大写开头，其他字母小写
 //截去超过6个字符的部分，如'community'将变成'Commun'
 
-
-
+//function early(sept) {
+//    var arr = [];
+//    for (var i = 0; i < arr.length; i++) {
+//        arr[i] = sept[i].toLowerCase().slice(0, 6);
+//        arr[i] = arr[i][0].toUpperCase() + arr[i].substring(1, 6);
+//    }
+    
+//    return arr;
+//}
 //var sept = ['why', 'gIT', 'vs2019', 'community', 'VERSION'];
-//    for (var i = 0; i < sept.length; i++) {
-//        if (sept[i].length > 6) {
-//            sept[i] = sept[i].substring(0, 6);
-//        } else {
-//            //继续
-//        }
-//    }
-//    for (var i = 0; i < sept.length; i++) {
-//        sept[i] = sept[i][0].toUpperCase() + sept[i].substring(1, 6).toLowerCase();
-//    }
+//var result = early(sept);
+
+
+
 
 
 //创建一个函数getRandomArray(length, max) ，能返回一个长度不大于length，每个元素值不大于max的随机整数数组。
@@ -166,4 +166,27 @@
 //the constructor function do use quotation - marks.So 
 //the following expressions create the same
 //regular expression
+//var whiteList="abcdefghijklmnopqrstuvwxyz"
+//function brid(content) {
+//    var Max = content.toLowerCase();
+//    var counter = 1;
+//    for (var i = 0; i < Max.length; i++) {
+//        var current = whiteList.indexOf(Max[i]);
+//        var next = whiteList.indexOf(Max[i + 1]);
+//        if (current < 0 && next >= 0) {
+//            counter++;
+//        }
+//    }
+//    return counter;
+//}
+//console.log(brid("the parameters to the literal notation do not"));
+
+
+
+//在函数yz.fei.get986()中嵌入不带参数的函数has9() / has8() / has6() ，
+//并调用上述函数，找出10000以内有多少个数字包含：9或者8或者6。
+
+
+
+
 
