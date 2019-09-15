@@ -5,7 +5,7 @@
 //    if (counter < 10) {
 //        setTimeout(function () {
 //            console.log("第" + counter + "周,源栈同学" +
-//                Math.ceil(Math.random() * 20)+ "人");
+//                Math.celi(Math.random() * 20)+ "人");
 //            counter++;
 //            lesson();
 //        },1000);
@@ -14,7 +14,7 @@
 //    };
 //};
 //lesson();
-//Math.ceil();
+
 
 
 //完成猜数字的游戏：
@@ -48,7 +48,7 @@ function bingoGame() {
 
         if (!word) {
             break;
-            return false;
+            
         }
         if (!isNaN(word) && word > 0 && word.indexOf(",") == -1) {
             if (word = game) {
