@@ -1,0 +1,240 @@
+﻿@page
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <style type="text/css">
+        #code{
+            color:gainsboro
+        }
+        .idcard{
+            font-size: 70%;padding: 2px 8px;vertical-align: middle;
+            border-radius: 10px;color:#fff;
+        }
+    </style>
+</head>
+<body style="padding-top:70px">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Index">
+                    <img src="~/images/logo-big.png" alt="一起帮Logo" class="navbar-left" />
+                </a>
+                <p class="navbar-text navbar-left">
+                    <span style="font-size:18px;font-weight:600;">一起帮</span>
+                    <span class="visible-md-inline visible-lg-inline">·网络互助平台</span>
+                </p>
+                <a href="#" id="flicker" class="glyphicon glyphicon-bell" style="font-size:30px;margin-top:10px;color:red">
+
+
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav ">
+
+                    <li>
+                        <a class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">
+                            <span class="glyphicon glyphicon-question-sign" aria-hidden="true">求助</span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown-header">督导班</li>
+                            <li>
+                                <a href="#">
+                                    疑问发布
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    疑问列表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    列表
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    发布
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                            督促
+                            <span class="sr-only">(current)</span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">
+                                    求督促
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    督促别人
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    我的目标
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    我的督促
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">
+                            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                            文章
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="/Contact">
+                                    列表
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span>
+                            APP下载
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Android</a></li>
+                            <li><a href="#">ios(越狱）</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            未登录
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">登录</a></li>
+                            <li><a href="#">注册</a></li>
+                            <li><a href="#">忘记密码</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+
+        </div><!-- /.container-fluid -->
+
+    </div>
+    <div class="container" id="code">
+        <div class="row">
+            <div class="bg-info">
+                <a href="#" class="pull-right">
+                    <span class="glyphicon glyphicon-hand-right"></span>
+                    全部消息
+                </a>
+                <div style="color:black">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                    <span class="glyphicon glyphicon-thumbs-up text-success"></span>
+                    欢迎
+                    <span data-toggle="tooltip" data-original-title>
+                        <a href="#" style="color:#337ab7">
+                            渣渣辉
+                        </a>
+                    </span>
+                    <a href="#" data-toggle="tooltip" class="text-muted" style="position:relative;top:-1px;" data-original-title="初级学徒">
+                        <span>①</span>
+                    </a>
+                    加入“一起帮”！记得完成“新手任务”获得
+                    <b class="glyphicon glyphicon-tint"></b>
+                    <a class="text-info" href="#">帮帮点</a>
+                    奖励哟。
+                    <span class="text-success"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="row" style="margin-top:55px">
+            <div class="col-md-8">
+                <form method="post">
+                    <div class="clearfix" style="border-left:6px solid gray;margin-bottom:20px">
+                        <div class="pull-left text-muted" style="margin:5px 0">
+                            <label class="checkbox-inline">
+                                <span class="glyphicon glyphicon-eye-close"></span>
+                                不显示
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox"/>
+                                以酬谢
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox"/>
+                                已撤销
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox"/>
+                                协助中
+                            </label>
+                        </div>
+                        <div class="pull-left text-info" style="margin:5px 0">
+                            <label class="checkbox-inline">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                只显示
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox"/>
+                                我的关注
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox"/>
+                                有总结
+                            </label>
+                        </div>
+                    </div>
+                </form>
+                <div style="margin:10px 0;clear:both">
+                    <div style="padding-top:20px">
+                        <span class="text-muted">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                            <span>2018年07月02日 14点07分</span>
+                        </span>
+                        <span class="pull-right">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <a href="#">那是花开911</a>
+                            <a href="#" class="text-muted" style="position:relative;top:-1px;"
+                               data-original-title="中级学徒">
+                                <span>②</span>
+                            </a>
+                        </span>
+                        <div style="font-size:24px;word-break:break-all">
+                            <span class="idcard" style="background-color:#f0ad4e">协助中</span>
+                            <a href="#" style="color:black">ASP 网站迁移</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/homework9.13.js"></script>
+</body>
