@@ -47,9 +47,9 @@ function keyWord() {
 keyWord();
 //如果总结数为0，将其从DOM树中删除
 function removeChild() {
-    var career = document.getElementsByClassName('bear').lastChild;
+    var career = document.getElementsByClassName('bear');
     for (var i = 0; i < career.length; i++) {
-        if (career[i] === 0) {
+        if (career[i].lastChild.innerText === '0') {
             remove(document.getElementsByClassName('bear'));
         } else {
             //跳过
