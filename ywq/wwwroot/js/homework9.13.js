@@ -34,7 +34,7 @@ function help() {
         }
     }
 }
-help();   
+help();
 
 //写一个函数，可以统计某个求助使用了多少关键字
 function keyWord() {
@@ -42,18 +42,23 @@ function keyWord() {
     for (var i = 0; i < fields.length; i++) {
         console.log(fields[0].getElementsByTagName('a').length);
     }
-    
+
 }
 keyWord();
 //如果总结数为0，将其从DOM树中删除
 function removeChild() {
-    var career = document.getElementsByClassName('bear');
-    for (var i = 0; i < career.length; i++) {
-        if (career[i].lastChild.innerText === '0') {
-            remove(document.getElementsByClassName('bear'));
-        } else {
-            //跳过
+    var summarize = document.querySelectorAll("[ywq-summarize]");
+    for (var j = 0; j < summarize.length; j++) {
+        var career = summarize[j].getElementsByClassName('bear');
+        for (var i = 0; i < career.length; i++) {
+            if (career[i].getElementsByTagName('span')[2].innerText === '0') {
+                summarize[j].removeChild(summarize[j].childNodes[5]);
+            } else {
+                //跳过
+            }
         }
     }
+
 }
+removeChild();
 
