@@ -62,3 +62,19 @@ function removeChild() {
 }
 removeChild();
 
+//参考用户注册页面，创建一下函数：
+
+//显示密码的长度,在控制台显示
+
+
+
+console.log(document.querySelector("[ywq-password]").length)
+
+//如果密码和确认密码不一致，弹出提示
+var password = document.querySelector("[ywq-password]");
+var confirmPassword = document.querySelector("[ywq-verify-password]");
+if (password === confirmPassword) {
+    //继续
+} else {
+    alert("确认密码与密码不一致")；
+}
