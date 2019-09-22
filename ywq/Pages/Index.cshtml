@@ -1,6 +1,6 @@
 ﻿@page
-<!DOCTYPE HTML>
-<html lang="zh-CN">
+
+<html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -222,11 +222,15 @@
         </footer>
     </div>
     <script>
-        window.addEventListener('scroll', function () {
-            if (1097.333333333333 >= this.document.body.scrollTop) {
-                document.querySelector("[ywq-scroll]").setAttribute("style", `top${this.scrollTop};`);
-            } 
-        })
+        document.getElementsByTagName("body")[0].onscroll = function () {
+            var bodyScrollTop = document.getElementsByTagName("body")[0].scrollTop;
+            console.log("滚动条下拉距离：" + bodyScrollTop);
+            if (bodyScrollTop > 370) {
+                document.getElementById("ad-chats").style.top = 120 - (bodyScrollTop - 370)
+            } else {
+                document.getElementById("ad-chats").style.top = 120
+            }
+        }
     </script>
 </body>
 </html>
