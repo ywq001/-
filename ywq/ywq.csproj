@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <Folder Include="Pages\LO\" />
-    <Folder Include="Pages\NewFolder\" />
+    <Folder Include="Pages\NewFolder1\" />
   </ItemGroup>
 
   <ItemGroup>
