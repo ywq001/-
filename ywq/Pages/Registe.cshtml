@@ -1,5 +1,4 @@
 ﻿@page
-<!DOCTYPE HTML>
 
 <html lang="zh-CN">
 
@@ -202,7 +201,7 @@
                 <div class="container" style="margin-bottom:16px;">
                     <div class="row"></div>
                 </div>
-                <form action="#" method="post" novalidate="novalidate">
+                <form method="post" novalidate="novalidate">
                     <section class="yellow-higlight" style="padding:0 10px 0 10px;margin-bottom:10px">
                         <div class="text-right" style="padding-top:10px">
                             <a href="#">
@@ -224,15 +223,16 @@
                     </section>
                     <div class="form-group">
                         <label>用户名：(*必填)</label>
-                        <input id="username" class="form-control" placeholder="登录用户名，可修改，不能重复" type="text" />
+                        <input ywq-username id="username" class="form-control" placeholder="登录用户名，可修改，不能重复" type="text" />
+                        <p ywq-repetition style="display:none">用户名重复</p>
                     </div>
-                    <div class="form-group" ywq-password>
+                    <div class="form-group">
                         <label>密码：(*必填)</label>
-                        <input id="password" class="form-control" placeholder="不少于4个字符" type="password" />
+                        <input ywq-password id="password" class="form-control" placeholder="不少于4个字符" type="password" />
                     </div>
-                    <div class="form-group" ywq-verify-password>
+                    <div class="form-group">
                         <label>验证密码:(*必填)</label>
-                        <input id="Confirmpassword" class="form-control" placeholder="和密码相同" type="password" />
+                        <input ywq-verify-password id="Confirmpassword" class="form-control" placeholder="和密码相同" type="password" />
                     </div>
                     <div class="form-group">
                         <label>验证码:(*必填)</label>
@@ -244,7 +244,7 @@
                         </span>
                     </div>
                     <div>
-                        <input class="btn btn-primary loding" type="submit" value="提交" />
+                        <input ywq-submit class="btn btn-primary loding" type="submit" value="提交" />
                         <input class="btn btn-default" type="reset" />
                         <a class="btn pull-right" href="#">
                             <span class="glyphicon glyphicon-log-in"></span>

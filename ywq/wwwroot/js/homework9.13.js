@@ -81,15 +81,57 @@
 
 
 //参考求助首页侧边栏关键字，实现：当鼠标移动到关键字上，显示关键字被使用次数
-var antistop = document.querySelectorAll("[ywq-mouse-event]");
-for (var i = 0; i < antistop.length; i++) {
+//var antistop = document.querySelectorAll("[ywq-mouse-event]");
+//for (var i = 0; i < antistop.length; i++) {
 
-    antistop[i].onmouseover = function (event) {
+//    antistop[i].onmouseover = function (event) {
 
-        console.log(this.getAttribute('data-original-title'));
+//        console.log(this.getAttribute('data-original-title'));
 
-    };
+//    };
+//}
+
+//参考注册页面：
+
+//提交时，如果用户名重复（已有用户名用数组保存），阻止form提交，提示“用户名重复”。
+//重新输入用户名，一旦输入用户名部分没有重复，“用户名重复”的提示消失
+//当用户名或密码等有值时，关闭页面前弹出确认框
+
+var user = ['ywq110', 'ywq111', 'ywq112', 'ywq113', 'ywq114'];
+start = 0;
+document.querySelector("[ywq-submit]").onclick = validation;
+
+function validation(event) {
+    
+    var userName = document.querySelector("[ywq-username]").value;
+    for (var i = 0; i < user.length; i++) {
+        if (user[i] === userName) {
+            event.preventDefault();
+            document.querySelector("[ywq-repetition]").setAttribute('style', 'color:red;display:inline;font-size:15px;');
+            start = 1;
+            if (start === 1) {
+                document.querySelector("[ywq-username]").addEventListener('keyup', noDuplicate);
+            }
+        } else {
+            //什么都不做
+        }
+    }
+}
+
+function noDuplicate() {
+    var userName = document.querySelector("[ywq-username]").value;
+    if (user.indexOf(userName)) {
+        document.querySelector("[ywq-repetition]").setAttribute('style', 'color:red;display:none;font-size:15px;');
+        start === 0;
+    }
 }
 
 
-
+window.onbeforeunload = function () {
+    var adsum = document.getElementsByTagName('input')
+    for (var i = 0; i < adsum.length; i++) {
+        if (adsum[i] !== '') {
+            return '关闭提示';
+        }
+    }
+}
