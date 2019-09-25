@@ -97,41 +97,49 @@
 //重新输入用户名，一旦输入用户名部分没有重复，“用户名重复”的提示消失
 //当用户名或密码等有值时，关闭页面前弹出确认框
 
-var user = ['ywq110', 'ywq111', 'ywq112', 'ywq113', 'ywq114'];
-start = 0;
-document.querySelector("[ywq-submit]").onclick = validation;
+//var user = ['ywq110', 'ywq111', 'ywq112', 'ywq113', 'ywq114'];
+//start = 0;
+//document.querySelector("[ywq-submit]").onclick = validation;
 
-function validation(event) {
+//function validation(event) {
     
-    var userName = document.querySelector("[ywq-username]").value;
-    for (var i = 0; i < user.length; i++) {
-        if (user[i] === userName) {
-            event.preventDefault();
-            document.querySelector("[ywq-repetition]").setAttribute('style', 'color:red;display:inline;font-size:15px;');
-            start = 1;
-            if (start === 1) {
-                document.querySelector("[ywq-username]").addEventListener('keyup', noDuplicate);
-            }
-        } else {
-            //什么都不做
-        }
-    }
-}
+//    var userName = document.querySelector("[ywq-username]").value;
+//    for (var i = 0; i < user.length; i++) {
+//        if (user[i] === userName) {
+//            event.preventDefault();
+//            document.querySelector("[ywq-repetition]").setAttribute('style', 'color:red;display:inline;font-size:15px;');
+//            start = 1;
+//            if (start === 1) {
+//                document.querySelector("[ywq-username]").addEventListener('keyup', noDuplicate);
+//            }
+//        } else {
+//            //什么都不做
+//        }
+//    }
+//}
 
-function noDuplicate() {
-    var userName = document.querySelector("[ywq-username]").value;
-    if (user.indexOf(userName)) {
-        document.querySelector("[ywq-repetition]").setAttribute('style', 'color:red;display:none;font-size:15px;');
-        start === 0;
-    }
-}
+//function noDuplicate() {
+//    var userName = document.querySelector("[ywq-username]").value;
+//    if (user.indexOf(userName)) {
+//        document.querySelector("[ywq-repetition]").setAttribute('style', 'color:red;display:none;font-size:15px;');
+//        start === 0;
+//    }
+//}
 
 
-window.onbeforeunload = function () {
-    var adsum = document.getElementsByTagName('input')
-    for (var i = 0; i < adsum.length; i++) {
-        if (adsum[i] !== '') {
-            return '关闭提示';
-        }
-    }
-}
+//window.onbeforeunload = function () {
+//    var adsum = document.getElementsByTagName('input')
+//    for (var i = 0; i < adsum.length; i++) {
+//        if (adsum[i] !== '') {
+//            return '关闭提示';
+//        }
+//    }
+//};
+
+
+
+//参考求助首页侧边栏“免费广告发布”弹出Modal，实现（不需要弹出Modal）：
+
+//根据下拉列表选中项，填充“文字内容”和“链接”文本框
+//勾选修改的checkbox，实现“文字内容”和“链接”文本框的禁用和启用
+

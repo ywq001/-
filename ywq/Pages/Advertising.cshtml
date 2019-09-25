@@ -1,0 +1,86 @@
+﻿@page
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <style type="text/css">
+        .yellow-highlight {
+    background-color: #ffffe0;
+    border: 2px dashed #eee;
+    border-radius: 4px 5px;
+}
+    </style>
+</head>
+<body style="padding-top:100px">
+    <div class="container body-content">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>
+                    <span class="glyphicon glyphicon-text-background"></span>
+                    申请免费广告位
+                </h1>
+            </div>
+            <div class="modal-body">
+
+                <div class="form-group">
+                    <p>之前用过的广告:</p>
+                    <select class="form-control" ywq-title>
+                        <option>------使用新的广告------</option>
+                        <option value="value">快来使用免费广告</option>
+                        <option value="value">快来使用广告</option>
+                        <option value="value">免费广告不香吗</option>
+                    </select>
+                </div>
+                <section class="yellow-highlight" style="padding:10px 20px;margin-bottom:20px;">
+                    <div class="text-right checkbox">
+                        <label>
+                            <input type="checkbox" value="true" ywq-modification/>
+                            修改
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>文字内容：（*必填)</label>
+                        <input class="form-control" placeholder="最多不超过24个字符" type="text" ywq-text/>
+                    </div>
+                    <div class="form-group">
+                        <label>链接：(*链接)</label>
+                        <input class="form-control" placeholder="http或https开头的网址" type="text" ywq-text/>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <input class="btn btn-primary loading" type="submit" value="提交"/>
+                <input class="btn btn-default" type="reset" value="重填"/>
+            </div>
+        </div>
+    </div>
+    <script>
+        var fill = document.querySelector("[ywq-title]");
+        fill.addEventListener('click', content);
+        function content() {
+            var details = fill.selectedIndex;
+            var fillDetails = fill.children[details].innerHTML;
+            document.querySelector("[ywq-text]").value = fillDetails;
+        }
+
+        var amend = document.querySelector("[ywq-modification]")
+        amend.addEventListener('click', revamp)
+        function revamp() {
+            if (amend.checked) {
+                fill.removeEventListener('click', content);
+                for (var i = 0; i < 2; i++) {
+                    document.querySelectorAll("[ywq-text]")[i].value = "";
+                }
+            } else {
+                fill.addEventListener('click', content);
+                for (var j = 0; j < 2; j++) {
+                    document.querySelectorAll("[ywq-text]")[i].setAttribute('readonly');
+                }
+            }
+            
+        }
+    </script>
+</body>
+</html>
