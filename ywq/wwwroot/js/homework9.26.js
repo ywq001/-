@@ -13,7 +13,7 @@ console.log(JSON.stringify(introduce, function (key, value) {
 }));
 
 //根据其他同学的JSON获得其个人资料，生成一个表格显示。
-
+//暂时只有一个资料
 var sequence = [{ "name": "于维谦", "age": 21, "QQ": 839152795, "hobby": ["basketball", "online game"], "gender": "male" }];
 
 onload = function () {
