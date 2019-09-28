@@ -62,7 +62,7 @@ var createTr = function (name, age, QQ, hobby, gender) {
 //是否是小数（正负小数都可以）
 //将所有以zyf - 开头的属性去掉zyf- （尽可能多的制造测试用例，比如：<a lzyf-old=''， 或者：<span>zyf---+---fyz</span> ……）
 
-var regex = new RegExp("^ [a - zA - Z0 -9_ -] +@[a - zA - Z0 -9_ -]+(\.[a - zA - Z0 -9_ -] +) +$");
+var regex = new RegExp("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$");
 
 var decimals = new RegExp("/^\d+\.d+$/");
 
