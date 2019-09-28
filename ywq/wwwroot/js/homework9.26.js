@@ -54,3 +54,29 @@ var createTr = function (name, age, QQ, hobby, gender) {
     tr.appendChild(tdGender);
     return tr;
 };
+
+
+
+//使用正则表达式判断某个字符串:
+//是否是合格的Email格式
+//是否是小数（正负小数都可以）
+//将所有以zyf - 开头的属性去掉zyf- （尽可能多的制造测试用例，比如：<a lzyf-old=''， 或者：<span>zyf---+---fyz</span> ……）
+
+var regex = new RegExp("^ [a - zA - Z0 -9_ -] +@[a - zA - Z0 -9_ -]+(\.[a - zA - Z0 -9_ -] +) +$");
+
+var decimals = new RegExp("/^\d+\.d+$/");
+
+
+
+//测试用例1:输出结果应为 <span id> 32 </span>
+//var target = '<span zyf-id>32</span>';
+////var reg = /zyf-/g;
+
+//target = target.replace(reg, '');
+
+//测试用例2:输出结果应该保持不变,但结果输出不正确
+var testTwo = '<a lzyf-id></a>';
+testTwo = testTwo.replace(reg, '');
+
+//修改为符合前两项测试
+var reg = /\b(zyf-)/;
