@@ -86,6 +86,54 @@ var reg = /\b(zyf-)/;
 
 //用class声明一个课程（Course），包含属性：name，startDate，endDate，students，以及方法：begin()和end() 
 
+//class Course {
+//    constructor(name, startDate, endDate, students) {
+//        this.name = name;
+//        this.startDate = startDate;
+//        this.endDate = endDate;
+//        this.students = students;
+//    }
+//    begin() {
+//        alert(this.name + '于' + this.startDate + '开课，共有5名同学' + this.students + '报名。');
+//    }
+//    end() {
+//        alert('欢迎' + this.name + '于' + this.startDate + '来到源栈');
+//    }
+//}
+
+
+//生成两个课程对象：JavaScript和SQL
+
+//var JavaScript = new Course('javaScript', '2019年10月1日', '2020年4月1日', ['两开花、王枫、王平、采铃、老程']);
+//var SQL = new Course();
+
+//调用对象的begin()和end()方法，可以在控制台输出开课信息，如：JavaScript于2019年5月5日开课，共有5名同学（两开花、王枫、王平、采铃、老程）报名。
+//console.log(JavaScript.begin());
+
+
+//不修改class，动态的改变begin()方法，使其能影响所有Course对象
+
+//Course.prototype.begin = function () {
+//    console.log(this.name + '在' + this.startDate + '开课');
+//};
+
+//让end()方法为各自对象“自有”，其他对象无法修改
+//class Course {
+//    constructor(name, startDate, endDate, students) {
+//        this.name = name;
+//        this.startDate = startDate;
+//        this.endDate = endDate;
+//        this.students = students;
+//        this.end = function () {
+//            alert('欢迎' + this.name + '于' + this.startDate + '来到源栈');
+//        };
+//    }
+//    begin() {
+//        alert(this.name + '于' + this.startDate + '开课，共有5名同学' + this.students + '报名。');
+//    }
+//}
+
+//在Course中使用getter和setter包装endDate，保证endDate不会小于startDate，也不会比startDate多出365天
 class Course {
     constructor(name, startDate, endDate, students) {
         this.name = name;
@@ -93,17 +141,16 @@ class Course {
         this.endDate = endDate;
         this.students = students;
     }
-    begin() {
-        alert(this.name + '于' + this.startDate + '开课，共有5名同学' + this.students + '报名。');
+    get endDate() {
+        return this.startDate();
     }
-    end() {
-        alert('欢迎' + this.name + '于' + this.startDate + '来到源栈');
+    set endDate(value) {
+        if (value) {
+            this.endDate < startDate;
+            this.endDate - startDate > 365;
+            throw new Error('');
+        }
+        this.endDate = value;
     }
 }
-
-
-//生成两个课程对象：JavaScript和SQL
-
-var JavaScript = new Course();
-var SQL = new Course();
 
