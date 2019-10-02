@@ -80,3 +80,30 @@ testTwo = testTwo.replace(reg, '');
 
 //修改为符合前两项测试
 var reg = /\b(zyf-)/;
+
+
+
+
+//用class声明一个课程（Course），包含属性：name，startDate，endDate，students，以及方法：begin()和end() 
+
+class Course {
+    constructor(name, startDate, endDate, students) {
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.students = students;
+    }
+    begin() {
+        alert(this.name + '于' + this.startDate + '开课，共有5名同学' + this.students + '报名。');
+    }
+    end() {
+        alert('欢迎' + this.name + '于' + this.startDate + '来到源栈');
+    }
+}
+
+
+//生成两个课程对象：JavaScript和SQL
+
+var JavaScript = new Course();
+var SQL = new Course();
+
