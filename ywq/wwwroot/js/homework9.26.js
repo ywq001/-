@@ -156,34 +156,34 @@ var reg = /\b(zyf-)/;
 
 //在封装作业的基础上，为Course添加两个子类：主修课（MajorCourse）和辅修课（ElectiveCourse）
 
-class Course {
-    constructor(name, startDate, endDate, students) {
-        this.name = name;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.students = students;
-    }
-    begin() {
-        alert(this.name + '于' + this.startDate + '开课，共有5名同学' + this.students + '报名。');
-    }
-    end() {
-        alert('欢迎' + this.name + '于' + this.startDate + '来到源栈');
-    }
+//class Course {
+//    constructor(name, startDate, endDate, students) {
+//        this.name = name;
+//        this.startDate = startDate;
+//        this.endDate = endDate;
+//        this.students = students;
+//    }
+//    begin() {
+//        alert(this.name + '于' + this.startDate + '开课，共有5名同学' + this.students + '报名。');
+//    }
+//    end() {
+//        alert('欢迎' + this.name + '于' + this.startDate + '来到源栈');
+//    }
 
-}
-class MajorCourse extends Course {
-    constructor(name, startDate, endDate, students, sId) {
-        super(name, startDate, endDate, students);
-        this.sId = sId;
-    }
+//}
+//class MajorCourse extends Course {
+//    constructor(name, startDate, endDate, students, sId) {
+//        super(name, startDate, endDate, students);
+//        this.sId = sId;
+//    }
        
-}
-class ElectiveCourse extends Course {
-    constructor(name, startDate, endDate, students, sId) {
-        super(name, startDate, endDate, students);
-        this.sId = sId;
-    }
-}
+//}
+//class ElectiveCourse extends Course {
+//    constructor(name, startDate, endDate, students, sId) {
+//        super(name, startDate, endDate, students);
+//        this.sId = sId;
+//    }
+//}
 
 //声明一个Stundent类，包含name和score两个属性，让Course的Students包含的是Student的对象
 class Student {
@@ -194,3 +194,25 @@ class Student {
 }
 
 var Students = new Student();
+
+
+//主修课需要参加考试，所以有一个Exam(student)方法；辅修课只需要测评，所以有一个方法Assess(student)
+
+class MajorCourse extends Course {
+    constructor(name, startDate, endDate, students, sId) {
+        super(name, startDate, endDate, students);
+        this.sId = sId;
+    }
+    Exam(student) {
+        alert('主修课需要考试');
+    }
+}
+class ElectiveCourse extends Course {
+    constructor(name, startDate, endDate, students, sId) {
+        super(name, startDate, endDate, students);
+        this.sId = sId;
+    }
+    Assess(student) {
+        alert('辅修课只需要测评');
+    }
+}
