@@ -134,6 +134,28 @@ var reg = /\b(zyf-)/;
 //}
 
 //在Course中使用getter和setter包装endDate，保证endDate不会小于startDate，也不会比startDate多出365天
+//class Course {
+//    constructor(name, startDate, endDate, students) {
+//        this.name = name;
+//        this.startDate = startDate;
+//        this.endDate = endDate;
+//        this.students = students;
+//    }
+//    get endDate() {
+//        return this.startDate();
+//    }
+//    set endDate(value) {
+//        if (value) {
+//            this.endDate < startDate;
+//            this.endDate - startDate > 365;
+//            throw new Error('');
+//        }
+//        this.endDate = value;
+//    }
+//}
+
+//在封装作业的基础上，为Course添加两个子类：主修课（MajorCourse）和辅修课（ElectiveCourse）
+
 class Course {
     constructor(name, startDate, endDate, students) {
         this.name = name;
@@ -141,16 +163,34 @@ class Course {
         this.endDate = endDate;
         this.students = students;
     }
-    get endDate() {
-        return this.startDate();
+    begin() {
+        alert(this.name + '于' + this.startDate + '开课，共有5名同学' + this.students + '报名。');
     }
-    set endDate(value) {
-        if (value) {
-            this.endDate < startDate;
-            this.endDate - startDate > 365;
-            throw new Error('');
-        }
-        this.endDate = value;
+    end() {
+        alert('欢迎' + this.name + '于' + this.startDate + '来到源栈');
+    }
+
+}
+class MajorCourse extends Course {
+    constructor(name, startDate, endDate, students, sId) {
+        super(name, startDate, endDate, students);
+        this.sId = sId;
+    }
+       
+}
+class ElectiveCourse extends Course {
+    constructor(name, startDate, endDate, students, sId) {
+        super(name, startDate, endDate, students);
+        this.sId = sId;
     }
 }
 
+//声明一个Stundent类，包含name和score两个属性，让Course的Students包含的是Student的对象
+class Student {
+    constructor(name, score) {
+        this.name = name;
+        this.score = score;
+    }
+}
+
+var Students = new Student();
