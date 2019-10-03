@@ -1,0 +1,56 @@
+﻿@page
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <style type="text/css"></style>
+</head>
+<body>
+    <div class="container">
+        <h1>打地鼠游戏</h1>
+        <br />
+        <form></form>
+        <table style="background-image:url(/images/背景.jpg)">
+            <tr>
+                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
+                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
+                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
+            </tr>
+
+            <tr>
+                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
+                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
+                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
+            </tr>
+
+            <tr>
+                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
+                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
+                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        var image = document.getElementsByTagName('img');
+        var rank;
+        setTimeout('arise()', 2000);
+        function arise() {
+            rank = Math.floor(Math.random() * 9);
+            image[rank].src = "/images/坏地鼠.png";
+            image[rank].setAttribute('onclick', 'die()');
+            setTimeout('ran()', 2000);
+        }
+        function ran() {
+            image[rank].src = "/images/土堆.png";
+            image[rank].removeAttribute('onclick');
+            setTimeout('arise()', 2000);
+        }
+        function die() {
+            image[rank].src = "/images/晕地鼠.png";
+            image[rank].removeAttribute('onclick');
+        }
+    </script>
+</body>
+</html>
