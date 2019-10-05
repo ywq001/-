@@ -21,6 +21,7 @@
   <ItemGroup>
     <Folder Include="Pages\LO\" />
     <Folder Include="Pages\NewFolder1\" />
+    <Folder Include="wwwroot\audio\" />
   </ItemGroup>
 
   <ItemGroup>

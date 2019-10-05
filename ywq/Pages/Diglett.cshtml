@@ -2,14 +2,19 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    <style type="text/css"></style>
+    <style type="text/css">
+    </style>
 </head>
 <body>
+    <audio id="appear" src="~/audio/一下出现.wav"></audio>
+    <audio id="beat" src="~/audio/敲打.wav"></audio>
     <div class="container">
         <h1>打地鼠游戏</h1>
+        <button type="button">开始游戏！</button>
+
         <br />
         <form></form>
         <table style="background-image:url(/images/背景.jpg)">
@@ -18,29 +23,36 @@
                 <td style="padding:100px"><img src="~/images/土堆.png" /></td>
                 <td style="padding:100px"><img src="~/images/土堆.png" /></td>
             </tr>
-
             <tr>
                 <td style="padding:100px"><img src="~/images/土堆.png" /></td>
                 <td style="padding:100px"><img src="~/images/土堆.png" /></td>
                 <td style="padding:100px"><img src="~/images/土堆.png" /></td>
             </tr>
-
             <tr>
                 <td style="padding:100px"><img src="~/images/土堆.png" /></td>
                 <td style="padding:100px"><img src="~/images/土堆.png" /></td>
                 <td style="padding:100px"><img src="~/images/土堆.png" /></td>
             </tr>
         </table>
+        <div>当前得分：<span> 0 </span>分</div>
     </div>
     <script type="text/javascript">
         var image = document.getElementsByTagName('img');
         var rank;
-        setTimeout('arise()', 2000);
+        var count = 0;
+        var score = document.getElementsByTagName('span')[0];
+        document.getElementsByTagName('button')[0].onclick = function begin() {
+            setTimeout('arise()', document.getElementById('appear').play(), 2000);
+        }
+
+
+
         function arise() {
             rank = Math.floor(Math.random() * 9);
             image[rank].src = "/images/坏地鼠.png";
             image[rank].setAttribute('onclick', 'die()');
             setTimeout('ran()', 2000);
+
         }
         function ran() {
             image[rank].src = "/images/土堆.png";
@@ -50,7 +62,16 @@
         function die() {
             image[rank].src = "/images/晕地鼠.png";
             image[rank].removeAttribute('onclick');
+            document.getElementById('beat').play();
+            count++;
+            score.innerHTML = count;
         }
+        $('table').mouseover(function () {
+            $(this).css({ cursor: "url(./images/pending.png)31 51,auto" })
+        });
+        $('table').click(function () {
+            $(this).css({ cursor: "url(./images/hitted.png)31 51,auto" })
+        });
     </script>
 </body>
 </html>

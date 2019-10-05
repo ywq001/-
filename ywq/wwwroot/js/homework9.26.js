@@ -62,9 +62,9 @@ var createTr = function (name, age, QQ, hobby, gender) {
 //是否是小数（正负小数都可以）
 //将所有以zyf - 开头的属性去掉zyf- （尽可能多的制造测试用例，比如：<a lzyf-old=''， 或者：<span>zyf---+---fyz</span> ……）
 
-var regex = new RegExp("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$");
+//var regex = new RegExp("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$");
 
-var decimals = new RegExp("/^\d+\.d+$/");
+//var decimals = new RegExp("/^\d+\.d+$/");
 
 
 
@@ -75,11 +75,11 @@ var decimals = new RegExp("/^\d+\.d+$/");
 //target = target.replace(reg, '');
 
 //测试用例2:输出结果应该保持不变,但结果输出不正确
-var testTwo = '<a lzyf-id></a>';
-testTwo = testTwo.replace(reg, '');
+//var testTwo = '<a lzyf-id></a>';
+//testTwo = testTwo.replace(reg, '');
 
 //修改为符合前两项测试
-var reg = /\b(zyf-)/;
+//var reg = /\b(zyf-)/;
 
 
 
@@ -146,8 +146,8 @@ var reg = /\b(zyf-)/;
 //    }
 //    set endDate(value) {
 //        if (value) {
-//            this.endDate < startDate;
-//            this.endDate - startDate > 365;
+//            value < startDate;
+//            value - startDate > 365 * 24 * 60 * 60 * 1000;
 //            throw new Error('');
 //        }
 //        this.endDate = value;
@@ -186,33 +186,33 @@ var reg = /\b(zyf-)/;
 //}
 
 //声明一个Stundent类，包含name和score两个属性，让Course的Students包含的是Student的对象
-class Student {
-    constructor(name, score) {
-        this.name = name;
-        this.score = score;
-    }
-}
+//class Student {
+//    constructor(name, score) {
+//        this.name = name;
+//        this.score = score;
+//    }
+//}
 
-var Students = new Student();
+//var Students = new Student();
 
 
 //主修课需要参加考试，所以有一个Exam(student)方法；辅修课只需要测评，所以有一个方法Assess(student)
 
-class MajorCourse extends Course {
-    constructor(name, startDate, endDate, students, sId) {
-        super(name, startDate, endDate, students);
-        this.sId = sId;
-    }
-    Exam(student) {
-        alert('主修课需要考试');
-    }
-}
-class ElectiveCourse extends Course {
-    constructor(name, startDate, endDate, students, sId) {
-        super(name, startDate, endDate, students);
-        this.sId = sId;
-    }
-    Assess(student) {
-        alert('辅修课只需要测评');
-    }
-}
+//class MajorCourse extends Course {
+//    constructor(name, startDate, endDate, students, sId) {
+//        super(name, startDate, endDate, students);
+//        this.sId = sId;
+//    }
+//    Exam(student) {
+//        alert('主修课需要考试');
+//    }
+//}
+//class ElectiveCourse extends Course {
+//    constructor(name, startDate, endDate, students, sId) {
+//        super(name, startDate, endDate, students);
+//        this.sId = sId;
+//    }
+//    Assess(student) {
+//        alert('辅修课只需要测评');
+//    }
+//}
