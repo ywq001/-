@@ -11,40 +11,69 @@
 <body>
     <audio id="appear" src="~/audio/一下出现.wav"></audio>
     <audio id="beat" src="~/audio/敲打.wav"></audio>
+    <audio id="bomb" src="~/audio/爆炸.mp3"></audio>
     <div class="container">
+
         <h1>打地鼠游戏</h1>
         <button type="button">开始游戏！</button>
-
+        <h2>剩余时间：<span class="clock">60</span>秒</h2>
         <br />
         <form></form>
-        <table style="background-image:url(/images/背景.jpg)">
+        <table style="background-image:url(/images/背景.jpg);width:900px;height:600px">
             <tr>
-                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
-                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
-                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
+                <td><img src="~/images/土堆.png" /></td>
+                <td><img src="~/images/土堆.png" /></td>
+                <td><img src="~/images/土堆.png" /></td>
             </tr>
             <tr>
-                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
-                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
-                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
+                <td><img src="~/images/土堆.png" /></td>
+                <td><img src="~/images/土堆.png" /></td>
+                <td><img src="~/images/土堆.png" /></td>
             </tr>
             <tr>
-                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
-                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
-                <td style="padding:100px"><img src="~/images/土堆.png" /></td>
+                <td><img src="~/images/土堆.png" /></td>
+                <td><img src="~/images/土堆.png" /></td>
+                <td><img src="~/images/土堆.png" /></td>
             </tr>
         </table>
         <div>当前得分：<span> 0 </span>分</div>
+
     </div>
     <script type="text/javascript">
         var image = document.getElementsByTagName('img');
         var rank;
         var count = 0;
-        var score = document.getElementsByTagName('span')[0];
+        var score = document.getElementsByTagName('span')[1];
+        var timeClock;
         document.getElementsByTagName('button')[0].onclick = function begin() {
+            countDown();
             setTimeout('arise()', document.getElementById('appear').play(), 2000);
+            $('table').mouseover(function () {
+                $(this).css({ cursor: "url(./images/pending.png)31 51,auto" })
+            });
+            $('table').click(function () {
+                $(this).css({ cursor: "url(./images/hitted.png)31 51,auto" })
+            });
         }
+        function countDown() {
+                var timer_num = 60;
+                timeClock = setInterval(function () {
+                    timer_num--;
+                    $('.clock').html(timer_num);
 
+                    if (timer_num == 0) {
+                        clearInterval(timeClock);
+                        $('.clock').html(60);
+                    }
+                }, 1000)
+            }
+        //var gather = ('mine()', 'arise()');
+        //function mine() {
+        //    rank = Math.floor(Math.random() * 9);
+        //    image[rank].src = "/images/地雷.png"
+        //    image[rank].setAttribute('onclick', 'blast()');
+        //    setTimeout('ran()', 2000);
+        //}
 
 
         function arise() {
@@ -66,12 +95,14 @@
             count++;
             score.innerHTML = count;
         }
-        $('table').mouseover(function () {
-            $(this).css({ cursor: "url(./images/pending.png)31 51,auto" })
-        });
-        $('table').click(function () {
-            $(this).css({ cursor: "url(./images/hitted.png)31 51,auto" })
-        });
+        //function blast() {
+        //    image[rank].src = "/images/爆炸.png";
+        //    image[rank].removeAttribute('onclick');
+        //    document.getElementById('bomb').play();
+        //    count--;
+        //    score.innerHTML = count;
+        //}
+
     </script>
 </body>
 </html>
