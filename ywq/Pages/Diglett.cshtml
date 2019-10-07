@@ -6,6 +6,16 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <style type="text/css">
+        table td{
+            width:300px;
+            height:200px;
+            position:relative;
+            z-index:1;
+        }
+        table{
+            background:url(/images/背景.jpg);
+        }
+
     </style>
 </head>
 <body>
@@ -18,8 +28,7 @@
         <button type="button">开始游戏！</button>
         <h2>剩余时间：<span class="clock">60</span>秒</h2>
         <br />
-        <form></form>
-        <table style="background-image:url(/images/背景.jpg);width:900px;height:600px">
+        <table>
             <tr>
                 <td><img src="~/images/土堆.png" /></td>
                 <td><img src="~/images/土堆.png" /></td>
@@ -78,13 +87,16 @@
 
         function arise() {
             rank = Math.floor(Math.random() * 9);
-            image[rank].src = "/images/坏地鼠.png";
+            var badMole = document.createElement('img');
+            badMole.src = "/images/坏地鼠.png";
+            badMole.style = "position:absolute;top:30px;left:54px;z-index:-1";
+            image[rank].parentElement.appendChild(badMole);
             image[rank].setAttribute('onclick', 'die()');
-            setTimeout('ran()', 2000);
+            //setTimeout('ran()', 2000);
 
         }
         function ran() {
-            image[rank].src = "/images/土堆.png";
+            image[rank].parentElement.children[1].remove();
             image[rank].removeAttribute('onclick');
             setTimeout('arise()', 2000);
         }
