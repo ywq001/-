@@ -15,7 +15,9 @@
         table{
             background:url(/images/背景.jpg);
         }
-
+        img{
+            z-index:2;
+        }
     </style>
 </head>
 <body>
@@ -72,6 +74,7 @@
 
                     if (timer_num == 0) {
                         clearInterval(timeClock);
+                        
                         $('.clock').html(60);
                     }
                 }, 1000)
@@ -91,8 +94,10 @@
             badMole.src = "/images/坏地鼠.png";
             badMole.style = "position:absolute;top:30px;left:54px;z-index:-1";
             image[rank].parentElement.appendChild(badMole);
-            image[rank].setAttribute('onclick', 'die()');
-            //setTimeout('ran()', 2000);
+            badMole.onclick = function () {
+                die();
+            }
+            setTimeout('ran()', 2000);
 
         }
         function ran() {
@@ -101,7 +106,7 @@
             setTimeout('arise()', 2000);
         }
         function die() {
-            image[rank].src = "/images/晕地鼠.png";
+            badMole.src = "/images/晕地鼠.png";
             image[rank].removeAttribute('onclick');
             document.getElementById('beat').play();
             count++;
