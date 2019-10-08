@@ -82,7 +82,10 @@
         //var gather = ('mine()', 'arise()');
         //function mine() {
         //    rank = Math.floor(Math.random() * 9);
-        //    image[rank].src = "/images/地雷.png"
+        //var landMine = document.createElement('img');
+        //landMine.src = "/images/地雷.png"
+        //landMine.style = "position:absolute;top:30px;left:54px;z-index:-1";
+        //    image[rank].parentElement.appendChild(landMine);
         //    image[rank].setAttribute('onclick', 'blast()');
         //    setTimeout('ran()', 2000);
         //}
@@ -113,7 +116,7 @@
             score.innerHTML = count;
         }
         //function blast() {
-        //    image[rank].src = "/images/爆炸.png";
+        //    landMine.src = "/images/爆炸.png";
         //    image[rank].removeAttribute('onclick');
         //    document.getElementById('bomb').play();
         //    count--;
