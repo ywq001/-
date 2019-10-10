@@ -59,7 +59,7 @@
         var badMole;
         document.getElementsByTagName('button')[0].onclick = function begin() {
             countDown();
-            setTimeout('arise()', document.getElementById('appear').play(), 2000);
+            setTimeout('arise()', 2000);
             $('table').mouseover(function () {
                 $(this).css({ cursor: "url(./images/pending.png)31 51,auto" })
             });
@@ -98,6 +98,7 @@
             badMole.src = "/images/坏地鼠.png";
             badMole.style = "position:absolute;top:30px;left:54px;z-index:-1";
             image[rank].parentElement.appendChild(badMole);
+            document.getElementById('appear').play(),
             badMole.onclick = function () {
                 die();
             }
