@@ -57,9 +57,11 @@
         var score = document.getElementsByTagName('span')[1];
         var timeClock;
         var badMole;
+        var timer_num = 60;
+        var start ;
         document.getElementsByTagName('button')[0].onclick = function begin() {
             countDown();
-            setTimeout('arise()', 2000);
+            start = setTimeout(arise, 2000);
             $('table').mouseover(function () {
                 $(this).css({ cursor: "url(./images/pending.png)31 51,auto" })
             });
@@ -68,14 +70,15 @@
             });
         }
         function countDown() {
-                var timer_num = 60;
-                timeClock = setInterval(function () {
+                
+            timeClock = setInterval(function () {
+                    
                     timer_num--;
                     $('.clock').html(timer_num);
 
                     if (timer_num == 0) {
                         clearInterval(timeClock);
-                        
+                        clearTimeout(start);
                         $('.clock').html(60);
                     }
                 }, 1000)
@@ -98,17 +101,17 @@
             badMole.src = "/images/坏地鼠.png";
             badMole.style = "position:absolute;top:30px;left:54px;z-index:-1";
             image[rank].parentElement.appendChild(badMole);
-            document.getElementById('appear').play(),
+            document.getElementById('appear').play();
             badMole.onclick = function () {
                 die();
             }
-            setTimeout('ran()', 2000);
-
+            setTimeout(ran, 2000);
+          
         }
         function ran() {
             image[rank].parentElement.children[1].remove();
             image[rank].removeAttribute('onclick');
-            setTimeout('arise()', 2000);
+            start = setTimeout(arise, 2000);
         }
         function die() {
             badMole.src = "/images/晕地鼠.png";
