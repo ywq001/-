@@ -438,10 +438,9 @@ ON a.InviterId = b.Id
 ALTER TABLE Keyword
 ADD Hierarchy INT
 
-SELECT K3.NAME,K2.NAME,K1.NAME
-FROM Keyword K1 FULL JOIN Keyword K2 ON K1.Id = K2.Hierarchy
-                FULL JOIN Keyword K3 ON K2.Id = K3.Hierarchy
-				WHERE K2.Id IN(SELECT Hierarchy FROM Keyword) OR K3.Id IN(SELECT Hierarchy FROM Keyword)
+SELECT K1.NAME,K2.NAME,K3.NAME
+FROM Keyword K1 left JOIN Keyword K2 ON K1.Hierarchy = K2.Id
+                left JOIN Keyword K3 ON K2.Hierarchy = K3.Id
 				
 				
 
@@ -484,6 +483,7 @@ UNION
 SELECT Title,Content,PublishTime FROM Suggest
 UNION
 SELECT Title,Content,PublishTime FROM Article
+WHERE Auhthor = N'数据库'
 ORDER BY PublishTime
 
 
@@ -584,3 +584,31 @@ INSERT main VALUES(8,4)
 INSERT main VALUES(8,5)
 
 SELECT * FROM VProblemKeyword
+
+
+--用户（Reigister）发布一篇悬赏币若干的求助（Problem），他的帮帮币（BMoney）也会相应减少，但他的帮帮币总额不能少于0分：请综合使用TRY...CATCH和事务完成上述需求。
+
+CREATE TABLE BMoney(
+ Id INT PRIMARY KEY,
+ [Name] NVARCHAR(25),
+ BangMoney INT
+)
+
+
+GO
+BEGIN TRY
+BEGIN TRAN
+SAVE TRAN inner_tran
+DECLARE @NUM INT = 10
+       INSERT Problem(Reward,Author,AuthorId) VALUES(@NUM,N'数据库',1)
+	   UPDATE BMoney SET BangMoney -= @NUM WHERE Id = (SELECT Id FROM BMoney WHERE [Name] = N'数据库')
+	   COMMIT TRAN
+END TRY
+BEGIN CATCH
+       ROLLBACK; 
+	   THROW;
+	   PRINT N'提交失败！'
+END CATCH
+
+
+PRINT @@TRANCOUNT
