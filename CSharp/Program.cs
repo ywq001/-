@@ -199,14 +199,21 @@ namespace CSharp
 
             //找到100以内的所有质数（只能被1和它自己整除的数）
 
-            for (l = 1; l < 100; l++)
+            int x, n;
+            for (x = 1; x < 100; x++)
             {
-                if (l % 2 != 0)
+                for (n = 2; n <x; n++)
                 {
-                    Console.WriteLine(l);
+                    if (x%n==0)
+                    {
+                        break;
+                    }
+                    if (n==x-1)
+                    {
+                        Console.WriteLine(x);
+                    }
                 }
             }
-
         }
     }
 }
