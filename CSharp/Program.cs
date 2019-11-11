@@ -34,15 +34,15 @@ namespace CSharp
 
             //输入一个字符，显示这个字符的unicode值
 
-            byte[] bytes = System.Text.Encoding.Unicode.GetBytes("你");
-            Console.WriteLine(bytes[0] + "" + bytes[1]);
+            //byte[] bytes = System.Text.Encoding.Unicode.GetBytes("你");
+            //Console.WriteLine(bytes[0] + "" + bytes[1]);
 
             //输入一个整数，如果这个整数：
             //能被6整除，显示：六六顺
             //能被8整除，显示：发发发
             //否则，显示：大吉大利
             //当整数位36时应输出六六顺
-            int number = 36;
+            //int number = 36;
             //if (number%6==0||number%8==0)
             //{
             //    if (number % 6 == 0)
@@ -78,22 +78,22 @@ namespace CSharp
             //}
 
             //当整数位20时应输出大吉大利
-            number = 20;
-            if (number % 6 == 0 || number % 8 == 0)
-            {
-                if (number % 6 == 0)
-                {
-                    Console.WriteLine("六六顺");
-                }
-                else if (number % 8 == 0)
-                {
-                    Console.WriteLine("发发发");
-                }
-            }
-            else
-            {
-                Console.WriteLine("大吉大利");
-            }
+            //number = 20;
+            //if (number % 6 == 0 || number % 8 == 0)
+            //{
+            //    if (number % 6 == 0)
+            //    {
+            //        Console.WriteLine("六六顺");
+            //    }
+            //    else if (number % 8 == 0)
+            //    {
+            //        Console.WriteLine("发发发");
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("大吉大利");
+            //}
 
 
 
@@ -108,11 +108,106 @@ namespace CSharp
             seat[2, 0] = "刘";
             seat[3, 0] = "陈";
             seat[0, 1] = "";
-            seat[1, 1] = "jimi";
+
             seat[2, 1] = "王";
             seat[1, 1] = "泰";
             seat[1, 2] = "曾";
-            Console.WriteLine(students.Length);
+            //Console.WriteLine(students.Length);
+
+
+            //分别用for循环和while循环输出：1,2,3,4,5 和 1,3,5,7,9
+
+            //for (int i = 1; i < 6; i++)
+            //{
+            //    Console.WriteLine(i);
+
+            //}
+
+            //for (int j = 1; j < 10; j+=2)
+            //{
+            //    Console.WriteLine(j);
+            //}
+
+            //int k = 1;
+            //while (k < 6)
+            //{
+            //    Console.WriteLine(k);
+            //    k++;
+            //}
+
+            //while (k<10)
+            //{
+            //    Console.WriteLine(k);
+            //    k += 2;
+            //}
+
+
+            //用for循环输出存储在一维 / 二维数组里的源栈所有同学姓名 / 昵称
+
+            //for (int i = 0; i < students.Length; i++)
+            //{
+            //    Console.WriteLine(students[i]);
+            //}
+
+            //for (int i = 0; i < seat.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < seat.GetLength(1); j++)
+            //    {
+            //        Console.WriteLine(seat[i,j]);
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //让电脑计算并输出：99 + 97 + 95 + 93 + ...+1的值
+            int l;
+            int sum = 0;
+            for (l = 1; l < 100; l += 2)
+            {
+                
+                sum += l;
+               
+            }
+            Console.WriteLine(sum);
+
+            //将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
+
+            double[] scoers = new double[] { 68.5, 67.5, 96.5, 87.5, 56.5, 80 };
+
+            double min = scoers[0];
+            for (int i = 1; i < scoers.Length; i++)
+            {
+                if (min > scoers[i])
+                {
+                    min = scoers[i];
+                }
+                else
+                {
+                    //nothing
+                }
+            }
+            Console.WriteLine(min);
+
+            double max = scoers[0];
+            for (int i = 1; i < scoers.Length; i++)
+            {
+                if (max < scoers[i])
+                {
+                    max = scoers[i];
+                }
+            }
+            Console.WriteLine(max);
+
+            //找到100以内的所有质数（只能被1和它自己整除的数）
+
+            for (l = 1; l < 100; l++)
+            {
+                if (l % 2 != 0)
+                {
+                    Console.WriteLine(l);
+                }
+            }
+
         }
     }
 }
+
