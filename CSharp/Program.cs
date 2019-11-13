@@ -101,17 +101,17 @@ namespace CSharp
             //按进栈时间装入一维数组，
             //按座位装入二维数组，
             //并输出共有多少名同学。
-            string[] students = { "陈元", "阿泰", "彭志强", "王欣", "jimi" };
-            string[,] seat = new string[4, 3];
-            seat[0, 0] = "于维谦";
-            seat[1, 0] = "彭志强";
-            seat[2, 0] = "刘";
-            seat[3, 0] = "陈";
-            seat[0, 1] = "";
+            //string[] students = { "陈元", "阿泰", "彭志强", "王欣", "jimi" };
+            //string[,] seat = new string[4, 3];
+            //seat[0, 0] = "于维谦";
+            //seat[1, 0] = "彭志强";
+            //seat[2, 0] = "刘";
+            //seat[3, 0] = "陈";
+            //seat[0, 1] = "";
 
-            seat[2, 1] = "王";
-            seat[1, 1] = "泰";
-            seat[1, 2] = "曾";
+            //seat[2, 1] = "王";
+            //seat[1, 1] = "泰";
+            //seat[1, 2] = "曾";
             //Console.WriteLine(students.Length);
 
 
@@ -159,61 +159,138 @@ namespace CSharp
             //}
 
             //让电脑计算并输出：99 + 97 + 95 + 93 + ...+1的值
-            int l;
-            int sum = 0;
-            for (l = 1; l < 100; l += 2)
-            {
-                
-                sum += l;
-               
-            }
-            Console.WriteLine(sum);
+            //int l;
+            //int sum = 0;
+            //for (l = 1; l < 100; l += 2)
+            //{
+
+            //    sum += l;
+
+            //}
+            //Console.WriteLine(sum);
 
             //将源栈同学的成绩存入一个double数组中，用循环找到最高分和最低分
 
-            double[] scoers = new double[] { 68.5, 67.5, 96.5, 87.5, 56.5, 80 };
+            //double[] scoers = new double[] { 68.5, 67.5, 96.5, 87.5, 56.5, 80 };
 
-            double min = scoers[0];
-            for (int i = 1; i < scoers.Length; i++)
-            {
-                if (min > scoers[i])
-                {
-                    min = scoers[i];
-                }
-                else
-                {
-                    //nothing
-                }
-            }
-            Console.WriteLine(min);
+            //double min = scoers[0];
+            //for (int i = 1; i < scoers.Length; i++)
+            //{
+            //    if (min > scoers[i])
+            //    {
+            //        min = scoers[i];
+            //    }
+            //    else
+            //    {
+            //        //nothing
+            //    }
+            //}
+            //Console.WriteLine(min);
 
-            double max = scoers[0];
-            for (int i = 1; i < scoers.Length; i++)
-            {
-                if (max < scoers[i])
-                {
-                    max = scoers[i];
-                }
-            }
-            Console.WriteLine(max);
+            //double max = scoers[0];
+            //for (int i = 1; i < scoers.Length; i++)
+            //{
+            //    if (max < scoers[i])
+            //    {
+            //        max = scoers[i];
+            //    }
+            //}
+            //Console.WriteLine(max);
 
             //找到100以内的所有质数（只能被1和它自己整除的数）
 
-            int x, n;
-            for (x = 1; x < 100; x++)
-            {
-                for (n = 2; n <x; n++)
-                {
-                    if (x%n==0)
-                    {
-                        break;
-                    }
-                    if (n==x-1)
-                    {
-                        Console.WriteLine(x);
-                    }
-                }
-            }
+            //int x, n;
+            //for (x = 1; x < 100; x++)
+            //{
+            //    for (n = 2; n < x; n++)
+            //    {
+            //        if (x % n == 0)
+            //        {
+            //            break;
+            //        }
+            //        if (n==x-1)
+            //        {
+            //            Console.WriteLine(x);
+            //        }
+            //    }
+            //}
+            //将之前以下作业封装成方法（自行思考参数和返回值），并调用执行
+            //自我介绍：SelfIntroduce()
+            //加减乘除：Add() / Minus() / Mutiply() / Divide()
+            //取字符值：GetUnicode()
+            //取最高分：GetMax()
+            //static void SelfIntroduce(string name,int age,bool IsFemale,double Height,string FromCity)
+            // {
+            //     Console.WriteLine("hello");
+            //     Console.WriteLine("名字:" + name);
+            //     Console.WriteLine("年龄：" + age);
+            //     Console.WriteLine("性别:" + IsFemale);
+            //     Console.WriteLine("身高:" + Height);
+            //     Console.WriteLine("来自:" + FromCity);
+            // }
+            // SelfIntroduce("阿泰小贼",199,true,1.55,"重庆");
+
+            //static void Add(int i,int j)
+            //{
+            //    Console.WriteLine("和:" + (i + j));
+            //}
+            //Add(30,20);
+
+            //static void Minus(int i,int j)
+            //{
+            //    Console.WriteLine("差:" + (i - j));
+            //}
+            //Minus(30, 20);
+
+            //static void Mutiply(int i,int j)
+            //{
+            //    Console.WriteLine("积:" + (i * j));
+            //}
+            //Mutiply(5,3);
+
+            //static void Divide(int i,int j)
+            //{
+            //    Console.WriteLine("商:" + (double)i / (double)j);
+            //}
+            //Divide(5, 3);
+
+            //static void GetUnicode(char k)
+            //{
+            //    Console.WriteLine((int)'k');
+            //}
+            //GetUnicode('牛');
+
+            //static void GetMax(double[] array)
+            //{
+            //    double max = array[0];
+            //    for (int i = 1; i < array.Length; i++)
+            //    {
+            //        if (max < array[i])
+            //        {
+            //            max = array[i];
+            //        }
+            //    }
+            //    Console.WriteLine(max);
+            //}
+            //double[] scoers = new double[] { 68.5, 67.5, 96.5, 87.5, 56.5, 80 };
+            //GetMax(scoers);
+
+            //计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
+            //static void GetAverage(double[] ary)
+            //{
+            //    double sum = 0;
+            //    for (int i = 0; i < ary.Length; i++)
+            //    {
+            //        sum += ary[i];
+                    
+            //    }
+            //    Console.WriteLine(sum / ary.Length);
+            //}
+            //double[] scoers = new double[] { 68.5, 67.5, 96.5, 87.5, 56.5, 80 };
+            //GetAverage(scoers);
+
+
+
         }
     }
 }
