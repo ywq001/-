@@ -282,15 +282,54 @@ namespace CSharp
             //    for (int i = 0; i < ary.Length; i++)
             //    {
             //        sum += ary[i];
-                    
+
             //    }
             //    Console.WriteLine(sum / ary.Length);
             //}
             //double[] scoers = new double[] { 68.5, 67.5, 96.5, 87.5, 56.5, 80 };
             //GetAverage(scoers);
 
+            //完成“猜数字”游戏，方法名GuessMe()
 
-
+            static void GuessMe(int min, int max)
+            {
+                int number;
+                int guessNumbers;
+                Random rd = new Random();
+                number = rd.Next(min, max);
+                int count = 0;
+                Console.WriteLine("请输入小于"+max+"大于"+min+"的猜测数值：");
+                guessNumbers = Convert.ToInt32(Console.ReadLine());
+                while (guessNumbers <= max)
+                {
+                    if (number == guessNumbers)
+                    {
+                        Console.WriteLine("恭喜你猜对了");
+                        break;
+                    }
+                    else
+                    {
+                        count++;
+                        Console.WriteLine("你真笨");
+                        if (count >= 5)
+                        {
+                            Console.WriteLine("GAME OVER");
+                            break;
+                        }
+                        else
+                        {
+                            //nothing
+                        }
+                        Console.WriteLine("请再次输入猜测数值：");
+                        guessNumbers = Convert.ToInt32(Console.ReadLine());
+                    }
+                }
+                
+            }
+            //test1=>当输入正确的时候的显示恭喜你猜对了，然后跳出循环
+            //test2=>当猜错时显示你真笨，继续输入数字
+            //test3=>当猜测5次时，GANE OVER跳出循环
+            GuessMe(1,10);
         }
     }
 }
