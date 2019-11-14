@@ -311,16 +311,19 @@ namespace CSharp
                                 if (count<=5)
                                 {
                                     Console.WriteLine("你真牛逼");
+                                    break;
                                 }
                             }
                             else
                             {
                                 Console.WriteLine("不错嘛");
+                                break;
                             }
                         }
                         else
                         {
                             Console.WriteLine("还行");
+                            break;
                         }
                         
                     }
