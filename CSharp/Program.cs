@@ -313,10 +313,14 @@ namespace CSharp
                                     Console.WriteLine("你真牛逼");
                                     break;
                                 }
+                                else
+                                {
+                                    Console.WriteLine("不错嘛");
+                                }
                             }
                             else
                             {
-                                Console.WriteLine("不错嘛");
+                                Console.WriteLine("还可以");
                                 break;
                             }
                         }
@@ -353,9 +357,9 @@ namespace CSharp
                 }
                 
             }
-            //test1=>当输入正确的时候的显示恭喜你猜对了，然后跳出循环
-            //test2=>当猜错时显示你真笨，继续输入数字
-            //test3=>当猜测5次时，GANE OVER跳出循环
+            //test1=>当五次内猜对的时候的显示你真牛逼，然后跳出循环，小于8次猜对输出不错嘛，然后跳出循环，9次猜对输出还可以，10次猜对输出还行
+            //test2=>当猜错时猜的数字比随机数小的时候输出小了然后继续输入猜测的数字，比随机数大就输出大了，然后继续输入
+            //test3=>当第10次还没有猜对时，输出(～￣(OO)￣)ブ，跳出循环游戏结束
             GuessMe(1,1000);
         }
     }
