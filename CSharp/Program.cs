@@ -304,32 +304,56 @@ namespace CSharp
                 {
                     if (number == guessNumbers)
                     {
-                        Console.WriteLine("恭喜你猜对了");
-                        break;
+                        if (count<=9)
+                        {
+                            if (count<=8)
+                            {
+                                if (count<=5)
+                                {
+                                    Console.WriteLine("你真牛逼");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("不错嘛");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("还行");
+                        }
+                        
                     }
                     else
                     {
                         count++;
-                        Console.WriteLine("你真笨");
-                        if (count >= 5)
+                        if (count == 10)
                         {
-                            Console.WriteLine("GAME OVER");
+                            Console.WriteLine("(～￣(OO)￣)ブ");
                             break;
                         }
+
                         else
                         {
-                            //nothing
+                            if (guessNumbers<number)
+                            {
+                                Console.WriteLine("小了");
+                            }
+                            else
+                            {
+                                Console.WriteLine("大了");
+                            }
                         }
-                        Console.WriteLine("请再次输入猜测数值：");
-                        guessNumbers = Convert.ToInt32(Console.ReadLine());
                     }
+                    Console.WriteLine("请再次输入猜测的数字：");
+                    guessNumbers = Convert.ToInt32(Console.ReadLine());
                 }
                 
             }
             //test1=>当输入正确的时候的显示恭喜你猜对了，然后跳出循环
             //test2=>当猜错时显示你真笨，继续输入数字
             //test3=>当猜测5次时，GANE OVER跳出循环
-            GuessMe(1,10);
+            GuessMe(1,1000);
         }
     }
 }
