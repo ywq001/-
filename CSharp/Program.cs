@@ -276,100 +276,172 @@ namespace CSharp
             //GetMax(scoers);
 
             //计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
-            //static void GetAverage(double[] ary)
-            //{
-            //    double sum = 0;
-            //    for (int i = 0; i < ary.Length; i++)
-            //    {
-            //        sum += ary[i];
-
-            //    }
-            //    Console.WriteLine(Math.Round(sum / ary.Length, 2));
-            //}
+           
             //double[] scoers = new double[] { 68.5, 67.5, 96.5, 87.5, 56.5, 80 };
             //GetAverage(scoers);
 
             //完成“猜数字”游戏，方法名GuessMe()
-
-            static void GuessMe(int min, int max)
-            {
-                int number;
-                int guessNumbers;
-                Random rd = new Random();
-                number = rd.Next(min, max);
-                int count = 1;
-                Console.WriteLine("请输入小于" + max + "大于" + min + "的猜测数值：");
-                guessNumbers = Convert.ToInt32(Console.ReadLine());
-                while (count < 11)
-                {
-                    if (guessNumbers.GetType() == typeof(int))
-                    {
-                        if (number == guessNumbers)
-                        {
-                            if (count <= 9)
-                            {
-                                if (count <= 8)
-                                {
-                                    if (count <= 5)
-                                    {
-                                        Console.WriteLine("你真牛逼");
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("不错嘛");
-                                    }
-                                }
-                                else
-                                {
-                                    Console.WriteLine("还可以");
-                                    break;
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("还行");
-                                break;
-                            }
-
-                        }
-                        else
-                        {
-                            
-                            if (count == 10)
-                            {
-                                Console.WriteLine("(～￣(OO)￣)ブ");
-                                break;
-                            }
-
-                            else
-                            {
-                                if (guessNumbers < number)
-                                {
-                                    Console.WriteLine("小了");
-                                }
-                                else
-                                {
-                                    Console.WriteLine("大了");
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("请输入正整数");
-                    }
-                    count++;
-                    Console.WriteLine("请再次输入猜测的数字：");
-                    guessNumbers = Convert.ToInt32(Console.ReadLine());
-                }
-
-            }
             //test1=>当五次内猜对的时候的显示你真牛逼，然后跳出循环，小于8次猜对输出不错嘛，然后跳出循环，9次猜对输出还可以，10次猜对输出还行
             //test2=>当猜错时猜的数字比随机数小的时候输出小了然后继续输入猜测的数字，比随机数大就输出大了，然后继续输入
             //test3=>当第10次还没有猜对时，输出(～￣(OO)￣)ブ，跳出循环游戏结束
-            GuessMe(1, 1000);
+            //GuessMe(1, 1000);
+
+
+
+            //定义一个生成数组的方法：int[] GetArray()，其元素随机生成从小到大排列。利用可选参数控制：
+            //最小值（默认为1）
+            //相邻两个元素之间的最大差值（默认为5）
+            //元素个数（默认为10个）
+            //GetArray(250);
+
+
+
+            //利用ref调用Swap()方法交换两个同学的床位号
+            //int a = 2;
+            //int b = 3;
+
+            //Swap(ref a,ref b);
+            //Console.WriteLine($"交换后：a：{a} b：{b}");
+
+            //重载GetArray()，使其返回一个string[]
+
+            static string[] GetArray(string a)
+            {
+                string[] rarray = new string[1];
+                return rarray;
+                
+            }
+            GetArray("牛");
         }
+
+
+        static void Swap(ref int a, ref int b)
+        {
+            int temp;
+            temp = a;
+            a = b;
+            b = temp;
+        }
+        //static int[] GetArray(int max)
+        //{
+        //    int[] rArray = new int[10];
+        //    for (int i = 0; i < rArray.Length; i++)
+        //    {
+        //        int number;
+
+        //        if (i == 0)
+        //        {
+        //            Random rd = new Random();
+        //            number = rd.Next(1, max);
+        //            rArray[i] = number;
+        //        }
+        //        else
+        //        {
+        //            Random rd = new Random();
+        //            number = rd.Next(rArray[i-1],rArray[i-1]+5);
+        //            rArray[i] = number;
+        //            if (rArray[i]==rArray[i-1])
+        //            {
+        //                i--;
+        //            }
+        //            else
+        //            {
+        //                //nothing
+        //            }
+        //        }
+
+        //        Console.WriteLine(rArray[i]);
+        //    }
+        //    return rArray;
+        //}
+
+        //static void GuessMe(int min, int max)
+        //{
+        //    int number;
+        //    int guessNumbers;
+        //    Random rd = new Random();
+        //    number = rd.Next(min, max);
+        //    int count = 1;
+        //    Console.WriteLine("请输入小于" + max + "大于" + min + "的猜测数值：");
+        //    guessNumbers = Convert.ToInt32(Console.ReadLine());
+        //    while (count < 11)
+        //    {
+        //        if (guessNumbers.GetType() == typeof(int))
+        //        {
+        //            if (number == guessNumbers)
+        //            {
+        //                if (count <= 9)
+        //                {
+        //                    if (count <= 8)
+        //                    {
+        //                        if (count <= 5)
+        //                        {
+        //                            Console.WriteLine("你真牛逼");
+        //                            break;
+        //                        }
+        //                        else
+        //                        {
+        //                            Console.WriteLine("不错嘛");
+        //                        }
+        //                    }
+        //                    else
+        //                    {
+        //                        Console.WriteLine("还可以");
+        //                        break;
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    Console.WriteLine("还行");
+        //                    break;
+        //                }
+
+        //            }
+        //            else
+        //            {
+
+        //                if (count == 10)
+        //                {
+        //                    Console.WriteLine("(～￣(OO)￣)ブ");
+        //                    break;
+        //                }
+
+        //                else
+        //                {
+        //                    if (guessNumbers < number)
+        //                    {
+        //                        Console.WriteLine("小了");
+        //                    }
+        //                    else
+        //                    {
+        //                        Console.WriteLine("大了");
+        //                    }
+        //                }
+        //            }
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("请输入正整数");
+        //        }
+        //        count++;
+        //        Console.WriteLine("请再次输入猜测的数字：");
+        //        guessNumbers = Convert.ToInt32(Console.ReadLine());
+        //    }
+
+        //}
+
+        //static void GetAverage(double[] ary)
+        //{
+        //    double sum = 0;
+        //    for (int i = 0; i < ary.Length; i++)
+        //    {
+        //        sum += ary[i];
+
+        //    }
+        //    Console.WriteLine(Math.Round(sum / ary.Length, 2));
+        //}
+
+
     }
 }
 
