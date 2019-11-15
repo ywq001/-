@@ -305,15 +305,46 @@ namespace CSharp
 
             //重载GetArray()，使其返回一个string[]
 
-            static string[] GetArray(string a)
-            {
-                string[] rarray = new string[1];
-                return rarray;
+            //static string[] GetArray(string a)
+            //{
+            //    string[] rarray = new string[1];
+            //    return rarray;
                 
-            }
-            GetArray("牛");
-        }
+            //}
+            //GetArray("牛");
 
+            //实现二分查找，方法名BinarySeek(int[] numbers, int target)：
+            //传入一个有序（从大到小 / 从小到大）数组和数组中要查找的元素
+            //如果找到，返回该元素所在的下标；否则，返回 - 1
+            int[] numbers = { 8, 11, 21, 28, 32, 43, 48, 56, 69, 72, 80, 94 };
+            Console.WriteLine(BinarySeek(numbers,69));
+            static int BinarySeek(int[] numbers,int target)
+            {
+                int min = 0;
+                int max = numbers.Length - 1;
+                int mid = 0;
+                while (min<=max)
+                {
+                    mid = (min + max) / 2;
+                    if (numbers[mid]>target)
+                    {
+                        max = mid - 1;
+                    }
+                    else if (numbers[mid]<target)
+                    {
+                        min = mid + 1;
+                    }
+                    else if (numbers[mid] == target)
+                    {
+                        return mid;
+                    }
+                }
+                return -1;
+            }
+
+        }
+        
+        
 
         static void Swap(ref int a, ref int b)
         {
@@ -322,38 +353,38 @@ namespace CSharp
             a = b;
             b = temp;
         }
-        //static int[] GetArray(int max)
-        //{
-        //    int[] rArray = new int[10];
-        //    for (int i = 0; i < rArray.Length; i++)
-        //    {
-        //        int number;
+        static int[] GetArray(int max)
+        {
+            int[] rArray = new int[10];
+            for (int i = 0; i < rArray.Length; i++)
+            {
+                int number;
 
-        //        if (i == 0)
-        //        {
-        //            Random rd = new Random();
-        //            number = rd.Next(1, max);
-        //            rArray[i] = number;
-        //        }
-        //        else
-        //        {
-        //            Random rd = new Random();
-        //            number = rd.Next(rArray[i-1],rArray[i-1]+5);
-        //            rArray[i] = number;
-        //            if (rArray[i]==rArray[i-1])
-        //            {
-        //                i--;
-        //            }
-        //            else
-        //            {
-        //                //nothing
-        //            }
-        //        }
+                if (i == 0)
+                {
+                    Random rd = new Random();
+                    number = rd.Next(1, max);
+                    rArray[i] = number;
+                }
+                else
+                {
+                    Random rd = new Random();
+                    number = rd.Next(rArray[i - 1], rArray[i - 1] + 5);
+                    rArray[i] = number;
+                    if (rArray[i] == rArray[i - 1])
+                    {
+                        i--;
+                    }
+                    else
+                    {
+                        //nothing
+                    }
+                }
 
-        //        Console.WriteLine(rArray[i]);
-        //    }
-        //    return rArray;
-        //}
+                Console.WriteLine(rArray[i]);
+            }
+            return rArray;
+        }
 
         //static void GuessMe(int min, int max)
         //{
