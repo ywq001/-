@@ -342,6 +342,24 @@ namespace CSharp
                 return -1;
             }
 
+            //使用tuple作为参数，重构SelfIntroduction()方法，输出自我介绍
+            var students = Tuple.Create<int, String, bool, double>(16, "阿泰", false, 1.75);
+            static void SelfIntroduction((int age, string name, bool IsFemale, double Height) students)
+            {
+                Console.WriteLine("姓名："+students.name);
+                Console.WriteLine("年龄:"+students.age);
+                Console.WriteLine("性别："+students.IsFemale);
+                Console.WriteLine("身高："+students.Height);
+                
+            }
+            SelfIntroduction((16, "阿泰", false, 1.75));
+
+            //实现方法：
+            //IndexOf()，通过遍历在无序数组中
+            //BinarySearch()，通过二分查找法在一个有序数组中
+            //找到某个值的下标，找不到返回 - 1
+
+
         }
         
         
