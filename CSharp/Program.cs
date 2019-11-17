@@ -1,5 +1,5 @@
 ﻿using System;
-
+using CSharp;
 namespace CSharp
 {
     class Program
@@ -276,7 +276,7 @@ namespace CSharp
             //GetMax(scoers);
 
             //计算得到源栈同学的平均成绩（精确到两位小数），方法名GetAverage()
-           
+
             //double[] scoers = new double[] { 68.5, 67.5, 96.5, 87.5, 56.5, 80 };
             //GetAverage(scoers);
 
@@ -309,100 +309,109 @@ namespace CSharp
             //{
             //    string[] rarray = new string[1];
             //    return rarray;
-                
+
             //}
             //GetArray("牛");
 
             //实现二分查找，方法名BinarySeek(int[] numbers, int target)：
             //传入一个有序（从大到小 / 从小到大）数组和数组中要查找的元素
             //如果找到，返回该元素所在的下标；否则，返回 - 1
-            int[] numbers = { 8, 11, 21, 28, 32, 43, 48, 56, 69, 72, 80, 94 };
-            Console.WriteLine(BinarySeek(numbers,69));
-            static int BinarySeek(int[] numbers,int target)
-            {
-                int min = 0;
-                int max = numbers.Length - 1;
-                int mid = 0;
-                while (min<=max)
-                {
-                    mid = (min + max) / 2;
-                    if (numbers[mid]>target)
-                    {
-                        max = mid - 1;
-                    }
-                    else if (numbers[mid]<target)
-                    {
-                        min = mid + 1;
-                    }
-                    else if (numbers[mid] == target)
-                    {
-                        return mid;
-                    }
-                }
-                return -1;
-            }
+            //int[] numbers = { 8, 11, 21, 28, 32, 43, 48, 56, 69, 72, 80, 94 };
+            //Console.WriteLine(BinarySeek(numbers, 69));
+            //static int BinarySeek(int[] numbers, int target)
+            //{
+            //    int min = 0;
+            //    int max = numbers.Length - 1;
+            //    int mid = 0;
+            //    while (min <= max)
+            //    {
+            //        mid = (min + max) / 2;
+            //        if (numbers[mid] > target)
+            //        {
+            //            max = mid - 1;
+            //        }
+            //        else if (numbers[mid] < target)
+            //        {
+            //            min = mid + 1;
+            //        }
+            //        else if (numbers[mid] == target)
+            //        {
+            //            return mid;
+            //        }
+            //    }
+            //    return -1;
+            //}
 
             //使用tuple作为参数，重构SelfIntroduction()方法，输出自我介绍
-            var students = Tuple.Create<int, String, bool, double>(16, "阿泰", false, 1.75);
-            static void SelfIntroduction((int age, string name, bool IsFemale, double Height) students)
-            {
-                Console.WriteLine("姓名："+students.name);
-                Console.WriteLine("年龄:"+students.age);
-                Console.WriteLine("性别："+students.IsFemale);
-                Console.WriteLine("身高："+students.Height);
-                
-            }
-            SelfIntroduction((16, "阿泰", false, 1.75));
+            //var students = Tuple.Create<int, String, bool, double>(16, "阿泰", false, 1.75);
+            //static void SelfIntroduction((int age, string name, bool IsFemale, double Height) students)
+            //{
+            //    Console.WriteLine("姓名：" + students.name);
+            //    Console.WriteLine("年龄:" + students.age);
+            //    Console.WriteLine("性别：" + students.IsFemale);
+            //    Console.WriteLine("身高：" + students.Height);
 
-            //实现方法：
-            //IndexOf()，通过遍历在无序数组中
-            //BinarySearch()，通过二分查找法在一个有序数组中
-            //找到某个值的下标，找不到返回 - 1
+            //}
+            //SelfIntroduction((16, "阿泰", false, 1.75));
+
+            //作业: 自己实现 - 个模拟栈，增加如下功能:
+            //●出栈Pop(),弹出栈顶数据
+            //●入栈Push()， Push可以 - -次性压入多个数据;
+            //●出入栈检查,
+            //。如果压入的数据已超过栈的深度(最大容量)，提示“栈溢出”
+            //。如果已弹出所有数据，提示“栈已空”
 
 
+
+            //调用构造函数
+
+            User wx = new User();
+            User wx1 = new User("王欣");
+            
+            Console.WriteLine(wx1.Name);
         }
-        
-        
 
-        static void Swap(ref int a, ref int b)
-        {
-            int temp;
-            temp = a;
-            a = b;
-            b = temp;
-        }
-        static int[] GetArray(int max)
-        {
-            int[] rArray = new int[10];
-            for (int i = 0; i < rArray.Length; i++)
-            {
-                int number;
 
-                if (i == 0)
-                {
-                    Random rd = new Random();
-                    number = rd.Next(1, max);
-                    rArray[i] = number;
-                }
-                else
-                {
-                    Random rd = new Random();
-                    number = rd.Next(rArray[i - 1], rArray[i - 1] + 5);
-                    rArray[i] = number;
-                    if (rArray[i] == rArray[i - 1])
-                    {
-                        i--;
-                    }
-                    else
-                    {
-                        //nothing
-                    }
-                }
 
-                Console.WriteLine(rArray[i]);
-            }
-            return rArray;
-        }
+        //static void Swap(ref int a, ref int b)
+        //{
+        //    int temp;
+        //    temp = a;
+        //    a = b;
+        //    b = temp;
+        //}
+        //static int[] GetArray(int max)
+        //{
+        //    int[] rArray = new int[10];
+        //    for (int i = 0; i < rArray.Length; i++)
+        //    {
+        //        int number;
+
+        //        if (i == 0)
+        //        {
+        //            Random rd = new Random();
+        //            number = rd.Next(1, max);
+        //            rArray[i] = number;
+        //        }
+        //        else
+        //        {
+        //            Random rd = new Random();
+        //            number = rd.Next(rArray[i - 1], rArray[i - 1] + 5);
+        //            rArray[i] = number;
+        //            if (rArray[i] == rArray[i - 1])
+        //            {
+        //                i--;
+        //            }
+        //            else
+        //            {
+        //                //nothing
+        //            }
+        //        }
+
+        //        Console.WriteLine(rArray[i]);
+        //    }
+        //    return rArray;
+        //}
 
         //static void GuessMe(int min, int max)
         //{
