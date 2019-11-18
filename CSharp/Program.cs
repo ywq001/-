@@ -360,7 +360,7 @@ namespace CSharp
             //●出入栈检查,
             //。如果压入的数据已超过栈的深度(最大容量)，提示“栈溢出”
             //。如果已弹出所有数据，提示“栈已空”
-
+            
 
 
             //调用构造函数
@@ -369,6 +369,10 @@ namespace CSharp
             User wx1 = new User("王欣");
             
             Console.WriteLine(wx1.Name);
+
+
+
+
         }
 
 
