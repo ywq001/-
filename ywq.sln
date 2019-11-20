@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ywq", "ywq\ywq.csproj", "{18A2CF7B-92FE-475A-AF8A-F28CA2744A1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp", "CSharp\CSharp.csproj", "{5A071C95-3D91-4219-9F7B-C6CA79719584}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp", "CSharp\CSharp.csproj", "{5A071C95-3D91-4219-9F7B-C6CA79719584}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{1C1FACE6-C661-43C5-BE87-604D47793EAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5A071C95-3D91-4219-9F7B-C6CA79719584}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A071C95-3D91-4219-9F7B-C6CA79719584}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A071C95-3D91-4219-9F7B-C6CA79719584}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C1FACE6-C661-43C5-BE87-604D47793EAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C1FACE6-C661-43C5-BE87-604D47793EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C1FACE6-C661-43C5-BE87-604D47793EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C1FACE6-C661-43C5-BE87-604D47793EAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -28,5 +28,12 @@ namespace CSharp
             }
 
         }
+
+        public void Push()
+        {
+
+
+        }
+
     }
 }
