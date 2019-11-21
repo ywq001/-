@@ -6,6 +6,12 @@ namespace CSharp
 {
     class Problem
     {
+        //考虑求助的以下方法/属性，哪些适合实例，哪些适合静态，然后添加到类中：
+        //    Publish()：发布一篇求助，并将其保存到数据库
+        //    Load(int Id)：根据Id从数据库
+        //    获取一条求助Delete()：
+        //删除某个求助repoistory：可用于在底层实现上述方法和数据库的连接操作等
+
         private string title;
         public string Title
         {
@@ -39,8 +45,8 @@ namespace CSharp
             get { return pulishDetatime; }
             set { pulishDetatime = value; }
         }
-        private Problem author;
-        public Problem Author
+        private User author;
+        public User Author
         {
             get { return author; }
             set { Author = value; }
@@ -49,6 +55,18 @@ namespace CSharp
         {
 
         }
+
+       internal static void Load(int Id)
+        {
+
+        }
+
+        internal void Delete()
+        {
+            
+        }
+
+         
 
     }
 }
