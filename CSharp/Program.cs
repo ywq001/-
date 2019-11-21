@@ -6,6 +6,19 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
+            Problem yq = new Problem();
+            yq.Publish();
+
+            Problem.Load(20);
+            
+            
+
+            
+            
+            
+            
+            
+            
             //String name = "于维谦";
             //int age = 23;
             //bool IsFemale = false;
@@ -368,7 +381,7 @@ namespace CSharp
             User wx = new User();
             User wx1 = new User("王欣");
             
-            Console.WriteLine(wx1.Name);
+            Console.WriteLine(wx1.name);
 
 
 

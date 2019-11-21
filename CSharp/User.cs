@@ -69,7 +69,7 @@ namespace CSharp
 
         internal User(string Name)
         {
-            this.Name = Name;
+            this.Name = name;
         }
 
     }
