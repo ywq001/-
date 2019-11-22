@@ -21,7 +21,7 @@ namespace CSharp
 
         public void Pop(int[] data)
         {
-            int top = data.Length;
+            int top = data.Length-1;
             if (!(data is null))
             {
                 Console.WriteLine(data[top]);

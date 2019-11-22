@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharp
 {
-    class HelpMoney
+    class HelpMoney:Entity
     {
         public DateTime GetTime { get; set; }
         public int Usable { get; set; }

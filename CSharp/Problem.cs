@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharp
 {
-    internal class Problem
+    internal class Problem:Entity
     {
         //考虑求助的以下方法/属性，哪些适合实例，哪些适合静态，然后添加到类中：
         //    Publish()：发布一篇求助，并将其保存到数据库

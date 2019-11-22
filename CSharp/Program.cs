@@ -6,19 +6,29 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            Problem yq = new Problem();
-            yq.Publish();
+            //Problem yq = new Problem();
+            //yq.Publish();
 
-            Problem.Load(20);
-            
-            
+            //Problem.Load(20);
 
-            
-            
-            
-            
-            
-            
+            //Console.WriteLine(typeof(Problem).Assembly);
+            //实例化文章和意见建议，调用他们：
+            //继承自父类的属性和方法
+            //自己的属性和方法
+            Article wx = new Article();
+            wx.Keyword = "c#";
+            Console.WriteLine(wx.Keyword);
+            Console.WriteLine(wx.PublishTime);
+            wx.moneyAmount(20);
+            Suggest atai = new Suggest();
+            atai.Keyword = "sql";
+            Console.WriteLine(atai.Keyword);
+            atai.moneyAmount(30);
+
+
+
+
+
             //String name = "于维谦";
             //int age = 23;
             //bool IsFemale = false;
@@ -373,15 +383,15 @@ namespace CSharp
             //●出入栈检查,
             //。如果压入的数据已超过栈的深度(最大容量)，提示“栈溢出”
             //。如果已弹出所有数据，提示“栈已空”
-            
+
 
 
             //调用构造函数
 
-            User wx = new User();
-            User wx1 = new User("王欣");
-            
-            Console.WriteLine(wx1.name);
+            //User wx = new User();
+            //User wx1 = new User("王欣");
+
+            //Console.WriteLine(wx1.name);
 
 
 
