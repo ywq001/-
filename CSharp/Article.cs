@@ -7,7 +7,7 @@ namespace CSharp
     class Article:Content
     {
          
-        public override void moneyAmount(int reward)
+        public void moneyAmount(int reward)
         {
             Console.WriteLine("获得打赏" + reward + "枚");
         }
@@ -21,7 +21,7 @@ namespace CSharp
             }
             set
             {
-                value = title;
+                title = value;
             }
         }
     }

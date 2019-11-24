@@ -4,7 +4,8 @@ using System.Text;
 
 namespace CSharp
 {
-    sealed class User:User
+    //让User类无法被继承
+    sealed class User:Entity
     {
         private string Name;
         public string name 

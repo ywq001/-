@@ -6,7 +6,19 @@ namespace CSharp
 {
     class Suggest:Content
     {
-        public override void moneyAmount(int reward)
+        public Suggest(string kind)
+        {
+            if (this.kind==null)
+            {
+                Console.WriteLine("请输入种类");
+            }
+            else
+            {
+                this.kind = kind;
+                Console.WriteLine(kind);
+            }
+        }
+        public void moneyAmount(int reward)
         {
             Console.WriteLine("获得棒棒币奖励" + reward + "枚");
         }

@@ -15,17 +15,19 @@ namespace CSharp
             //实例化文章和意见建议，调用他们：
             //继承自父类的属性和方法
             //自己的属性和方法
-            Article wx = new Article();
-            wx.Keyword = "c#";
-            Console.WriteLine(wx.Keyword);
-            Console.WriteLine(wx.PublishTime);
-            wx.moneyAmount(20);
-            Suggest atai = new Suggest();
-            atai.Keyword = "sql";
-            Console.WriteLine(atai.Keyword);
-            atai.moneyAmount(30);
+            //Article wx = new Article();
+            //wx.Keyword = "c#";
+            //Console.WriteLine(wx.Keyword);
+            //Console.WriteLine(wx.PublishTime);
+            //wx.moneyAmount(20);
+            //Suggest atai = new Suggest();
+            //atai.Keyword = "sql";
+            //Console.WriteLine(atai.Keyword);
+            //atai.moneyAmount(30);
 
-
+            Suggest pzq = new Suggest("文章");
+            
+            Console.WriteLine(pzq.kind);
 
 
 

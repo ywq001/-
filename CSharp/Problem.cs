@@ -9,8 +9,14 @@ namespace CSharp
         //考虑求助的以下方法/属性，哪些适合实例，哪些适合静态，然后添加到类中：
         //    Publish()：发布一篇求助，并将其保存到数据库
         //    Load(int Id)：根据Id从数据库
-        //    获取一条求助Delete()：
-        //删除某个求助repoistory：可用于在底层实现上述方法和数据库的连接操作等
+        //    获取一条求助Delete()：删除某个求助
+        //repoistory：可用于在底层实现上述方法和数据库的连接操作等
+
+
+        // 将之前User/Problem/HelpMoney类的字段封装成属性，其中：
+        //user.Password在类的外部只能改不能读
+        //如果user.Name为“admin”，输入时修改为“系统管理员”
+        //problem.Reward不能为负数
 
         private string title;
         public string Title
