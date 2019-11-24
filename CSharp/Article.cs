@@ -6,7 +6,10 @@ namespace CSharp
 {
     class Article:Content
     {
-         
+        public Article(string kind):base(kind)
+        {
+           
+        }
         public void moneyAmount(int reward)
         {
             Console.WriteLine("获得打赏" + reward + "枚");

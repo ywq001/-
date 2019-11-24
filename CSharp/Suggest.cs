@@ -6,17 +6,8 @@ namespace CSharp
 {
     class Suggest:Content
     {
-        public Suggest(string kind)
+        public Suggest(string kind):base(kind)
         {
-            if (this.kind==null)
-            {
-                Console.WriteLine("请输入种类");
-            }
-            else
-            {
-                this.kind = kind;
-                Console.WriteLine(kind);
-            }
         }
         public void moneyAmount(int reward)
         {

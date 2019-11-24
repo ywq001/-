@@ -17,7 +17,18 @@ namespace CSharp
     {
         internal protected string kind;
 
-
+        public Content(string kind)
+        {
+            if (this.kind == null)
+            {
+                Console.WriteLine("请输入种类");
+            }
+            else
+            {
+                this.kind = kind;
+                Console.WriteLine(kind);
+            }
+        }
 
         private DateTime createTime=DateTime.Now;
 
