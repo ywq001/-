@@ -9,9 +9,9 @@ namespace CSharp
     {
         
 
-        public int amount { get; set; }
+        
 
-        public void Publish(Content content)
+        public static void Publish(Content content)
         {
             content.Issue();
         }   

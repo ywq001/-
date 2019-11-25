@@ -29,11 +29,13 @@ namespace CSharp
 
             //Console.WriteLine(pzq.kind);
 
-            
-            
-            ContentService pzq = new ContentService();
-            pzq.Publish("Article");
-            Console.WriteLine(new HelpMoney().Usable);
+
+
+            HelpMoney rewardAmount = new HelpMoney();
+            rewardAmount.Usable = 20;
+            Content wx = new Article("Article");
+            ContentService.Publish(wx);
+
 
 
 

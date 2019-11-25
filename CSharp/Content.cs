@@ -19,13 +19,14 @@ namespace CSharp
         public abstract void Issue();
         public Content(string kind)
         {
+            this.kind = kind;
             if (this.kind == null)
             {
                 Console.WriteLine("请输入种类");
             }
             else
             {
-                this.kind = kind;
+                
                 Console.WriteLine(kind);
             }
         }

@@ -8,8 +8,10 @@ namespace CSharp
     {
         public override void Issue()
         {
-            new HelpMoney().Usable -= 1;
-
+            HelpMoney wx = new HelpMoney();
+            wx.Usable = 20;
+            wx.Usable -= 1;
+            Console.WriteLine(wx.Usable);
         }
         public Article(string kind):base(kind)
         {
