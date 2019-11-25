@@ -6,6 +6,11 @@ namespace CSharp
 {
     class Article:Content
     {
+        public override void Issue()
+        {
+            new HelpMoney().Usable -= 1;
+
+        }
         public Article(string kind):base(kind)
         {
            

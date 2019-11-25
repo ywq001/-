@@ -16,7 +16,7 @@ namespace CSharp
     abstract class Content
     {
         internal protected string kind;
-
+        public abstract void Issue();
         public Content(string kind)
         {
             if (this.kind == null)

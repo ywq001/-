@@ -12,7 +12,15 @@ namespace CSharp
         public string Kind { get; set; }
         public string Change { get; set; } 
         public string Remaek { get; set; }
+        public HelpMoney()
+        {
 
+        }
+
+        public HelpMoney(int usable)
+        {
+            Usable = usable;
+        }
 
         internal void changeMoney()
         {

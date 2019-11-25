@@ -6,6 +6,11 @@ namespace CSharp
 {
     class Suggest:Content
     {
+        public override void Issue()
+        {
+            //
+
+        }
         public Suggest(string kind):base(kind)
         {
         }

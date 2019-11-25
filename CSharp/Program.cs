@@ -25,9 +25,18 @@ namespace CSharp
             //Console.WriteLine(atai.Keyword);
             //atai.moneyAmount(30);
 
-            Suggest pzq = new Suggest("文章");
+            //Suggest pzq = new Suggest("文章");
+
+            //Console.WriteLine(pzq.kind);
+
             
-            Console.WriteLine(pzq.kind);
+            
+            ContentService pzq = new ContentService();
+            pzq.Publish("Article");
+            Console.WriteLine(new HelpMoney().Usable);
+
+
+
 
 
 
