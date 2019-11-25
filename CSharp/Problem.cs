@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharp
 {
-    internal class Problem:Entity
+    internal class Problem:Content
     {
         //考虑求助的以下方法/属性，哪些适合实例，哪些适合静态，然后添加到类中：
         //    Publish()：发布一篇求助，并将其保存到数据库
@@ -72,7 +72,17 @@ namespace CSharp
             
         }
 
-        
+        public Problem(string kind) : base(kind)
+        {
 
+        }
+        public override void Issue()
+        {
+            int amount;
+            HelpMoney wx = new HelpMoney();
+            wx.Usable = 20;
+            wx.Usable -= 1;
+            Console.WriteLine(wx.Usable);
+        }
     }
 }

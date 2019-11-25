@@ -31,10 +31,9 @@ namespace CSharp
 
 
 
-            HelpMoney rewardAmount = new HelpMoney();
-            rewardAmount.Usable = 20;
-            Content wx = new Article("Article");
-            ContentService.Publish(wx);
+            
+            Content content = new Article("Article");
+            ContentService.Publish(content);
 
 
 

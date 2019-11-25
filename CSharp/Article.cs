@@ -6,6 +6,7 @@ namespace CSharp
 {
     class Article:Content
     {
+        //发布时棒棒币减少
         public override void Issue()
         {
             HelpMoney wx = new HelpMoney();

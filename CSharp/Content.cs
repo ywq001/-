@@ -16,7 +16,7 @@ namespace CSharp
     abstract class Content
     {
         internal protected string kind;
-        public abstract void Issue();
+        public abstract void Issue();//子类重写方法，减少或增加棒棒币
         public Content(string kind)
         {
             this.kind = kind;
