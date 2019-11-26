@@ -72,11 +72,11 @@ namespace CSharp
                 author = value;
             }
         }
-        
-       public void Agree()
-        {
 
-        }
+        public abstract void Agree();
+        public abstract void Disagree();
+
+
 
 
     }

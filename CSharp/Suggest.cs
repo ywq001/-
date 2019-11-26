@@ -30,5 +30,13 @@ namespace CSharp
                 title = value;
             }
         }
+        public override void Agree()
+        {
+            Author.HelpMoney += 1;
+        }
+        public override void Disagree()
+        {
+            Author.HelpMoney -= 1;
+        }
     }
 }

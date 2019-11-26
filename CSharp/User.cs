@@ -5,7 +5,7 @@ using System.Text;
 namespace CSharp
 {
     //让User类无法被继承
-    sealed class User:Entity
+    sealed class User:Entity,ISendMessage,IChat
     {
         internal int HelpMoney { get; set; }
 
@@ -73,6 +73,15 @@ namespace CSharp
         internal User(string Name)
         {
             this.Name = name;
+        }
+
+        void ISendMessage.Send()
+        {
+            Console.WriteLine("实现ISendMessage接口方法");
+        }
+        void IChat.Send()
+        {
+            Console.WriteLine("实现IChat接口方法");
         }
 
     }

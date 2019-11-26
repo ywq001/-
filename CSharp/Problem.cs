@@ -82,5 +82,13 @@ namespace CSharp
             Author.HelpMoney -= reward;
             Console.WriteLine("棒棒币减少"+reward);
         }
+        public override void Agree()
+        {
+            Author.HelpMoney += 1;
+        }
+        public override void Disagree()
+        {
+            Author.HelpMoney -= 1;
+        }
     }
 }
