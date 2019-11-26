@@ -17,6 +17,7 @@ namespace CSharp
         //user.Password在类的外部只能改不能读
         //如果user.Name为“admin”，输入时修改为“系统管理员”
         //problem.Reward不能为负数
+        
 
         private string title;
         public string Title
@@ -51,12 +52,12 @@ namespace CSharp
             get { return pulishDetatime; }
             set { pulishDetatime = value; }
         }
-        private User author;
-        public User Author
-        {
-            get { return author; }
-            set { Author = value; }
-        }
+        //private User author;
+        //public User Author
+        //{
+        //    get { return author; }
+        //    set { Author = value; }
+        //}
         internal  void Publish()
         {
             Console.WriteLine("实例方法");
@@ -78,11 +79,8 @@ namespace CSharp
         }
         public override void Issue()
         {
-            int amount;
-            HelpMoney wx = new HelpMoney();
-            wx.Usable = 20;
-            wx.Usable -= 1;
-            Console.WriteLine(wx.Usable);
+            Author.HelpMoney -= reward;
+            Console.WriteLine("棒棒币减少"+reward);
         }
     }
 }

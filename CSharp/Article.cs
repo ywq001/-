@@ -9,10 +9,8 @@ namespace CSharp
         //发布时棒棒币减少
         public override void Issue()
         {
-            HelpMoney wx = new HelpMoney();
-            wx.Usable = 20;
-            wx.Usable -= 1;
-            Console.WriteLine(wx.Usable);
+            Author.HelpMoney -= 1;
+            Console.WriteLine("棒棒币减少1");
         }
         public Article(string kind):base(kind)
         {

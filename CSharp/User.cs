@@ -7,6 +7,8 @@ namespace CSharp
     //让User类无法被继承
     sealed class User:Entity
     {
+        internal int HelpMoney { get; set; }
+
         private string Name;
         public string name 
         {

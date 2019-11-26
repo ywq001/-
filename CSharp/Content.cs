@@ -15,19 +15,20 @@ namespace CSharp
 
     abstract class Content
     {
+        //public User Author { get; set; }
         internal protected string kind;
         public abstract void Issue();//子类重写方法，减少或增加棒棒币
         public Content(string kind)
         {
-            this.kind = kind;
-            if (this.kind == null)
+            
+            if (kind == string.Empty)
             {
                 Console.WriteLine("请输入种类");
             }
             else
             {
-                
-                Console.WriteLine(kind);
+
+                this.kind = kind;
             }
         }
 
@@ -72,7 +73,11 @@ namespace CSharp
             }
         }
         
-       
-        
+       public void Agree()
+        {
+
+        }
+
+
     }
 }
