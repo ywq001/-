@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharp
 {
-    class Suggest:Content
+    class Suggest:Content, ApprovalOppose
     {
         public override void Issue()//如果发布Suggest，不需要消耗帮帮币
         {
@@ -30,13 +30,15 @@ namespace CSharp
                 title = value;
             }
         }
-        public override void Agree()
+
+        public void Agree(User voter)
         {
             Author.HelpMoney += 1;
         }
-        public override void Disagree()
+        public void Disagree(User voter)
         {
             Author.HelpMoney -= 1;
         }
+
     }
 }

@@ -73,9 +73,7 @@ namespace CSharp
             }
         }
 
-        public abstract void Agree();
-        public abstract void Disagree();
-
+       
 
 
 

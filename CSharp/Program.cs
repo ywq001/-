@@ -31,10 +31,15 @@ namespace CSharp
 
 
 
-            
-            Content content = new Article("Article");
-            ContentService.Publish(content);
 
+            //Content content = new Article("Article");
+            //ContentService.Publish(content);
+
+            //构造一个能装任何数据的数组，并完成数据的读写
+
+            object[] b = new object[5] { "wx", 25, true,36,45 };
+            
+            Console.WriteLine(b[3]);
 
 
 

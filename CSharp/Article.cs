@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharp
 {
-    class Article:Content
+    class Article:Content,ApprovalOppose
     {
         //发布时棒棒币减少
         public override void Issue()
@@ -33,13 +33,15 @@ namespace CSharp
                 title = value;
             }
         }
-        public override void Agree()
+        
+        public void Agree(User voter)
         {
             Author.HelpMoney += 1;
         }
-        public override void Disagree()
+        public void Disagree(User voter)
         {
             Author.HelpMoney -= 1;
         }
+
     }
 }
