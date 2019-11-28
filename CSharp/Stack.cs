@@ -12,15 +12,15 @@ namespace CSharp
         //●出入栈检查,
         //。如果压入的数据已超过栈的深度(最大容量)，提示“栈溢出”
         //。如果已弹出所有数据，提示“栈已空”
-        private string[] stack;
+        private object[] stack;
         private int top;
         
         public Stack(int lenght)
         {
-            stack = new string[lenght];
+            stack = new object[lenght];
         }
         
-        public void Push(params string[] element)
+        public void Push(params object[] element)
         {
             for (int i = 0; i < element.Length; i++)
             {
@@ -33,13 +33,13 @@ namespace CSharp
             }
         }
 
-        public string Pop()
+        public object Pop()
         {
             if (stack[0] == null)
             {
                 Console.WriteLine("栈以空");
             }
-            string temp = stack[top];
+            object temp = stack[top];
             stack[top] = null;
             return temp;
         }

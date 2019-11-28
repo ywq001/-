@@ -37,11 +37,12 @@ namespace CSharp
 
             //构造一个能装任何数据的数组，并完成数据的读写
 
-            object[] b = new object[5] { "wx", 25, true,36,45 };
-            
-            Console.WriteLine(b[3]);
+            //object[] b = new object[5] { "wx", 25, true,36,45 };
 
+            //Console.WriteLine(b[3]);
 
+            //Getdate(10);
+            Getweek();
 
 
 
@@ -415,6 +416,33 @@ namespace CSharp
 
         }
 
+        static void Getdate(int date)
+        {
+            DateTime data = DateTime.Now;
+            Console.WriteLine(data.AddDays(date));
+            Console.WriteLine(data.AddDays(date*7));
+            Console.WriteLine(data.AddMonths(date));
+        }
+
+        static void Getweek()
+        {
+            int j = 1;
+            int i = 0;
+
+            DateTime date = Convert.ToDateTime(Console.ReadLine());
+            DateTime intraday = date;
+
+
+            while (i<365)
+            {
+                i += 7;
+                Console.WriteLine($"第{j}周：{intraday}-{intraday.AddDays(i)}");
+                intraday = intraday.AddDays(i).Date;
+                j++;
+                Console.ReadLine();
+
+            }
+        }
 
 
         //static void Swap(ref int a, ref int b)

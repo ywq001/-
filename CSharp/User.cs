@@ -84,5 +84,35 @@ namespace CSharp
             Console.WriteLine("实现IChat接口方法");
         }
 
+        public User(Role role)
+        {
+            
+            switch (role)
+            {
+                case Role.Visited:
+                    Console.WriteLine("访客");
+                    break;
+                case Role.Registered:
+                    Console.WriteLine("注册用户");
+                    break;
+                case Role.Published:
+                    Console.WriteLine("可发布用户");
+                    break;
+                case Role.Admin:
+                    Console.WriteLine("管理员");
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+    }
+    enum Role
+    {
+        Visited,
+        Registered,
+        Published,
+        Admin
     }
 }
