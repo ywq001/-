@@ -420,28 +420,61 @@ namespace CSharp
         {
             DateTime data = DateTime.Now;
             Console.WriteLine(data.AddDays(date));
-            Console.WriteLine(data.AddDays(date*7));
+            Console.WriteLine(data.AddDays(date * 7));
             Console.WriteLine(data.AddMonths(date));
         }
 
         static void Getweek()
         {
-            int j = 1;
-            int i = 0;
-
-            DateTime date = Convert.ToDateTime(Console.ReadLine());
-            DateTime intraday = date;
-
-
-            while (i<365)
+            
+            string input = Console.ReadLine();
+            int a = 1;
+            bool result = int.TryParse(input, out a);
+            if (result)
             {
-                i += 7;
-                Console.WriteLine($"第{j}周：{intraday}-{intraday.AddDays(i)}");
-                intraday = intraday.AddDays(i).Date;
-                j++;
-                Console.ReadLine();
+                int inputDate = int.Parse(input);
+                DateTime date = new DateTime(inputDate, 1, 1);
+                DateTime fristDay = date;
+                while (date.DayOfWeek != DayOfWeek.Monday)
+                {
+                    date = date.AddDays(1);
+                }
+                DateTime fristDate = date;
+                Console.WriteLine("第1周："
+                    + fristDay.ToString("yyyy年MM月dd日")
+                    + "---"
+                    + fristDate.AddDays(-1).ToString("yyyy年MM月dd日"));
+                DateTime last = new DateTime(inputDate, 12, 31);
+                DateTime lastDay = last;
+                while (last.DayOfWeek != DayOfWeek.Monday)
+                {
+                    last = last.AddDays(-1);
+                }
+                DateTime lastDate = last;
 
+                int k = ((lastDate - fristDate).Days) / 7;
+                for (int j = 2; j <= k + 1; j++)
+                {
+                    Console.WriteLine("第" + j + "周："
+                        + fristDate.ToString("yyyy年MM月dd日")
+                        + "---"
+                        + fristDate.AddDays(6).ToString("yyyy年MM月dd日"));
+                    if (date.Year == inputDate)
+                    {
+                        fristDate = fristDate.AddDays(7);
+                    }
+                }
+                Console.WriteLine("最后1周："
+                    + lastDate.ToString("yyyy年MM月dd日")
+                    + "---"
+                    + lastDay.ToString("yyyy年MM月dd日"));
             }
+            else
+            {
+                Console.WriteLine("请输入一个数字");
+            }
+
+
         }
 
 
