@@ -10,7 +10,7 @@ namespace CSharp
         internal int HelpMoney { get; set; }
         internal TokenManager TokenManager { get; set; }
 
-        internal Role role { get; set; }
+        internal Role role { get;private set; }
         private string Name;
         public string name 
         {
