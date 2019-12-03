@@ -17,9 +17,19 @@ namespace CSharp
         private Token _tokens;
 
 
-        public void ADD(Token tokens)
+        public void Add(Token tokens)
         {
-            new User().TokenManager._tokens +=(int) tokens;
+            _tokens = _tokens | tokens;
+            
+        }
+
+        public void Remove(Token tokens)
+        {
+            _tokens = _tokens ^ tokens;
+        }
+        public Token Has()
+        {
+            return _tokens;
         }
     }
     [Flags]

@@ -43,7 +43,7 @@ namespace CSharp
 
             //Getdate(10);
             //Getweek();
-            Getweeks(2020);
+            //Getweeks(2020);
 
 
 
@@ -411,7 +411,11 @@ namespace CSharp
 
             //Console.WriteLine(wx1.name);
 
-
+            User wx = new User();
+            wx.TokenManager = new TokenManager();
+            //wx.TokenManager.Add(Token.Admin);
+            //wx.TokenManager.Remove(Token.Admin);
+            Console.WriteLine(wx.TokenManager.Has());
 
 
         }

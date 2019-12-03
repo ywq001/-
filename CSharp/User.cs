@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using CSharp;
 namespace CSharp
 {
     //让User类无法被继承
