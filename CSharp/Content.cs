@@ -20,7 +20,7 @@ namespace CSharp
         public abstract void Issue();//子类重写方法，减少或增加棒棒币
         public Content(string kind)
         {
-            
+            this.createTime = DateTime.Now;//在NEW一个对象时通过子类调用父类构造为createTime赋值
             if (kind == string.Empty)
             {
                 Console.WriteLine("请输入种类");
@@ -32,21 +32,14 @@ namespace CSharp
             }
         }
 
-        private DateTime createTime=DateTime.Now;
+        public DateTime createTime { get; private set; }
+        
+            
+        
+        public DateTime PublishTime { get;protected set; }//设置成protected只能被子类继承使用外部不能使用
 
 
 
-        public DateTime PublishTime
-        {
-            get
-            {
-                return createTime;
-            }
-            private set
-            {
-                createTime = value;
-            }
-        }
         private string keyword;
         public string Keyword
         {

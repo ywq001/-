@@ -1,5 +1,8 @@
 ﻿using System;
 using CSharp;
+using System.Reflection;
+
+
 namespace CSharp
 {
     class Program
@@ -411,13 +414,29 @@ namespace CSharp
 
             //Console.WriteLine(wx1.name);
 
-            User wx = new User();
-            wx.TokenManager = new TokenManager();
+            //User wx = new User();
+            //wx.TokenManager = new TokenManager();
             //wx.TokenManager.Add(Token.Admin);
-            //wx.TokenManager.Remove(Token.Admin);
-            Console.WriteLine(wx.TokenManager.Has());
+            //wx.TokenManager.Remove(Token.Admin);ago
+            //Console.WriteLine(wx.TokenManager.Has());
 
+            Content ywq = new Suggest("文章");
+            Console.WriteLine(ywq.createTime);
+            //static void LookTime(DateTime current,Content use)
+            //{
+            //    Type typeinfo = use.GetType();
+            //    FieldInfo onCreatetime = typeinfo.GetField("createTime", BindingFlags.NonPublic | BindingFlags.Instance);
+            //    object time = onCreatetime.GetValue(use);
+            //    time = current;
+            //    Console.WriteLine(time);
+            //}
 
+            //LookTime(new DateTime(2005, 11, 5) , ywq);
+
+            Type typeinfo = typeof(Suggest);
+            FieldInfo onCreatetime = typeinfo.GetField(createTime, BindingFlags.NonPublic | BindingFlags.Instance);
+            object time = onCreatetime.GetValue(ywq);
+            Console.WriteLine(time);
         }
 
         static void Getdate(int date)

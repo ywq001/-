@@ -46,12 +46,12 @@ namespace CSharp
                 reward = value; 
             }
         }
-        private DateTime pulishDetatime;
-        public DateTime PulishDetatime
-        {
-            get { return pulishDetatime; }
-            set { pulishDetatime = value; }
-        }
+        //private DateTime pulishDetatime;
+        //public DateTime PulishDetatime
+        //{
+        //    get { return pulishDetatime; }
+        //    set { pulishDetatime = value; }
+        //}
         //private User author;
         //public User Author
         //{
@@ -79,6 +79,7 @@ namespace CSharp
         }
         public override void Issue()
         {
+            this.PublishTime = DateTime.Now;//在发布时调用此方法为PublishTime赋值
             Author.HelpMoney -= reward;
             Console.WriteLine("棒棒币减少"+reward);
         }
