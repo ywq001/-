@@ -434,7 +434,7 @@ namespace CSharp
             //LookTime(new DateTime(2005, 11, 5) , ywq);
 
             Type typeinfo = typeof(Suggest);
-            FieldInfo onCreatetime = typeinfo.GetField(createTime, BindingFlags.NonPublic | BindingFlags.Instance);
+            FieldInfo onCreatetime = typeinfo.GetField("createTime", BindingFlags.NonPublic | BindingFlags.Instance);
             object time = onCreatetime.GetValue(ywq);
             Console.WriteLine(time);
         }
