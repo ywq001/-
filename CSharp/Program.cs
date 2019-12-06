@@ -422,21 +422,27 @@ namespace CSharp
 
             Content ywq = new Suggest("文章");
             Console.WriteLine(ywq.createTime);
-            //static void LookTime(DateTime current,Content use)
-            //{
-            //    Type typeinfo = use.GetType();
-            //    FieldInfo onCreatetime = typeinfo.GetField("createTime", BindingFlags.NonPublic | BindingFlags.Instance);
-            //    object time = onCreatetime.GetValue(use);
-            //    time = current;
-            //    Console.WriteLine(time);
-            //}
+            static void LookTime(string TypeMembers, DateTime current, Content use)
+            {
+                Type typeinfo = use.GetType();
+                PropertyInfo onCreatetime = typeinfo.GetProperty(TypeMembers);
+                object time = onCreatetime.GetValue(use);
+                time = current;
+                Console.WriteLine(time);
+            }
 
-            //LookTime(new DateTime(2005, 11, 5) , ywq);
 
-            Type typeinfo = typeof(Suggest);
-            FieldInfo onCreatetime = typeinfo.GetField("createTime", BindingFlags.NonPublic | BindingFlags.Instance);
-            object time = onCreatetime.GetValue(ywq);
-            Console.WriteLine(time);
+            LookTime("createTime", new DateTime(2005, 11, 5), ywq);
+
+            //Type typeinfo = typeof(Suggest);
+            //PropertyInfo onCreatetime = typeinfo.GetProperty("createTime");
+            //object time = onCreatetime.GetValue(ywq);
+            //Console.WriteLine(time);
+
+
+            Attribute attribute = HelpMoneyChanged.GetCustomAttribute(typeof(ContentService), typeof(HelpMoneyChanged));
+            Console.WriteLine(((HelpMoneyChanged)attribute).Message);
+
         }
 
         static void Getdate(int date)
