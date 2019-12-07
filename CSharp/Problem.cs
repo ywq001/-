@@ -79,7 +79,7 @@ namespace CSharp
         }
         public override void Issue()
         {
-            this.PublishTime = DateTime.Now;//在发布时调用此方法为PublishTime赋值
+            _publishTime = DateTime.Now;//在发布时调用此方法为PublishTime赋值
             Author.HelpMoney -= reward;
             Console.WriteLine("棒棒币减少"+reward);
         }

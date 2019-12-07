@@ -25,7 +25,10 @@ namespace CSharp
 
         public void Remove(Token tokens)
         {
-            _tokens = _tokens ^ tokens;
+            if ((_tokens&tokens)==tokens)
+            {
+
+            }
         }
         public Token Has()
         {

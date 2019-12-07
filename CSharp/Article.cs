@@ -9,7 +9,7 @@ namespace CSharp
         //发布时棒棒币减少
         public override void Issue()
         {
-            this.PublishTime = DateTime.Now;//在发布时调用此方法为PublishTime赋值
+            _publishTime = DateTime.Now;//在发布时调用此方法为PublishTime赋值
             Author.HelpMoney -= 1;
             Console.WriteLine("棒棒币减少1");
         }
