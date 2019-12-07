@@ -27,7 +27,11 @@ namespace CSharp
         {
             if ((_tokens&tokens)==tokens)
             {
-
+                _tokens = _tokens ^ tokens;
+            }
+            else
+            {
+                throw new Exception("");
             }
         }
         public Token Has()
