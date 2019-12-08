@@ -41,7 +41,7 @@ namespace CSharp
             {
                 if (value<0)
                 {
-                    throw new OverflowException("reward不能为负数");
+                    throw new ArgumentOutOfRangeException("reward不能为负数");
                 }
                 reward = value; 
             }
