@@ -352,16 +352,23 @@ namespace CSharp
             //wx.TokenManager.Remove(Token.Admin);ago
             //Console.WriteLine(wx.TokenManager.Has());
 
-            Content ywq = new Suggest("文章");
-            Console.WriteLine(ywq.CreateTime);
+            //Content ywq = new Suggest("文章");
+            //Console.WriteLine(ywq.CreateTime);
             
-                Type typeinfo = typeof(Content);
-                FieldInfo onCreatetime = typeof(Content).GetField("_createTime", BindingFlags.Instance | BindingFlags.NonPublic);
-                onCreatetime.SetValue(ywq, DateTime.Now);
-                Console.WriteLine(ywq.CreateTime);
-              
+            //    //Type typeinfo = typeof(Content);
+            //    //FieldInfo onCreatetime = typeof(Content).GetField("_createTime", BindingFlags.Instance | BindingFlags.NonPublic);
+            //    //onCreatetime.SetValue(ywq, DateTime.Now);
+            //    //Console.WriteLine(ywq.CreateTime);
 
-            }
+            //ywq.Issue();
+
+            Problem wx = new Problem("求助");
+            //wx.Reward = -2;
+            //Console.WriteLine(wx.Reward);
+
+            ContentService.Publish(wx);
+
+        }
 
         static void Divide(int i, int j)
         {
