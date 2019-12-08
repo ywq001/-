@@ -9,6 +9,10 @@ namespace CSharp
         //发布时棒棒币减少
         public override void Issue()
         {
+            if (Author == null)
+            {
+                throw new ArgumentException("不能没有作者");
+            }
             _publishTime = DateTime.Now;//在发布时调用此方法为PublishTime赋值
             Author.HelpMoney -= 1;
             Console.WriteLine("棒棒币减少1");

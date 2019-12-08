@@ -8,7 +8,10 @@ namespace CSharp
     {
         public override void Issue()//如果发布Suggest，不需要消耗帮帮币
         {
-
+            if (Author==null)
+            {
+                throw new ArgumentException("不能没有作者");
+            }
             _publishTime = DateTime.Now;//在发布时调用此方法为PublishTime赋值
         }
         public Suggest(string kind):base(kind)
