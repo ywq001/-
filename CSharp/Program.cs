@@ -355,7 +355,7 @@ namespace CSharp
             Content ywq = new Suggest("文章");
             Console.WriteLine(ywq.CreateTime);
             
-                Type typeinfo = ywq.GetType();
+                Type typeinfo = typeof(Content);
                 FieldInfo onCreatetime = typeof(Content).GetField("_createTime", BindingFlags.Instance | BindingFlags.NonPublic);
                 onCreatetime.SetValue(ywq, DateTime.Now);
                 Console.WriteLine(ywq.CreateTime);
