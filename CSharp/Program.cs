@@ -263,25 +263,25 @@ namespace CSharp
             //加减乘除：Add() / Minus() / Mutiply() / Divide()
             //取字符值：GetUnicode()
             //取最高分：GetMax()
-            
+
             // SelfIntroduce("阿泰小贼",199,true,1.55,"重庆");
 
-            
+
             //Add(30,20);
 
-            
+
             //Minus(30, 20);
 
-            
+
             //Mutiply(5,3);
 
-            
+
             //Divide(5, 3);
 
-            
+
             //GetUnicode('牛');
 
-            
+
             //double[] scoers = new double[] { 68.5, 67.5, 96.5, 87.5, 56.5, 80 };
             //GetMax(scoers);
 
@@ -315,19 +315,19 @@ namespace CSharp
 
             //重载GetArray()，使其返回一个string[]
 
-            
+
             //GetArray("牛");
 
             //实现二分查找，方法名BinarySeek(int[] numbers, int target)：
             //传入一个有序（从大到小 / 从小到大）数组和数组中要查找的元素
             //如果找到，返回该元素所在的下标；否则，返回 - 1
             //int[] numbers = { 8, 11, 21, 28, 32, 43, 48, 56, 69, 72, 80, 94 };
-            //Console.WriteLine(BinarySeek(numbers, 69));
-            
+            //Console.WriteLine(BinarySeek(int[] numbers,int 69));
+
 
             //使用tuple作为参数，重构SelfIntroduction()方法，输出自我介绍
             //var students = Tuple.Create<int, String, bool, double>(16, "阿泰", false, 1.75);
-            
+
             //SelfIntroduction((16, "阿泰", false, 1.75));
 
             //作业: 自己实现 - 个模拟栈，增加如下功能:
@@ -354,7 +354,7 @@ namespace CSharp
 
             //Content ywq = new Suggest("文章");
             //Console.WriteLine(ywq.CreateTime);
-            
+
             //    //Type typeinfo = typeof(Content);
             //    //FieldInfo onCreatetime = typeof(Content).GetField("_createTime", BindingFlags.Instance | BindingFlags.NonPublic);
             //    //onCreatetime.SetValue(ywq, DateTime.Now);
@@ -362,11 +362,11 @@ namespace CSharp
 
             //ywq.Issue();
 
-            Problem wx = new Problem("求助");
+            //Problem wx = new Problem("求助");
             //wx.Reward = -2;
             //Console.WriteLine(wx.Reward);
 
-            ContentService.Publish(wx);
+            //ContentService.Publish(wx);
 
         }
 
@@ -634,29 +634,29 @@ namespace CSharp
             }
             Console.WriteLine(Math.Round(sum / ary.Length, 2));
         }
-        static int BinarySeek(int[] numbers, int target)
-        {
-            int min = 0;
-            int max = numbers.Length - 1;
-            int mid = 0;
-            while (min <= max)
-            {
-                mid = (min + max) / 2;
-                if (numbers[mid] > target)
-                {
-                    max = mid - 1;
-                }
-                else if (numbers[mid] < target)
-                {
-                    min = mid + 1;
-                }
-                else if (numbers[mid] == target)
-                {
-                    return mid;
-                }
-            }
-            return -1;
-        }
+        //static int BinarySeek<T>(T[] numbers, T target)
+        //{
+        //    int min = 0;
+        //    int max = numbers.Length - 1;
+        //    int mid = 0;
+        //    while (min <= max)
+        //    {
+        //        mid = (min + max) / 2;
+        //        if (numbers[mid] > target)
+        //        {
+        //            max = mid - 1;
+        //        }
+        //        else if (numbers[mid] < target)
+        //        {
+        //            min = mid + 1;
+        //        }
+        //        else if (numbers[mid] == target)
+        //        {
+        //            return mid;
+        //        }
+        //    }
+        //    return -1;
+        //}
 
         static void SelfIntroduce(string name, int age, bool IsFemale, double Height, string FromCity)
         {

@@ -5,7 +5,7 @@ using CSharp;
 namespace CSharp
 {
     //让User类无法被继承
-    internal sealed class User:Entity,ISendMessage,IChat
+    internal sealed class User:Entity<int>,ISendMessage,IChat
     {
         internal int HelpMoney { get; set; }
         internal TokenManager TokenManager { get; set; }

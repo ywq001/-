@@ -13,7 +13,7 @@ namespace CSharp
 //继承自父类的属性和方法
 //自己的属性和方法
 
-    abstract class Content : Entity
+    abstract class Content : Entity<int>
     {
         //public User Author { get; set; }
         internal protected string kind;
