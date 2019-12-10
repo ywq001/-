@@ -1,5 +1,6 @@
 ﻿using System;
 using CSharp;
+
 using System.Reflection;
 
 
@@ -9,6 +10,7 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
+            
             //Problem yq = new Problem();
             //yq.Publish();
 
@@ -252,7 +254,7 @@ namespace CSharp
             //        {
             //            break;
             //        }
-            //        if (n==x-1)
+            //        if (n == x - 1)
             //        {
             //            Console.WriteLine(x);
             //        }
@@ -352,13 +354,13 @@ namespace CSharp
             //wx.TokenManager.Remove(Token.Admin);ago
             //Console.WriteLine(wx.TokenManager.Has());
 
-            //Content ywq = new Suggest("文章");
-            //Console.WriteLine(ywq.CreateTime);
+            Content ywq = new Suggest("文章");
+            Console.WriteLine(ywq.CreateTime);
 
-            //    //Type typeinfo = typeof(Content);
-            //    //FieldInfo onCreatetime = typeof(Content).GetField("_createTime", BindingFlags.Instance | BindingFlags.NonPublic);
-            //    //onCreatetime.SetValue(ywq, DateTime.Now);
-            //    //Console.WriteLine(ywq.CreateTime);
+            Type typeinfo = typeof(Content);
+            FieldInfo onCreatetime = typeof(Content).GetField("_createtime", BindingFlags.Instance | BindingFlags.NonPublic);
+            onCreatetime.SetValue(ywq, DateTime.Now);
+            Console.WriteLine(ywq.CreateTime);
 
             //ywq.Issue();
 
@@ -668,7 +670,7 @@ namespace CSharp
             Console.WriteLine("来自:" + FromCity);
         }
 
-        static void GetMax(double[] array)
+        static double GetMax(double[] array)
         {
             double max = array[0];
             for (int i = 1; i < array.Length; i++)
@@ -678,7 +680,7 @@ namespace CSharp
                     max = array[i];
                 }
             }
-            Console.WriteLine(max);
+            return max;
         }
     }
     

@@ -1,5 +1,7 @@
 using NUnit.Framework;
 using CSharp;
+using ConsoleApp1;
+using System.Collections.Generic;
 
 namespace CsharpTest
 {
@@ -104,5 +106,26 @@ namespace CsharpTest
             Assert.AreEqual(d2.FindBy(3), d3);
             
         }
+    }
+
+    public class homeworktest
+    {
+
+        [Test]
+        public void GetMax()
+        {
+            double[] scoers = new double[] { 68.5, 67.5, 96.5, 87.5, 56.5, 80 };
+
+            Assert.AreEqual(homework.GetMax(scoers), 96.5);
+        }
+
+        [Test]
+        public void PrimeNumber()
+        {
+
+            Assert.AreEqual(homework.PrimeNumber(10), new List<int> { 3, 5, 7 });
+        }
+
+
     }
 }
