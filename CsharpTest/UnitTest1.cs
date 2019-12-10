@@ -78,8 +78,31 @@ namespace CsharpTest
             DoubleLinked.Swap(old, current1);
             Assert.AreEqual(old.Next, current1);
             Assert.AreEqual(current1.Previous, old);
-            //Assert.AreEqual(current.Previous, current1);
+            Assert.AreEqual(current.Previous, current1);
             Assert.AreEqual(current2.Next, old);
+            DoubleLinked.Swap(current4, current3);
+            Assert.AreEqual(current3.Previous, null);
+            Assert.AreEqual(current3.Next, current4);
+            Assert.AreEqual(current4.Previous, current3);
+            Assert.AreEqual(current4.Next, current2);
+        }
+        [Test]
+        public void FindBy()
+        {
+            DoubleLinked d1 = new DoubleLinked(1);
+            DoubleLinked d2 = new DoubleLinked(2);
+            DoubleLinked d3 = new DoubleLinked(3);
+            DoubleLinked d4 = new DoubleLinked(4);
+            DoubleLinked d5 = new DoubleLinked(5);
+            d1.InsertAfter(d2);
+            d2.InsertAfter(d3);
+            d3.InsertAfter(d4);
+            d4.InsertAfter(d3);
+            d5.InsertAfter(d4);
+
+            Assert.AreEqual(d1.FindBy(2), d2);
+            Assert.AreEqual(d2.FindBy(3), d3);
+            
         }
     }
 }
