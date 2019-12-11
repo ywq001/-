@@ -125,7 +125,19 @@ namespace CsharpTest
 
             Assert.AreEqual(homework.PrimeNumber(10), new List<int> { 3, 5, 7 });
         }
-
-
+        [Test]
+        public void BinarySeek()
+        {
+            int[] scoers = new int[] { 65, 67, 78, 79, 87, 89, 91, 93, 95 };
+            Assert.AreEqual(homework.BinarySeek(scoers, 87), 4);
+        }
+        [Test]
+        public void Push()
+        {
+            homework wx = new homework();
+            wx.Push(1);
+            Assert.AreEqual(wx.Pop(), 1);
+            Assert.AreEqual(wx.Pop(), null);
+        }
     }
 }

@@ -6,6 +6,7 @@ namespace ConsoleApp1
 {
     public class homework
     {
+        object[] stack = new object[8];
         public static double GetMax(double[] array)
         {
             double max = array[0];
@@ -114,6 +115,58 @@ namespace ConsoleApp1
                 guessNumbers = Convert.ToInt32(Console.ReadLine());
             }
 
+        }
+
+        public static int BinarySeek(int[] numbers, int target)
+        {
+            int min = 0;
+            int max = numbers.Length - 1;
+            int mid = 0;
+            while (min <= max)
+            {
+                mid = (min + max) / 2;
+                if (numbers[mid] > target)
+                {
+                    max = mid - 1;
+                }
+                else if (numbers[mid] < target)
+                {
+                    min = mid + 1;
+                }
+                else if (numbers[mid] == target)
+                {
+                    return mid;
+                }
+            }
+            return -1;
+        }
+
+        public void Push(params object[] element)
+        {
+        int top = 0;
+
+            for (int i = 0; i < element.Length; i++)
+            {
+                if (top > stack.Length)
+                {
+                    Console.WriteLine("栈满了");
+                }
+                stack[top] = element[i];
+                top++;
+            }
+        }
+
+        public object Pop()
+        {
+            int top = 0;
+
+            if (stack[0] == null)
+            {
+                Console.WriteLine("栈以空");
+            }
+            object temp = stack[top];
+            stack[top] = null;
+            return temp;
         }
     }
 
