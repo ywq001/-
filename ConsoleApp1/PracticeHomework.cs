@@ -30,6 +30,17 @@ namespace ConsoleApp1
             return -1;
         }
 
-
+        static T GetMax<T>(T[] array) where T: IComparable<T>
+        {
+            T max = array[0];
+            foreach (T Max in array)
+            {
+                if (Max.CompareTo(max)>0)
+                {
+                    max = Max;
+                }
+            }
+            return max;
+        }
     }
 }
