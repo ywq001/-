@@ -4,14 +4,14 @@ using System.Text;
 
 namespace CSharp
 {
-    public class DoubleLinked
+    public class DoubleLinked<T> 
     {
-        public DoubleLinked Previous { get;private set; }
-        public DoubleLinked Next { get; private set; }
+        public DoubleLinked<T> Previous { get;private set; }
+        public DoubleLinked<T> Next { get; private set; }
 
-        public int Value { get; set; }
+        public T Value { get; set; }
 
-        public DoubleLinked(int value)
+        public DoubleLinked(T value)
         {
             Value = value;
         }
@@ -25,17 +25,17 @@ namespace CSharp
             get { return Next == null; }
         }
 
-        public DoubleLinked FindBy(int value)
+        public DoubleLinked<T> FindBy(int value)
         {
-            DoubleLinked after = this.Next;
-            DoubleLinked before = this.Previous;
-            if (this.Value==value)
+            DoubleLinked<T> after = this.Next;
+            DoubleLinked<T> before = this.Previous;
+            if (this.Value.Equals(value))
             {
                 return this;
             }
             while (!(after==null))
             {
-                if (after.Value==value)
+                if (after.Value.Equals(value))
                 {
                     return after;
                 }
@@ -46,7 +46,7 @@ namespace CSharp
             }
             while (!(before==null))
             {
-                if (before.Value==value)
+                if (before.Value.Equals(value))
                 {
                     return before;
 
@@ -59,7 +59,7 @@ namespace CSharp
             return null;
         }
 
-        public void InsertAfter(DoubleLinked node)
+        public void InsertAfter(DoubleLinked<T> node)
         {
             if (node.Next == null)
             {
@@ -76,7 +76,7 @@ namespace CSharp
 
         }
 
-        public void IsertBefore(DoubleLinked node)
+        public void IsertBefore(DoubleLinked<T> node)
         {
             this.Next = node;
             if (node.Previous == null)
@@ -92,7 +92,7 @@ namespace CSharp
             }
         }
 
-        public static void Delete(DoubleLinked node)
+        public static void Delete(DoubleLinked<T> node)
         {
             if (node.IsHead && node.IsTail)
             {
@@ -110,12 +110,12 @@ namespace CSharp
             node.Next = null;
         }
 
-        public static void Swap(DoubleLinked a,DoubleLinked b)
+        public static void Swap(DoubleLinked<T> a,DoubleLinked<T> b)
         {
-            DoubleLinked temp=b.Next;
-            DoubleLinked Temp=b.Previous;
-            DoubleLinked store = a.Next;
-            DoubleLinked link = a.Previous;
+            DoubleLinked<T> temp=b.Next;
+            DoubleLinked<T> Temp =b.Previous;
+            DoubleLinked<T> store = a.Next;
+            DoubleLinked<T> link = a.Previous;
             if (a==b)
             {
                 throw new Exception("");
