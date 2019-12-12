@@ -17,7 +17,7 @@ namespace CSharp
     {
         private string[] _keyword = new string[10];
 
-        public List<ApprovalOppose> Appraise { get; set; }//有没有赞过或者踩过
+        public List<Appraise> Appraise { get; set; }//有没有赞过或者踩过
 
         internal string this[int index]//关键字索引器
         {

@@ -4,12 +4,8 @@ using System.Text;
 
 namespace CSharp
 {
-    interface ApprovalOppose
+    interface IApprovalOppose
     {
-        Content target { get; set; }
-        User Voter { get; set; }
-
-        bool AgreeOrNot { get; set; }
 
         void Agree(User voter);
 

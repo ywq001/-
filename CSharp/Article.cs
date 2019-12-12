@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharp
 {
-    class Article:Content,ApprovalOppose
+    class Article:Content,IApprovalOppose
     {
         //发布时棒棒币减少
         public List<Keyword> Keywords { get; set; }//文章有多个关键字
@@ -41,7 +41,9 @@ namespace CSharp
                 title = value;
             }
         }
-        
+
+    
+
         public void Agree(User voter)
         {
             Author.HelpMoney += 1;

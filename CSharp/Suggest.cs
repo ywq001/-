@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharp
 {
-    class Suggest:Content, ApprovalOppose
+    class Suggest:Content, IApprovalOppose
     {
         
         public override void Issue()//如果发布Suggest，不需要消耗帮帮币

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharp
 {
-    class Comment:ApprovalOppose
+    class Comment:IApprovalOppose
     {
         internal Appraise appraise;
         public Article Article;//每个评论都有对应的文章
