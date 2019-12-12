@@ -168,6 +168,9 @@ namespace ConsoleApp1
             stack[top] = null;
             return temp;
         }
+
+
+
     }
 
 }
