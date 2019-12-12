@@ -15,6 +15,18 @@ namespace CSharp
 
     abstract class Content : Entity<int>
     {
+        private string[] _keyword = new string[10];
+
+        public List<ApprovalOppose> Appraise { get; set; }//有没有赞过或者踩过
+
+        internal string this[int index]//关键字索引器
+        {
+            get { return _keyword[index]; }
+            set { _keyword[index] = value; }
+        }
+        public int AgreeCount { get; set; }//记录赞和踩的次数
+        public int DisagreeCount { get; set; }
+
         //public User Author { get; set; }
         internal protected string kind;
         public abstract void Issue();//子类重写方法，减少或增加棒棒币

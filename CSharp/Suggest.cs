@@ -6,9 +6,7 @@ namespace CSharp
 {
     class Suggest:Content, ApprovalOppose
     {
-        public List<Keyword> keywords;
-        internal Appraise appraise;
-        public List<Comment> comment;
+        
         public override void Issue()//如果发布Suggest，不需要消耗帮帮币
         {
             if (Author==null)

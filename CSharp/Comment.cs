@@ -7,7 +7,7 @@ namespace CSharp
     class Comment:ApprovalOppose
     {
         internal Appraise appraise;
-        internal Suggest suggest;
+        public Article Article;//每个评论都有对应的文章
         public User Author { get; set; }
         public void Agree(User voter)
         {
@@ -16,6 +16,10 @@ namespace CSharp
         public void Disagree(User voter)
         {
             Author.HelpMoney -= 1;
+        }
+        public Comment(Article article)//记录文章
+        {
+            this.Article = article;
         }
     }
 }
