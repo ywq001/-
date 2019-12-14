@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CSharp
 {
-    public class DoubleLinked<T> 
+    public class DoubleLinked<T>:IEnumerable<T>
     {
         public DoubleLinked<T> Previous { get;private set; }
         public DoubleLinked<T> Next { get; private set; }
@@ -137,6 +138,46 @@ namespace CSharp
                 {
                     a.InsertAfter(Temp);
                 }
+            }
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new DLEnumerable(this);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        public class DLEnumerable : IEnumerator<T>
+        {
+            private DoubleLinked<T> _node;
+            
+            public DLEnumerable(DoubleLinked<T> node)
+            {
+                _node = node;
+            }
+            public T Current { get { return _node.Previous.Value; } }
+
+            object IEnumerator.Current => throw new NotImplementedException();
+
+            public void Dispose()
+            {
+                //throw new NotImplementedException();
+            }
+
+            public bool MoveNext()
+            {
+                bool result = _node.Next != null;
+                _node = _node.Next;
+                return result;
+            }
+
+            public void Reset()
+            {
+                //throw new NotImplementedException();
             }
         }
     }

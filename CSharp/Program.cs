@@ -2,7 +2,9 @@
 using CSharp;
 
 using System.Reflection;
-
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CSharp
 {
@@ -10,7 +12,7 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            
+
             //Problem yq = new Problem();
             //yq.Publish();
 
@@ -354,13 +356,13 @@ namespace CSharp
             //wx.TokenManager.Remove(Token.Admin);ago
             //Console.WriteLine(wx.TokenManager.Has());
 
-            Content ywq = new Suggest("文章");
-            Console.WriteLine(ywq.CreateTime);
+            //Content ywq = new Suggest("文章");
+            //Console.WriteLine(ywq.CreateTime);
 
-            Type typeinfo = typeof(Content);
-            FieldInfo onCreatetime = typeof(Content).GetField("_createtime", BindingFlags.Instance | BindingFlags.NonPublic);
-            onCreatetime.SetValue(ywq, DateTime.Now);
-            Console.WriteLine(ywq.CreateTime);
+            //Type typeinfo = typeof(Content);
+            //FieldInfo onCreatetime = typeof(Content).GetField("_createtime", BindingFlags.Instance | BindingFlags.NonPublic);
+            //onCreatetime.SetValue(ywq, DateTime.Now);
+            //Console.WriteLine(ywq.CreateTime);
 
             //ywq.Issue();
 
@@ -369,6 +371,25 @@ namespace CSharp
             //Console.WriteLine(wx.Reward);
 
             //ContentService.Publish(wx);
+
+            //找出“飞哥”发布的文章
+            //找出2019年1月1日以后“小鱼”发布的文章
+            //按发布时间升序 / 降序排列显示文章
+            //统计每个用户各发布了多少篇文章
+            //找出包含关键字“C#”或“.NET”的文章
+            //找出评论数量最多的文章
+            Article SQL = new Article("文章") { Author = new User { name = "飞哥" }, Title = "SQL" };
+            Article JAVA = new Article("文章") { Author = new User { name = "飞哥" }, Title = "JAVA" };
+            Article UI = new Article("文章") { Author = new User { name = "小余" }, Title = "UI" };
+            Article CSharp = new Article("文章") { Author = new User { name = "小余" }, Title = "CSharp" };
+            IEnumerable<Article> authors = new List<Article> { SQL, JAVA, UI, CSharp };
+            var AuthorName = from a in authors
+                             where a.Author.name == "飞哥"
+                             select a;
+            foreach (var item in AuthorName)
+            {
+                Console.WriteLine(item.Title);
+            }
 
         }
 
