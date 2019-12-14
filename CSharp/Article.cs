@@ -17,8 +17,8 @@ namespace CSharp
                 throw new ArgumentException("不能没有作者");
             }
             _publishTime = DateTime.Now;//在发布时调用此方法为PublishTime赋值
-            Author.HelpMoney -= 1;
-            Console.WriteLine("棒棒币减少1");
+            Author.HelpMoney += 1;
+            
         }
         public Article(string kind):base(kind)
         {

@@ -378,10 +378,16 @@ namespace CSharp
             //统计每个用户各发布了多少篇文章
             //找出包含关键字“C#”或“.NET”的文章
             //找出评论数量最多的文章
-            Article SQL = new Article("文章") { Author = new User { name = "飞哥" }, Title = "SQL" };
-            Article JAVA = new Article("文章") { Author = new User { name = "飞哥" }, Title = "JAVA" };
-            Article UI = new Article("文章") { Author = new User { name = "小余" }, Title = "UI" };
-            Article CSharp = new Article("文章") { Author = new User { name = "小余" }, Title = "CSharp" };
+            Keyword sql = new Keyword() { Content = "SQL" };
+            Keyword csharp = new Keyword() { Content = "C#" };
+            Keyword net = new Keyword() { Content = ".NET" };
+            Keyword java = new Keyword() { Content = "JAVA" };
+            Keyword js = new Keyword() { Content = "JAVASCRIPT" };
+            Keyword html = new Keyword() { Content = "HTML" };
+            Article SQL = new Article("文章") { Author = new User { name = "飞哥" }, Title = "SQL",Keywords= new List<Keyword>{sql,csharp} };
+            Article JAVA = new Article("文章") { Author = new User { name = "飞哥" }, Title = "JAVA",Keywords=new List<Keyword> { java,sql} };
+            Article UI = new Article("文章") { Author = new User { name = "小余" }, Title = "UI",Keywords=new List<Keyword> { js,html} };
+            Article CSharp = new Article("文章") { Author = new User { name = "小余" }, Title = "CSharp",Keywords=new List<Keyword> { sql,csharp} };
             IEnumerable<Article> authors = new List<Article> { SQL, JAVA, UI, CSharp };
             var AuthorName = from a in authors
                              where a.Author.name == "飞哥"
@@ -389,8 +395,48 @@ namespace CSharp
             foreach (var item in AuthorName)
             {
                 Console.WriteLine(item.Title);
+            }//找出“飞哥”发布的文章
+
+            ContentService.Publish(UI);
+            ContentService.Publish(CSharp);
+
+            var excellent = from a in authors
+                            where a.PublishTime > Convert.ToDateTime("2019年1月1日") && a.Author.name=="小余"
+                            select a;
+            foreach (var item in excellent)
+            {
+                Console.WriteLine(item.Title);
+            }//找出2019年1月1日以后“小鱼”发布的文章
+
+            ContentService.Publish(SQL);
+            ContentService.Publish(JAVA);
+
+            var ascArticle = from a in authors
+                              orderby a.PublishTime ascending
+                              select a;//按时间升序
+            var descArticle = from a in authors
+                              orderby a.PublishTime descending
+                              select a;//按时间降序
+            foreach (var item in ascArticle)
+            {
+                Console.WriteLine(item.Title);
+            }
+            foreach (var item in descArticle)
+            {
+                Console.WriteLine(item.Title);
             }
 
+            var authorArticle = from a in authors
+                                group a by a.Author.name into gm
+                                select new
+                                {
+                                    Author = gm.Key,
+                                    count = gm.Count()
+                                };
+            foreach (var item in authorArticle)
+            {
+                Console.WriteLine(item.Author+":"+item.count);
+            }
         }
 
         static void Divide(int i, int j)

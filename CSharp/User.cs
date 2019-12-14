@@ -65,7 +65,7 @@ namespace CSharp
 
         internal User()
         {
-            Console.WriteLine("无参构造函数被调用");
+           
 
         }
 
