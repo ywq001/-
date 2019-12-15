@@ -378,17 +378,34 @@ namespace CSharp
             //统计每个用户各发布了多少篇文章
             //找出包含关键字“C#”或“.NET”的文章
             //找出评论数量最多的文章
+           
             Keyword sql = new Keyword() { Content = "SQL" };
-            Keyword csharp = new Keyword() { Content = "C#" };
+            Keyword csharp = new Keyword() { Content = "C#"};
             Keyword net = new Keyword() { Content = ".NET" };
             Keyword java = new Keyword() { Content = "JAVA" };
             Keyword js = new Keyword() { Content = "JAVASCRIPT" };
             Keyword html = new Keyword() { Content = "HTML" };
-            Article SQL = new Article("文章") { Author = new User { name = "飞哥" }, Title = "SQL",Keywords= new List<Keyword>{sql,csharp} };
-            Article JAVA = new Article("文章") { Author = new User { name = "飞哥" }, Title = "JAVA",Keywords=new List<Keyword> { java,sql} };
+            Article SQL = new Article("文章") { Author = new User { name = "飞哥" }, Title = "SQL",Keywords= new List<Keyword>{ sql } };
+            Article JAVA = new Article("文章") { Author = new User { name = "飞哥" }, Title = "JAVA",Keywords=new List<Keyword> { java, html } };
             Article UI = new Article("文章") { Author = new User { name = "小余" }, Title = "UI",Keywords=new List<Keyword> { js,html,net} };
-            Article CSharp = new Article("文章") { Author = new User { name = "小余" }, Title = "CSharp",Keywords=new List<Keyword> { sql,csharp} };
+            Article CSharp = new Article("文章") { Author = new User { name = "小余" }, Title = "CSharp",Keywords=new List<Keyword> { csharp } };
+            Comment wx = new Comment(JAVA) { Body="写的不行",Author=new User { name="王欣"} };
+            Comment atai = new Comment(SQL) { Body = "写的很好",Author=new User { name="阿泰"} };
+            Comment pzq = new Comment(UI) { Body = "还可以" ,Author=new User { name="彭志强"} };
+            Comment cbw = new Comment(CSharp) { Body = "一般般", Author = new User { name = "陈百万" } };
+            Comment ljp = new Comment(CSharp) { Body = "看得下去", Author = new User { name = "刘江平" } };
+            SQL.Comment = new List<Comment> { atai };
+            JAVA.Comment = new List<Comment> { wx };
+            UI.Comment = new List<Comment> { pzq };
+            CSharp.Comment = new List<Comment> { cbw, ljp };
+            sql.Articles = new List<Article> { SQL };
+            csharp.Articles = new List<Article> { CSharp };
+            net.Articles = new List<Article> { UI };
+            java.Articles = new List<Article> { JAVA };
+            js.Articles = new List<Article> { UI };
+            html.Articles = new List<Article> { JAVA, UI };
             IEnumerable<Article> authors = new List<Article> { SQL, JAVA, UI, CSharp };
+
             var AuthorName = from a in authors
                              where a.Author.name == "飞哥"
                              select a;
@@ -397,8 +414,10 @@ namespace CSharp
                 Console.WriteLine(item.Title);
             }//找出“飞哥”发布的文章
 
+
             ContentService.Publish(UI);
             ContentService.Publish(CSharp);
+
 
             var excellent = from a in authors
                             where a.PublishTime > Convert.ToDateTime("2019年1月1日") && a.Author.name=="小余"
@@ -407,6 +426,7 @@ namespace CSharp
             {
                 Console.WriteLine(item.Title);
             }//找出2019年1月1日以后“小鱼”发布的文章
+
 
             ContentService.Publish(SQL);
             ContentService.Publish(JAVA);
@@ -426,25 +446,33 @@ namespace CSharp
                 Console.WriteLine(item.Title);
             }
 
+
             var authorArticle = from a in authors
                                 group a by a.Author.name into gm
                                 select new
                                 {
                                     Author = gm.Key,
                                     count = gm.Count()
-                                };
+                                };//统计每个用户各发布了多少篇文章
             foreach (var item in authorArticle)
             {
                 Console.WriteLine(item.Author+":"+item.count);
             }
 
+
+
             var keywordArticle = from a in authors
                                  where a.Keywords.Contains(csharp) || a.Keywords.Contains(net)
-                                 select a;
+                                 select a;//找出包含关键字“C#”或“.NET”的文章
             foreach (var item in keywordArticle)
             {
                 Console.WriteLine(item.Title);
             }
+
+            var commentArticle = (from a in authors
+                                  orderby a.Comment.Count() descending
+                                  select a).First();//找出评论数量最多的文章
+            Console.WriteLine(commentArticle.Title);
         }
 
         static void Divide(int i, int j)

@@ -4,10 +4,12 @@ using System.Text;
 
 namespace CSharp
 {
-    class Comment:IApprovalOppose
+    class Comment : IApprovalOppose
     {
-        internal Appraise appraise;
-        public Article Article;//每个评论都有对应的文章
+        public string Body { get; set; }
+
+        //public Appraise appraise { get; set; }
+        public Article Article { get; set; }//每个评论都有对应的文章
         public User Author { get; set; }
         public void Agree(User voter)
         {
