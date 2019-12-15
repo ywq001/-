@@ -11,8 +11,8 @@ namespace CSharp
         internal TokenManager TokenManager { get; set; }
 
         internal Role role { get;private set; }
-        private string Name;
-        public string name 
+        private string name;
+        public string Name //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词。
         {
             get 
             {
@@ -20,9 +20,9 @@ namespace CSharp
             }
             set
             {
-                if (value == "admin")
+                if (value.Contains("17bang")&&value.Contains("admin")&&value.Contains("管理员"))
                 {
-                    Name = "系统管理员";
+                    throw new ArgumentException("用户名中不能包含敏感词");
                 }
                 Name = value;
             }

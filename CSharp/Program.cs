@@ -385,15 +385,15 @@ namespace CSharp
             Keyword java = new Keyword() { Content = "JAVA" };
             Keyword js = new Keyword() { Content = "JAVASCRIPT" };
             Keyword html = new Keyword() { Content = "HTML" };
-            Article SQL = new Article("文章") { Author = new User { name = "飞哥" }, Title = "SQL",Keywords= new List<Keyword>{ sql } };
-            Article JAVA = new Article("文章") { Author = new User { name = "飞哥" }, Title = "JAVA",Keywords=new List<Keyword> { java, html } };
-            Article UI = new Article("文章") { Author = new User { name = "小余" }, Title = "UI",Keywords=new List<Keyword> { js,html,net} };
-            Article CSharp = new Article("文章") { Author = new User { name = "小余" }, Title = "CSharp",Keywords=new List<Keyword> { csharp } };
-            Comment wx = new Comment(JAVA) { Body="写的不行",Author=new User { name="王欣"} };
-            Comment atai = new Comment(SQL) { Body = "写的很好",Author=new User { name="阿泰"} };
-            Comment pzq = new Comment(UI) { Body = "还可以" ,Author=new User { name="彭志强"} };
-            Comment cbw = new Comment(CSharp) { Body = "一般般", Author = new User { name = "陈百万" } };
-            Comment ljp = new Comment(CSharp) { Body = "看得下去", Author = new User { name = "刘江平" } };
+            Article SQL = new Article("文章") { Author = new User { Name = "飞哥" }, Title = "SQL",Keywords= new List<Keyword>{ sql } };
+            Article JAVA = new Article("文章") { Author = new User { Name = "飞哥" }, Title = "JAVA",Keywords=new List<Keyword> { java, html } };
+            Article UI = new Article("文章") { Author = new User { Name = "小余" }, Title = "UI",Keywords=new List<Keyword> { js,html,net} };
+            Article CSharp = new Article("文章") { Author = new User { Name = "小余" }, Title = "CSharp",Keywords=new List<Keyword> { csharp } };
+            Comment wx = new Comment(JAVA) { Body="写的不行",Author=new User { Name="王欣"} };
+            Comment atai = new Comment(SQL) { Body = "写的很好",Author=new User { Name="阿泰"} };
+            Comment pzq = new Comment(UI) { Body = "还可以" ,Author=new User { Name="彭志强"} };
+            Comment cbw = new Comment(CSharp) { Body = "一般般", Author = new User { Name = "陈百万" } };
+            Comment ljp = new Comment(CSharp) { Body = "看得下去", Author = new User { Name = "刘江平" } };
             SQL.Comment = new List<Comment> { atai };
             JAVA.Comment = new List<Comment> { wx };
             UI.Comment = new List<Comment> { pzq };
@@ -407,7 +407,7 @@ namespace CSharp
             IEnumerable<Article> authors = new List<Article> { SQL, JAVA, UI, CSharp };
 
             var AuthorName = from a in authors
-                             where a.Author.name == "飞哥"
+                             where a.Author.Name == "飞哥"
                              select a;
             foreach (var item in AuthorName)
             {
@@ -420,7 +420,7 @@ namespace CSharp
 
 
             var excellent = from a in authors
-                            where a.PublishTime > Convert.ToDateTime("2019年1月1日") && a.Author.name=="小余"
+                            where a.PublishTime > Convert.ToDateTime("2019年1月1日") && a.Author.Name=="小余"
                             select a;
             foreach (var item in excellent)
             {
@@ -448,7 +448,7 @@ namespace CSharp
 
 
             var authorArticle = from a in authors
-                                group a by a.Author.name into gm
+                                group a by a.Author.Name into gm
                                 select new
                                 {
                                     Author = gm.Key,
