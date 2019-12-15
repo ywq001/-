@@ -386,7 +386,7 @@ namespace CSharp
             Keyword html = new Keyword() { Content = "HTML" };
             Article SQL = new Article("文章") { Author = new User { name = "飞哥" }, Title = "SQL",Keywords= new List<Keyword>{sql,csharp} };
             Article JAVA = new Article("文章") { Author = new User { name = "飞哥" }, Title = "JAVA",Keywords=new List<Keyword> { java,sql} };
-            Article UI = new Article("文章") { Author = new User { name = "小余" }, Title = "UI",Keywords=new List<Keyword> { js,html} };
+            Article UI = new Article("文章") { Author = new User { name = "小余" }, Title = "UI",Keywords=new List<Keyword> { js,html,net} };
             Article CSharp = new Article("文章") { Author = new User { name = "小余" }, Title = "CSharp",Keywords=new List<Keyword> { sql,csharp} };
             IEnumerable<Article> authors = new List<Article> { SQL, JAVA, UI, CSharp };
             var AuthorName = from a in authors
@@ -436,6 +436,14 @@ namespace CSharp
             foreach (var item in authorArticle)
             {
                 Console.WriteLine(item.Author+":"+item.count);
+            }
+
+            var keywordArticle = from a in authors
+                                 where a.Keywords.Contains(csharp) || a.Keywords.Contains(net)
+                                 select a;
+            foreach (var item in keywordArticle)
+            {
+                Console.WriteLine(item.Title);
             }
         }
 

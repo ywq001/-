@@ -51,20 +51,6 @@ namespace CSharp
         public DateTime PublishTime { get { return _publishTime; } }//设置成protected只能被子类继承使用外部不能使用
 
 
-
-        private string keyword;
-        public string Keyword
-        {
-            get
-            {
-                return keyword;
-            }
-            set
-            {
-                keyword = value;
-            }
-        }
-
         private User author;
         public User Author
         {
