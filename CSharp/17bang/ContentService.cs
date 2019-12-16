@@ -19,7 +19,7 @@ namespace CSharp
         {
             try
             {
-                content.Issue();
+                content.Publish();
             }
             catch (ArgumentNullException e1)
             {

@@ -77,7 +77,7 @@ namespace CSharp
         {
 
         }
-        public override void Issue()
+        public override void Publish()
         {
             if (Author == null)
             {

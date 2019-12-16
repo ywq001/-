@@ -29,7 +29,7 @@ namespace CSharp
 
         //public User Author { get; set; }
         internal protected string kind;
-        public abstract void Issue();//子类重写方法，减少或增加棒棒币
+        public abstract void Publish();//子类重写方法，减少或增加棒棒币
         public Content(string kind)
         {
             _createtime = DateTime.Now;//在NEW一个对象时通过子类调用父类构造为createTime赋值

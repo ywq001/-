@@ -10,7 +10,7 @@ namespace CSharp
         public List<Keyword> Keywords { get; set; }//文章有多个关键字
         public List<Comment> Comments { get; set; }//文章有多个评论
 
-        public override void Issue()
+        public override void Publish()
         {
             if (Author == null)
             {
