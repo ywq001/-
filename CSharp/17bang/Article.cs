@@ -8,7 +8,7 @@ namespace CSharp
     {
         //发布时棒棒币减少
         public List<Keyword> Keywords { get; set; }//文章有多个关键字
-        public List<Comment> Comment { get; set; }//文章有多个评论
+        public List<Comment> Comments { get; set; }//文章有多个评论
 
         public override void Issue()
         {

@@ -7,6 +7,7 @@ namespace CSharp
     //让User类无法被继承
     internal sealed class User:Entity<int>,ISendMessage,IChat
     {
+        List<string> sensitive = new List<string> { "17bang", "admin", "管理员" };
         internal int HelpMoney { get; set; }
         internal TokenManager TokenManager { get; set; }
 
@@ -20,26 +21,16 @@ namespace CSharp
             }
             set
             {
-                if (value.Contains("17bang")&&value.Contains("admin")&&value.Contains("管理员"))
-                {
-                    throw new ArgumentException("用户名中不能包含敏感词");
-                }
+                //if (value.Contains)
+                //{
+                //    throw new ArgumentException("用户名中不能包含敏感词");
+                //}
                 Name = value;
             }
         }
+
+        private string[] password = new string[7];
         
-        private string Password;
-        public string passwoed 
-        {
-            get
-            {
-                return Password;
-            }
-            private set
-            {
-                Password = value;
-            }
-        }
         private User invitedBy;
         public User InvitedBy
         {
@@ -48,9 +39,9 @@ namespace CSharp
         }
 
 
-        void changePasword(string Password)
+        void changePasword(string[] code)
         {
-            this.Password = Password;
+            this.password = code;
         }
 
         internal static void Register()
@@ -91,4 +82,5 @@ namespace CSharp
         Published,
         Admin
     }
+   
 }
