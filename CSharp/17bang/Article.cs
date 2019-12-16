@@ -30,7 +30,10 @@ namespace CSharp
         }
 
         private string title;
-        public string Title//确保文章（Content）的标题不能为null值，也不能为一个或多个空字符组成的字符串，而且如果标题前后有空格，也予以删除
+        ///确保文章（Content）的标题不能为null值，
+        ///也不能为一个或多个空字符组成的字符串，
+        ///而且如果标题前后有空格，也予以删除
+        public string Title
         {
             get
             {
@@ -38,14 +41,11 @@ namespace CSharp
             }
             set
             {
-                if (value==null)
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException("标题不能为null");
+                    throw new ArgumentException("标题不能为null或空值");
                 }
-                else if (value==string.Empty)
-                {
-                    throw new ArgumentException("标题不能为空字符");
-                }
+                
                 title = value.Trim();
             }
         }
