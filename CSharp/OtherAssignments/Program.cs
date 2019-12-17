@@ -12,9 +12,10 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
+            //string a = "123123";
+            //string b = "1";
 
-        
-
+            //Console.WriteLine(Method.GetCount(a, b));
             //完成“猜数字”游戏，方法名GuessMe()
             //test1=>当五次内猜对的时候的显示你真牛逼，然后跳出循环，小于8次猜对输出不错嘛，然后跳出循环，9次猜对输出还可以，10次猜对输出还行
             //test2=>当猜错时猜的数字比随机数小的时候输出小了然后继续输入猜测的数字，比随机数大就输出大了，然后继续输入

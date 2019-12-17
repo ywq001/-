@@ -15,14 +15,14 @@ namespace CSharp
 
         static ExerciseOfLinq()
         {
-             fg = new User() { Name = "飞哥" };
-             xy = new User() { Name = "小余" };
-             sql = new Keyword() { Content = "SQL" };
-             csharp = new Keyword() { Content = "C#" };
-             net = new Keyword() { Content = ".NET" };
-             java = new Keyword() { Content = "JAVA" };
-             js = new Keyword() { Content = "JAVASCRIPT" };
-             html = new Keyword() { Content = "HTML" };
+             fg = new User { Name = "飞哥" };
+             xy = new User { Name = "小余" };
+             sql = new Keyword { Content = "SQL" };
+             csharp = new Keyword { Content = "C#" };
+             net = new Keyword { Content = ".NET" };
+             java = new Keyword { Content = "JAVA" };
+             js = new Keyword { Content = "JAVASCRIPT" };
+             html = new Keyword { Content = "HTML" };
              SQL = new Article("文章") { Author = fg, Title = "SQL", Keywords = new List<Keyword> { sql } };
              JAVA = new Article("文章") { Author = fg, Title = "JAVA", Keywords = new List<Keyword> { java, html } };
              UI = new Article("文章") { Author = xy, Title = "UI", Keywords = new List<Keyword> { js, html, net } };
@@ -65,7 +65,7 @@ namespace CSharp
         private static void getArticleByFeige()
         {
             var fgArticle = from a in articles
-                            where a.Author.Name == "飞哥"
+                            where a.Author == fg
                             select a;
             foreach (var item in fgArticle)
             {
@@ -78,7 +78,7 @@ namespace CSharp
         private static void getArticleByXiaoyu()
         {
             var xyArtricle = from a in articles
-                             where a.PublishTime > Convert.ToDateTime("2019年1月1日") && a.Author.Name == "小余"
+                             where a.PublishTime > Convert.ToDateTime("2019年1月1日") && a.Author == xy
                              select a;
             foreach (var item in xyArtricle)
             {
@@ -111,7 +111,7 @@ namespace CSharp
         private static void getAuthorByArticle()
         {
             var authorArticle = from a in articles
-                                group a by a.Author.Name into gm
+                                group a by a.Author into gm
                                 select new
                                 {
                                     Author = gm.Key,

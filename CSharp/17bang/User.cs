@@ -9,7 +9,7 @@ namespace CSharp
     //让User类无法被继承
     internal sealed class User:Entity<int>,ISendMessage,IChat
     {
-        internal List<string> sensitive = new List<string> { "admin", "17bang", "管理员" };
+        internal IList<string> sensitive = new List<string> { "admin", "17bang", "管理员" };
         internal int HelpMoney { get; set; }
         internal TokenManager TokenManager { get; set; }
        
@@ -38,7 +38,7 @@ namespace CSharp
                 }
                 else
                 {
-                    Name = value;
+                    _name = value;
 
                 }
             }
@@ -92,10 +92,7 @@ namespace CSharp
 
         }
 
-        internal User(string Name)
-        {
-            this.Name = _name;
-        }
+      
 
         void ISendMessage.Send()
         {
