@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharp
 {
-    class Method
+    class StringMethod
     {
         public static int GetCount(string container, string target)
         {
