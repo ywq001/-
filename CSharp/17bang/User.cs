@@ -7,25 +7,36 @@ namespace CSharp
     //让User类无法被继承
     internal sealed class User:Entity<int>,ISendMessage,IChat
     {
-        List<string> sensitive = new List<string> { "17bang", "admin", "管理员" };
+        internal List<string> sensitive = new List<string> { "admin", "17bang", "管理员" };
         internal int HelpMoney { get; set; }
         internal TokenManager TokenManager { get; set; }
 
         internal Role role { get;private set; }
-        private string name;
-        public string Name //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词。
+        private string _name;
+        //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词。
+        public string Name 
         {
             get 
             {
-                return Name;
+                return _name;
             }
             set
             {
-                //if (value.Contains)
-                //{
-                //    throw new ArgumentException("用户名中不能包含敏感词");
-                //}
-                Name = value;
+                if (value == "Admin")
+                {
+                    value = "系统管理员";
+                    _name = value;
+
+                }
+                else if (ExamineName(value))
+                {
+                    Console.WriteLine("用户名不能含有敏感词");
+                }
+                else
+                {
+                    Name = value;
+
+                }
             }
         }
 
@@ -62,7 +73,7 @@ namespace CSharp
 
         internal User(string Name)
         {
-            this.Name = name;
+            this.Name = _name;
         }
 
         void ISendMessage.Send()
@@ -73,7 +84,23 @@ namespace CSharp
         {
             Console.WriteLine("实现IChat接口方法");
         }
-
+        private bool result;
+        private bool ExamineName(string value)
+        {
+            for (int i = 0; i < sensitive.Count; i++)
+            {
+                if (value.Contains(sensitive[i]))
+                {
+                    result = true;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            return result;
+        }
     }
     enum Role
     {
