@@ -58,11 +58,7 @@ namespace CSharp
         //    get { return author; }
         //    set { Author = value; }
         //}
-        internal  void Publish()
-        {
-            Console.WriteLine("实例方法");
-        }
-
+        
        internal static void Load(int Id)
         {
             Console.WriteLine("静态的");

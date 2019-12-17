@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using CSharp;
+
+
 namespace CSharp
 {
     //让User类无法被继承
@@ -10,9 +12,11 @@ namespace CSharp
         internal List<string> sensitive = new List<string> { "admin", "17bang", "管理员" };
         internal int HelpMoney { get; set; }
         internal TokenManager TokenManager { get; set; }
+       
 
         internal Role role { get;private set; }
         private string _name;
+
         //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词。
         public string Name 
         {
@@ -40,7 +44,7 @@ namespace CSharp
             }
         }
 
-        private string[] password = new string[7];
+        private string password;
         
         private User invitedBy;
         public User InvitedBy
@@ -49,10 +53,27 @@ namespace CSharp
             set { invitedBy = value; }
         }
 
-
-        void changePasword(string[] code)
+        ///确保用户（User）的密码（Password）：
+        ///长度不低于6
+        ///必须由大小写英语单词、数字和特殊符号（~!@#$%^&*()_+）组成
+        void changePasword(string code)
         {
-            this.password = code;
+          
+            if (code.Length<6)
+            {
+                Console.WriteLine("密码长度太低");
+            }
+            else
+            {
+                if (CheckPassword.AllJudgment(code))
+                {
+                    this.password = code;
+                }
+                else
+                {
+                    Console.WriteLine("密码不符合规范");
+                }
+            }
         }
 
         internal static void Register()
