@@ -22,9 +22,9 @@ namespace CSharp
             ///不使用string自带的Join()方法，定义一个mimicJoin()方法，
             ///能将若干字符串用指定的分隔符连接起来，
             ///比如：mimicJoin("-", "a", "b", "c", "d")，其运行结果为：a - b - c - d
-            string a = "-";
-            string[] b = new string[] { "a", "b", "c", "d", "e", "f" };
-            Console.WriteLine(StringMethod.mimicJoin(a,b));
+            //string a = "-";
+            //string[] b = new string[] { "a", "b", "c", "d", "e", "f" };
+            //Console.WriteLine(StringMethod.mimicJoin(a,b));
 
 
             //完成“猜数字”游戏，方法名GuessMe()
@@ -85,7 +85,13 @@ namespace CSharp
             //统计每个用户各发布了多少篇文章
             //找出包含关键字“C#”或“.NET”的文章
             //找出评论数量最多的文章
-            ExerciseOfLinq.Do();
+            //ExerciseOfLinq.Do();
+            //ExerciseOfLinq.getArticleByFeige();
+            //ExerciseOfLinq.getArticleByXiaoyu();
+            //ExerciseOfLinq.getArticleByTime();
+            ExerciseOfLinq.getArticleByCommentMax();
+            ExerciseOfLinq.getArticleByKeyword();
+            ExerciseOfLinq.getAuthorByArticle();
         }
 
         

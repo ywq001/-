@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharp
 {
-    class OtherAssignments
+    public class OtherAssignment
     {
         static void Divide(int i, int j)
         {

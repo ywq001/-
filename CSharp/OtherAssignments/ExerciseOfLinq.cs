@@ -59,14 +59,12 @@ namespace CSharp
             getArticleByXiaoyu();
             getArticleByTime();
             getAuthorByArticle();
-            getArticleByKeyword(csharp,net);
+            getArticleByKeyword();
         }
         //找出“飞哥”发布的文章
-        private static void getArticleByFeige()
+        public static void getArticleByFeige()
         {
-            var fgArticle = from a in articles
-                            where a.Author == fg
-                            select a;
+            var fgArticle = articles.Where(a => a.Author == fg);
             foreach (var item in fgArticle)
             {
                 Console.WriteLine(item.Title);
@@ -75,11 +73,9 @@ namespace CSharp
 
 
         //找出2019年1月1日以后“小鱼”发布的文章
-        private static void getArticleByXiaoyu()
+        public static void getArticleByXiaoyu()
         {
-            var xyArtricle = from a in articles
-                             where a.PublishTime > Convert.ToDateTime("2019年1月1日") && a.Author == xy
-                             select a;
+            var xyArtricle = articles.Where(a => a.Author == xy && a.PublishTime > new DateTime(2019,1,1));
             foreach (var item in xyArtricle)
             {
                 Console.WriteLine(item.Title);
@@ -88,14 +84,12 @@ namespace CSharp
 
 
         //按发布时间升序 / 降序排列显示文章
-        private static void getArticleByTime()
+        public static void getArticleByTime()
         {
-            var ascArticle = from a in articles
-                             orderby a.PublishTime ascending
-                             select a;//按时间升序
-            var descArticle = from a in articles
-                              orderby a.PublishTime descending
-                              select a;//按时间降序
+            var ascArticle = articles.OrderByDescending(a => a.PublishTime);
+            //按时间降序
+            var descArticle = articles.OrderBy(a => a.PublishTime);
+            //按时间升序
             foreach (var item in ascArticle)
             {
                 Console.WriteLine(item.Title);
@@ -108,27 +102,24 @@ namespace CSharp
 
         //统计每个用户各发布了多少篇文章
 
-        private static void getAuthorByArticle()
+        public static void getAuthorByArticle()
         {
-            var authorArticle = from a in articles
-                                group a by a.Author into gm
-                                select new
-                                {
-                                    Author = gm.Key,
-                                    count = gm.Count()
-                                };
+            var authorArticle = articles.GroupBy(a => a.Author)
+                                 .Select(ga => new
+                                 {
+                                     Author = ga.Key,
+                                     count=ga.Count()
+                                 });       
             foreach (var item in authorArticle)
             {
-                Console.WriteLine(item.Author + ":" + item.count);
+                Console.WriteLine(item.Author.Name + ":" + item.count);
             }
         }
         //找出包含关键字“C#”或“.NET”的文章
-        private static void getArticleByKeyword(Keyword keyword, Keyword Keyword)
+        public static void getArticleByKeyword()
         {
 
-            var keywordArticle = from a in articles
-                                 where a.Keywords.Contains(keyword) || a.Keywords.Contains(Keyword)
-                                 select a;//找出包含关键字“C#”或“.NET”的文章
+            var keywordArticle = articles.Where(a => a.Keywords.Contains(csharp) || a.Keywords.Contains(net));
             foreach (var item in keywordArticle)
             {
                 Console.WriteLine(item.Title);
@@ -136,11 +127,9 @@ namespace CSharp
         }
 
         //找出评论数量最多的文章
-        private static void getArticleByCommentMax()
+        public static void getArticleByCommentMax()
         {
-            var commentsArticle = (from a in articles
-                                   orderby a.Comments.Count() descending
-                                   select a).First();//找出评论数量最多的文章
+            var commentsArticle = (articles.OrderByDescending(a => a.Comments?.Count())).First();
             Console.WriteLine(commentsArticle.Title);
         }
 
