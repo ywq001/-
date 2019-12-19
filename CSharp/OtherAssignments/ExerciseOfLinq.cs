@@ -133,5 +133,15 @@ namespace CSharp
             Console.WriteLine(commentsArticle.Title);
         }
 
+        //找出每个作者最近发布的一篇文章
+        public static void getAuthorByRecentlyArticle()
+        {
+            var authorArticle = articles.GroupBy(a => a.Author).Select(a => a.OrderByDescending(p => p.PublishTime).First());
+            foreach (var item in authorArticle)
+            {
+                Console.WriteLine(item.Title);
+            }
+        }
+
     }
 }

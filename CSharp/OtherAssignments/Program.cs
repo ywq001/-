@@ -92,6 +92,7 @@ namespace CSharp
             ExerciseOfLinq.getArticleByCommentMax();
             ExerciseOfLinq.getArticleByKeyword();
             ExerciseOfLinq.getAuthorByArticle();
+            ExerciseOfLinq.getAuthorByRecentlyArticle();
         }
 
         
