@@ -187,66 +187,18 @@ namespace CSharp
 
         static void GuessMe(int min, int max)
         {
-            int number;
-            int guessNumbers;
-            Random rd = new Random();
-            number = rd.Next(min, max);
-            int count = 1;
+            int actuclNumber = new Random().Next(min, max);
             Console.WriteLine("请输入小于" + max + "大于" + min + "的猜测数值：");
-            guessNumbers = Convert.ToInt32(Console.ReadLine());
+            int count = 1;
             while (count < 11)
             {
-                if (guessNumbers.GetType() == typeof(int))
+                if (int.TryParse(Console.ReadLine(), out int guessNumbers))
                 {
-                    if (number == guessNumbers)
+                    string reminder = guess(actuclNumber, guessNumbers, count, out bool needBreak);
+                    Console.WriteLine(reminder);
+                    if (needBreak)
                     {
-                        if (count <= 9)
-                        {
-                            if (count <= 8)
-                            {
-                                if (count <= 5)
-                                {
-                                    Console.WriteLine("你真牛逼");
-                                    break;
-                                }
-                                else
-                                {
-                                    Console.WriteLine("不错嘛");
-                                }
-                            }
-                            else
-                            {
-                                Console.WriteLine("还可以");
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("还行");
-                            break;
-                        }
-
-                    }
-                    else
-                    {
-
-                        if (count == 10)
-                        {
-                            Console.WriteLine("(～￣(OO)￣)ブ");
-                            break;
-                        }
-
-                        else
-                        {
-                            if (guessNumbers < number)
-                            {
-                                Console.WriteLine("小了");
-                            }
-                            else
-                            {
-                                Console.WriteLine("大了");
-                            }
-                        }
+                        break;
                     }
                 }
                 else
@@ -255,9 +207,73 @@ namespace CSharp
                 }
                 count++;
                 Console.WriteLine("请再次输入猜测的数字：");
-                guessNumbers = Convert.ToInt32(Console.ReadLine());
             }
 
+        }
+
+        private static string guess(int actuclNumber, int guessNumbers, int count, out bool needBreak)
+        {
+            if (actuclNumber == guessNumbers)
+            {
+                needBreak = true;
+
+                return hasGuess(count);
+            }
+            else
+            {
+                if (count == 10)
+                {
+                    needBreak = true;
+                    return "(～￣(OO)￣)ブ";
+
+                }
+                else
+                {
+                    needBreak = false;
+                    return notGuess(guessNumbers, actuclNumber);
+                }
+            }
+        }
+
+        private static string hasGuess(int count)
+        {
+            if (count <= 9)
+            {
+                if (count <= 8)
+                {
+                    if (count <= 5)
+                    {
+                        return "你真牛逼";
+
+                    }
+                    else
+                    {
+                        return "不错嘛";
+                    }
+                }
+                else
+                {
+                    return "还可以";
+
+                }
+            }
+            else
+            {
+                return "还行";
+
+            }
+        }
+
+        private static string notGuess(int guessNumbers, int actuclNumber)
+        {
+            if (guessNumbers < actuclNumber)
+            {
+                return "小了";
+            }
+            else
+            {
+                return "大了";
+            }
         }
 
         static void GetAverage(double[] ary)
