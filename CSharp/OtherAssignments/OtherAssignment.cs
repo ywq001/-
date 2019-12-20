@@ -185,7 +185,7 @@ namespace CSharp
             return rArray;
         }
 
-        static void GuessMe(int min, int max)
+        public static void GuessMe(int min, int max)
         {
             int actuclNumber = new Random().Next(min, max);
             Console.WriteLine("请输入小于" + max + "大于" + min + "的猜测数值：");
@@ -211,7 +211,7 @@ namespace CSharp
 
         }
 
-        private static string guess(int actuclNumber, int guessNumbers, int count, out bool needBreak)
+        public static string guess(int actuclNumber, int guessNumbers, int count, out bool needBreak)
         {
             if (actuclNumber == guessNumbers)
             {

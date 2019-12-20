@@ -140,4 +140,19 @@ namespace CsharpTest
             Assert.AreEqual(wx.Pop(), null);
         }
     }
+
+    public class GuessMe
+    {
+        [Test]
+        public void guess()
+        {
+            Assert.AreEqual(OtherAssignment.guess(10, 10, 2, out bool needBreak), "你真牛逼");
+            Assert.AreEqual(OtherAssignment.guess(10, 10, 6, out bool need), "不错嘛");
+            Assert.AreEqual(OtherAssignment.guess(10, 10, 9, out bool a), "还可以");
+            Assert.AreEqual(OtherAssignment.guess(10, 8, 5, out bool b), "小了");
+            Assert.AreEqual(OtherAssignment.guess(10, 15, 5, out bool c), "大了");
+            Assert.AreEqual(OtherAssignment.guess(10, 15, 10, out bool d), "(～￣(OO)￣)ブ");
+
+        }
+    }
 }

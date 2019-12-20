@@ -12,7 +12,7 @@ namespace CSharp
         static Keyword sql, csharp, net, java, js, html;
         static Article SQL, JAVA, UI, CSharp;
         static Comment wx, atai, pzq, cbw, ljp;
-
+        static Problem ide, rj, php, css;
         static ExerciseOfLinq()
         {
              fg = new User { Name = "飞哥" };
@@ -47,10 +47,15 @@ namespace CSharp
             ContentService.Publish(CSharp);
             ContentService.Publish(SQL);
             ContentService.Publish(JAVA);
+            ide = new Problem("求助") { Author = fg, Reward = 5,Title="哪个ide好用" };
+            rj = new Problem("求助") { Author = fg, Reward = 8,Title="这个软件怎么样" };
+            php = new Problem("求助") { Author = xy, Reward = 7, Title = "php语法" };
+            css = new Problem("求助") { Author = xy, Reward = 6, Title = "css怎么写" };
+            problems = new List<Problem> { ide, rj, php, css };
         }
 
-        
 
+        private static IEnumerable<Problem> problems;
         private static IEnumerable<Article> articles;
        
         internal static void Do()
@@ -144,6 +149,16 @@ namespace CSharp
         }
 
         //为求助（Problem）添加悬赏（Reward）属性，并找出每一篇求助的悬赏都大于5个帮帮币的文章作者
+        public static void findOfProbelm()
+        {
+            var rewardAuthor = problems.GroupBy(p => p.Author)
+                                .Where(rp => rp.Min(r => r.Reward) > 5)
+                                .Select(a => a.Key.Name);
+            foreach (var item in rewardAuthor)
+            {
+                Console.WriteLine(item);
+            }
+        }
 
     }
 }
