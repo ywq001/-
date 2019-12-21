@@ -1,10 +1,12 @@
 ﻿using System;
 using CSharp;
-
+using System.Xml.Linq;
 using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using System.Xml;
 
 namespace CSharp
 {
@@ -89,10 +91,47 @@ namespace CSharp
             //ExerciseOfLinq.getArticleByFeige();
             //ExerciseOfLinq.getArticleByXiaoyu();
             //ExerciseOfLinq.getArticleByTime();
-            ExerciseOfLinq.getArticleByCommentMax();
-            ExerciseOfLinq.getArticleByKeyword();
-            ExerciseOfLinq.getAuthorByArticle();
-            ExerciseOfLinq.getAuthorByRecentlyArticle();
+            //ExerciseOfLinq.getArticleByCommentMax();
+            //ExerciseOfLinq.getArticleByKeyword();
+            //ExerciseOfLinq.getAuthorByArticle();
+            //ExerciseOfLinq.getAuthorByRecentlyArticle();
+
+
+            ///现有一个txt文件，里面存放了若干email地址，
+            ///使用分号（;）或者换行进行了分隔。
+            ///请删除其中重复的email地址，并按每30个email一行（行内用; 分隔）重新组织
+
+
+
+            //按以下格式生成一个XML对象
+            XElement articles = new XElement(
+                "articles",
+                new XComment("以下存放所有“源栈”所有文章"),
+                new XElement("article",
+                    new XAttribute("isDraft",false),
+                    new XElement("id","1"),
+                    new XElement("title", "源栈培训：C#进阶-7：Linq to XML"),
+                    new XElement("body", "什么是XML（EXtensible Markup Language）" +
+                    "是一种文本文件格式被设计用来传输和存储数据由：标签和属性组成元素（节点），由元素组成“树状结构”必须有而且只能有一个根节点其他："),
+                    new XElement("authorId","1"),
+                    new XElement("publishDate", "2019/6/18 18:15"),
+                    new XElement("comments",
+                    new XElement("comment",
+                    new XElement("id","12"),
+                    new XElement("body", "不错，赞！"),
+                    new XElement("authorId","2"),
+                    new XAttribute("recommend",true)),
+                    new XElement("comment",
+                    new XElement("id","14"),
+                    new XElement("body", "作业太难了"),
+                    new XElement("authorId","3")))),
+                new XElement("article",
+                    new XElement("id","2"),
+                    new XElement("title", "源栈培训：C#进阶-6：异步和并行"),
+                    new XElement("authorId",1),
+                    new XAttribute("isDraft",true))
+                );
+            Console.WriteLine(articles);
         }
 
         
