@@ -81,12 +81,7 @@ namespace CSharp
 
             //ContentService.Publish(wx);
 
-            //找出“飞哥”发布的文章
-            //找出2019年1月1日以后“小鱼”发布的文章
-            //按发布时间升序 / 降序排列显示文章
-            //统计每个用户各发布了多少篇文章
-            //找出包含关键字“C#”或“.NET”的文章
-            //找出评论数量最多的文章
+            //linq方法调用
             //ExerciseOfLinq.Do();
             //ExerciseOfLinq.getArticleByFeige();
             //ExerciseOfLinq.getArticleByXiaoyu();
@@ -138,6 +133,26 @@ namespace CSharp
                 new XDeclaration("1.0", "utf-8", "yes"),
                 articles);
             article.Save("E:\\新建文件夹\\article.xml");
+
+            //再从磁盘中读取到内存中
+            XElement element = XElement.Load("E:\\新建文件夹\\article.xml");
+
+            //在根节点下添加一个新的article元素，内容至少包含id、title和authorId
+            articles.Add(new XElement("article",
+                         new XElement("id", 1),
+                         new XElement("title", "net"),
+                         new XElement("authorId", "2")));
+            articles.Save("E:\\article.xml");
+            Console.WriteLine(articles);
+
+            //删除id = 12的评论
+            XElement idCard = (from a in articles.Descendants("comment")
+                               where a.Element("id").Value == "12"
+                               select a).Single();
+            idCard.Remove();
+            articles.Save("D:\\article.xml");
+            Console.WriteLine(articles);
+            //articles.Descendants("id").Where(x => (string)x == "12");
         }
 
         
