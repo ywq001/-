@@ -153,6 +153,15 @@ namespace CSharp
             articles.Save("D:\\article.xml");
             Console.WriteLine(articles);
             //articles.Descendants("id").Where(x => (string)x == "12");
+
+            //改变id = 2的article：isDraft = false，title = 源栈培训：C#进阶-8：异步和并行
+            XElement idCard2 = (from a in articles.Descendants("article")
+                                where a.Element("id").Value == "2"
+                                select a).Single();
+            idCard2.SetAttributeValue("isDraft", false);
+            idCard2.SetElementValue("title", "源栈培训：C#进阶-8：异步和并行");
+            articles.Save("E:\\Temp\\article.xml");
+            Console.WriteLine(articles);
         }
 
         
