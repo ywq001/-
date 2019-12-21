@@ -132,6 +132,12 @@ namespace CSharp
                     new XAttribute("isDraft",true))
                 );
             Console.WriteLine(articles);
+
+            //然后，将其以文件形式存放到磁盘中；
+            XDocument article = new XDocument(
+                new XDeclaration("1.0", "utf-8", "yes"),
+                articles);
+            article.Save("E:\\新建文件夹\\article.xml");
         }
 
         
