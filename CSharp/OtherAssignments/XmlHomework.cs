@@ -42,6 +42,12 @@ namespace CSharp.OtherAssignments
                 new XElement("authorName", "飞哥"),
                 new XElement("title", "源栈培训：C#进阶-6：异步和并行"),
                 new XElement("authorId", 1),
+                new XAttribute("isDraft", true)),
+            new XElement("article",
+                new XElement("id", "2"),
+                new XElement("authorName", "陈百万"),
+                new XElement("title", "源栈培训：C#"),
+                new XElement("authorId", 2),
                 new XAttribute("isDraft", true))
             );
             return articles;
@@ -78,5 +84,24 @@ namespace CSharp.OtherAssignments
                 Console.WriteLine(item.Element("title"));
             }
         }
+
+        ///统计出每个用户各发表了多少篇文章
+        public  static void userArticle()
+        {
+            var count = xmlarticles().Descendants("article")
+                        .GroupBy(u => u.Element("authorName").Value)
+                        .Select(ua => new
+                        {
+                            authorName = ua.Key,
+                            count = ua.Count()
+                        });
+            foreach (var item in count)
+            {
+                Console.WriteLine(item.authorName+":"+item.count);
+            }         
+        }
+
+        ///查出每个用户最近发布的一篇文章
+        
     }
 }
