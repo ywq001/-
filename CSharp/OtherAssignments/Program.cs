@@ -152,9 +152,13 @@ namespace CSharp
 
             ///统计出每个用户各发表了多少篇文章
             XmlHomework.userArticle();
-            
+
             ///查出每个用户最近发布的一篇文章
+            XmlHomework.recentArticle();
+
             ///每个用户评论最多的一篇文章
+            
+             
             ///删除没有发表文章的用户
 
         }

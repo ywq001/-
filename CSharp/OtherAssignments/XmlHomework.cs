@@ -42,12 +42,14 @@ namespace CSharp.OtherAssignments
                 new XElement("authorName", "飞哥"),
                 new XElement("title", "源栈培训：C#进阶-6：异步和并行"),
                 new XElement("authorId", 1),
+                new XElement("publishDate", "2019/6/15 18:15"),
                 new XAttribute("isDraft", true)),
             new XElement("article",
                 new XElement("id", "2"),
                 new XElement("authorName", "陈百万"),
                 new XElement("title", "源栈培训：C#"),
                 new XElement("authorId", 2),
+                new XElement("publishDate", "2019/5/18 18:15"),
                 new XAttribute("isDraft", true))
             );
             return articles;
@@ -102,6 +104,15 @@ namespace CSharp.OtherAssignments
         }
 
         ///查出每个用户最近发布的一篇文章
-        
+        public static void recentArticle()
+        {
+            var article = xmlarticles().Descendants("article")
+                        .GroupBy(u => u.Element("authorName").Value)
+                        .Select(u => u.OrderByDescending(p => p.Element("publishDate").Value).First());
+            foreach (var item in article)
+            {
+                Console.WriteLine(item.Element("title"));
+            }
+        }
     }
 }
