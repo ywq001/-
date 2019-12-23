@@ -141,20 +141,22 @@ namespace CSharp
             //参照上述articles，代码生成一个XML的users对象，能够存放用户的id、name和password，然后并存放到磁盘
             Console.WriteLine(XmlHomework.xmlusers());
 
-            //XDocument user = new XDocument(
-            //    new XDeclaration("1.0", "utf-8", "yes"),
-            //    XmlHomework.xmlusers());
-            //XmlHomework.xmlusers().Save("E:\\Temp\\users.xml");
+            XDocument user = new XDocument(
+                new XDeclaration("1.0", "utf-8", "yes"),
+                XmlHomework.xmlusers());
+            XmlHomework.xmlusers().Save("E:\\Temp\\users.xml");
 
             ///扩展user和articles的内容，使其能够完成以下操作：
             ///根据用户名查找他发布的全部文章
-            
+            XmlHomework.findArticle();
 
             ///统计出每个用户各发表了多少篇文章
+            
+            
             ///查出每个用户最近发布的一篇文章
             ///每个用户评论最多的一篇文章
             ///删除没有发表文章的用户
-            
+
         }
 
         

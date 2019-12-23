@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Linq;
 using System.Xml;
+using System.Linq;
 
 namespace CSharp.OtherAssignments
 {
@@ -66,5 +67,16 @@ namespace CSharp.OtherAssignments
             return users;
         }
 
+        ///根据用户名查找他发布的全部文章
+        public static void findArticle()
+        {
+            var userArticle = from u in xmlarticles().Descendants("article")
+                              where u.Element("authorName").Value == "飞哥"
+                              select u;
+            foreach (var item in userArticle)
+            {
+                Console.WriteLine(item.Element("title"));
+            }
+        }
     }
 }
