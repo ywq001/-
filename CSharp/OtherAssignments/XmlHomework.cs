@@ -43,11 +43,32 @@ namespace CSharp.OtherAssignments
                 new XElement("title", "源栈培训：C#进阶-6：异步和并行"),
                 new XElement("authorId", 1),
                 new XElement("publishDate", "2019/6/15 18:15"),
+                new XElement("comments",
+                    new XElement("comment",
+                        new XElement("id", "12"),
+                        new XElement("body", "不错，赞！"),
+                        new XElement("authorId", "2"),
+                        new XElement("authorName", "陈百万"),
+                        new XAttribute("recommend", true))),
                 new XAttribute("isDraft", true)),
             new XElement("article",
                 new XElement("id", "2"),
                 new XElement("authorName", "陈百万"),
                 new XElement("title", "源栈培训：C#"),
+                new XElement("authorId", 2),
+                new XElement("publishDate", "2019/5/18 18:15"),
+                new XElement("comments",
+                    new XElement("comment",
+                        new XElement("id", "12"),
+                        new XElement("body", "不错，赞！"),
+                        new XElement("authorId", "2"),
+                        new XElement("authorName", "阿泰"),
+                        new XAttribute("recommend", true))),
+                new XAttribute("isDraft", true)),
+            new XElement("article",
+                new XElement("id", "2"),
+                new XElement("authorName", "陈百万"),
+                new XElement("title", "源栈培训：sql"),
                 new XElement("authorId", 2),
                 new XElement("publishDate", "2019/5/18 18:15"),
                 new XAttribute("isDraft", true))
@@ -109,6 +130,18 @@ namespace CSharp.OtherAssignments
             var article = xmlarticles().Descendants("article")
                         .GroupBy(u => u.Element("authorName").Value)
                         .Select(u => u.OrderByDescending(p => p.Element("publishDate").Value).First());
+            foreach (var item in article)
+            {
+                Console.WriteLine(item.Element("title"));
+            }
+        }
+
+        ///每个用户评论最多的一篇文章
+        public static void maxArticle()
+        {
+            var article = xmlarticles().Descendants("article")
+                        .GroupBy(u => u.Element("authorName").Value)
+                        .Select(u => u.OrderByDescending(u => u.Descendants("comments").Elements("comment").Count()).First());
             foreach (var item in article)
             {
                 Console.WriteLine(item.Element("title"));
