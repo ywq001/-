@@ -141,10 +141,11 @@ namespace CSharp.OtherAssignments
         {
             var article = xmlarticles().Descendants("article")
                         .GroupBy(u => u.Element("authorName").Value)
-                        .Select(u => u.OrderByDescending(u => u.Descendants("comments").Elements("comment").Count()).First());
+                        .Select(u => u.OrderByDescending(u => u.Descendants("comments").Elements("comment").Count())
+                        .First().Element("title"));
             foreach (var item in article)
             {
-                Console.WriteLine(item.Element("title"));
+                Console.WriteLine(item);
             }
         }
     }
