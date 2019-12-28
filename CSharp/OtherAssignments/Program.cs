@@ -27,7 +27,9 @@ namespace CSharp
             //Student.SaveSome(students);
 
             //将用户名和密码存入数据库：Register()
-            new User() { Name = "王欣" }.Save();
+            User[] users = new User[] { new User { Name = "阿泰", Password = "YxWq12@#" },
+                new User { Name = "阿泰", Password = "YxWq12@#" } };
+            User.SaveSome(users);
 
 
 

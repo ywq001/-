@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Text;
 using CSharp;
 using CSharp._17bang;
@@ -8,7 +9,7 @@ using CSharp._17bang;
 namespace CSharp
 {
     //让User类无法被继承
-    internal sealed class User:Entity<int>,ISendMessage,IChat
+    internal sealed class User : Entity<int>, ISendMessage, IChat
     {
         private DBHelper _dbHelper;
 
@@ -23,15 +24,15 @@ namespace CSharp
         internal IList<string> sensitive = new List<string> { "admin", "17bang", "管理员" };
         internal int HelpMoney { get; set; }
         internal TokenManager TokenManager { get; set; }
-       
 
-        internal Role role { get;private set; }
+
+        internal Role role { get; private set; }
         private string _name;
 
         //设计一个适用的机制，能确保用户（User）的昵称（Name）不能含有admin、17bang、管理员等敏感词。
-        public string Name 
+        public string Name
         {
-            get 
+            get
             {
                 return _name;
             }
@@ -55,8 +56,32 @@ namespace CSharp
             }
         }
 
-        private string password;
-        
+        private string _password;
+        ///确保用户（User）的密码（Password）：
+        ///长度不低于6
+        ///必须由大小写英语单词、数字和特殊符号（~!@#$%^&*()_+）组成
+        public string Password
+        {
+            get { return _password; }
+            set
+            {
+                if (value.Length < 6)
+                {
+                    Console.WriteLine("密码长度太低");
+                }
+                else
+                {
+                    if (CheckPassword.AllJudgment(value))
+                    {
+                        _password = value;
+                    }
+                    else
+                    {
+                        Console.WriteLine("密码不符合规范");
+                    }
+                }
+            }
+        }
         private User invitedBy;
         public User InvitedBy
         {
@@ -64,29 +89,8 @@ namespace CSharp
             set { invitedBy = value; }
         }
 
-        ///确保用户（User）的密码（Password）：
-        ///长度不低于6
-        ///必须由大小写英语单词、数字和特殊符号（~!@#$%^&*()_+）组成
-        void changePasword(string code)
-        {
-          
-            if (code.Length<6)
-            {
-                Console.WriteLine("密码长度太低");
-            }
-            else
-            {
-                if (CheckPassword.AllJudgment(code))
-                {
-                    this.password = code;
-                }
-                else
-                {
-                    Console.WriteLine("密码不符合规范");
-                }
-            }
-        }
-
+        
+       
         internal static void Register()
         {
             
@@ -127,7 +131,18 @@ namespace CSharp
         public void Save()
         {
             _dbHelper.ExecuteNonQuery(
-                $"INSERT Register VALUES(2,N'{Name}',N'Yq123@#q')");
+                $"INSERT Register VALUES(N'{Name}',N'{_password}')");
+        }
+
+        public static void SaveSome(params User[] students)
+        {
+            using (DbConnection connection = new DBHelper().LongConnection)
+            {
+                for (int i = 0; i < students.Length; i++)
+                {
+                    students[i].Save();
+                }
+            }
         }
     }
     enum Role
