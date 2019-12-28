@@ -33,11 +33,11 @@ namespace CSharp._17bang
         {
             if (new DBHelper().LongConnection.State == ConnectionState.Closed)
             {
-                new DBHelper().LongConnection.Open();
+                LongConnection.Open();
             }
                 DbCommand getByUser = new SqlCommand();
             getByUser.CommandText = cmdText;
-            getByUser.Connection = new DBHelper().LongConnection;
+            getByUser.Connection = LongConnection;
                 int result= getByUser.ExecuteNonQuery();
             return result;
         }
@@ -46,11 +46,11 @@ namespace CSharp._17bang
         {
             if (new DBHelper().LongConnection.State == ConnectionState.Closed)
             {
-                new DBHelper().LongConnection.Open();
+                LongConnection.Open();
             }
             DbCommand getByUser = new SqlCommand();
             getByUser.CommandText = cmdText;
-            getByUser.Connection = new DBHelper().LongConnection;
+            getByUser.Connection = LongConnection;
             object result = getByUser.ExecuteScalar();
             return result;
         }
@@ -59,11 +59,11 @@ namespace CSharp._17bang
         {
             if (new DBHelper().LongConnection.State == ConnectionState.Closed)
             {
-                new DBHelper().LongConnection.Open();
+                LongConnection.Open();
             }
             DbCommand getByUser = new SqlCommand();
             getByUser.CommandText = cmdText;
-            getByUser.Connection = new DBHelper().LongConnection;
+            getByUser.Connection = LongConnection;
             DbDataReader result = getByUser.ExecuteReader();
             return result;
         }

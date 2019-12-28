@@ -8,4 +8,6 @@ INSERT student(Id,[NAME]) VALUES(8,N'泰')
 
 ALTER TABLE student ADD Age INT
 
-DELETE student WHERE Id=
+SELECT * FROM Register
+
+INSERT Register VALUES(1,N'ywq',N'Yq123@#q')

@@ -22,12 +22,12 @@ namespace CSharp
 
         static void Main(string[] args)
         {
-            Student[] students = new Student[] { new Student { Id = 8 } };
+            //Student[] students = new Student[] { new Student { Id = 8 } };
 
-            Student.SaveSome(students);
+            //Student.SaveSome(students);
 
-
-
+            //将用户名和密码存入数据库：Register()
+            new User() { Name = "王欣" }.Save();
 
 
 

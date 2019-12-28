@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using CSharp;
+using CSharp._17bang;
 
 
 namespace CSharp
@@ -9,6 +10,16 @@ namespace CSharp
     //让User类无法被继承
     internal sealed class User:Entity<int>,ISendMessage,IChat
     {
+        private DBHelper _dbHelper;
+
+        public User()
+        {
+            if (_dbHelper == null)
+            {
+                _dbHelper = new DBHelper();
+            }
+        }
+
         internal IList<string> sensitive = new List<string> { "admin", "17bang", "管理员" };
         internal int HelpMoney { get; set; }
         internal TokenManager TokenManager { get; set; }
@@ -86,14 +97,6 @@ namespace CSharp
             
         }
 
-        internal User()
-        {
-           
-
-        }
-
-      
-
         void ISendMessage.Send()
         {
             Console.WriteLine("实现ISendMessage接口方法");
@@ -118,6 +121,13 @@ namespace CSharp
                 }
             }
             return result;
+        }
+
+        //将用户名和密码存入数据库：Register()
+        public void Save()
+        {
+            _dbHelper.ExecuteNonQuery(
+                $"INSERT Register VALUES(2,N'{Name}',N'Yq123@#q')");
         }
     }
     enum Role
