@@ -9,6 +9,9 @@ using System.IO;
 using System.Xml;
 using CSharp.OtherAssignments;
 using System.Text;
+using System.Data.SqlClient;
+using CSharp._17bang;
+
 
 
 namespace CSharp
@@ -19,6 +22,15 @@ namespace CSharp
 
         static void Main(string[] args)
         {
+            Student[] students = new Student[] { new Student { Id = 8 } };
+
+            Student.SaveSome(students);
+
+
+
+
+
+
 
             //实现GetCount(string container, string target)方法，可以统计出container中有多少个target
             //string a = "123123";
@@ -105,7 +117,7 @@ namespace CSharp
 
 
 
-           
+
 
 
 

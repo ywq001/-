@@ -44,8 +44,8 @@ namespace Draw
                 pointF);
             for (int i = 0; i < 100; i++)
             {
-                int X = random.Next(50, 150);
-                int Y = random.Next(50, 150);
+                int X = random.Next(0, 190);
+                int Y = random.Next(0, 190);
                 image.SetPixel(X, Y, Color.Red);
                 image.SetPixel(Y, X, Color.Yellow);
             }
