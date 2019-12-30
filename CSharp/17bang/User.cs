@@ -26,6 +26,7 @@ namespace CSharp
         internal int HelpMoney { get; set; }
         internal TokenManager TokenManager { get; set; }
 
+        private DateTime LatestLogonTime { get; set; }
 
         internal Role role { get; private set; }
         private string _name;
@@ -151,7 +152,17 @@ namespace CSharp
         {
             DbDataReader reader = _dbHelper.ExecuteReader(
                 $"SELECT * FROM Register WHERE Username=N'{Name}' AND Password=N'{Password}'");
-            return reader.HasRows;
+            if (reader.HasRows == true)
+            {
+                LatestLogonTime = DateTime.Now;
+                Console.WriteLine("登录成功");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("用户名或密码输入不正确");
+                return false;
+            }
         }
 
     }

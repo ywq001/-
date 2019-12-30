@@ -32,7 +32,10 @@ namespace CSharp
             //User.SaveSome(users);
 
             //根据用户名和密码检查某用户能够成功登陆：Logon()
-            Console.WriteLine(new User() { Name = "王欣", Password = "Yq123@#q" }.Logon());
+            //正确的密码用户名
+            new User() { Name = "王欣", Password = "Yq123@#q" }.Logon();
+            //不正确的用户名和密码
+            new User() { Name = "飞哥", Password = "weQ12@#" }.Logon();
 
             //实现GetCount(string container, string target)方法，可以统计出container中有多少个target
             //string a = "123123";
