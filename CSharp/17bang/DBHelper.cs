@@ -64,8 +64,7 @@ namespace CSharp._17bang
             DbCommand getByUser = new SqlCommand();
             getByUser.CommandText = cmdText;
             getByUser.Connection = LongConnection;
-            DbDataReader result = getByUser.ExecuteReader();
-            return result;
+            return getByUser.ExecuteReader();
         }
     }
 }

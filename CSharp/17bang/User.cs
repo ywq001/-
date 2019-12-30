@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Data.SqlClient;
 using System.Text;
 using CSharp;
 using CSharp._17bang;
@@ -144,6 +145,15 @@ namespace CSharp
                 }
             }
         }
+
+        //根据用户名和密码检查某用户能够成功登陆：Logon()
+        public bool Logon()
+        {
+            DbDataReader reader = _dbHelper.ExecuteReader(
+                $"SELECT * FROM Register WHERE Username=N'{Name}' AND Password=N'{Password}'");
+            return reader.HasRows;
+        }
+
     }
     enum Role
     {

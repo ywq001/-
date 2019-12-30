@@ -8,6 +8,7 @@ INSERT student(Id,[NAME]) VALUES(8,N'泰')
 
 ALTER TABLE student ADD Age INT
 
-SELECT * FROM Register
+SELECT * FROM Register where Username=N'王欣' 
+--Password = N'YxWq12@#'
 
 INSERT Register VALUES(1,N'ywq',N'Yq123@#q')

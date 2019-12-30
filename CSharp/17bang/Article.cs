@@ -50,8 +50,6 @@ namespace CSharp
             }
         }
 
-    
-
         public void Agree(User voter)
         {
             Author.HelpMoney += 1;

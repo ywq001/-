@@ -27,12 +27,12 @@ namespace CSharp
             //Student.SaveSome(students);
 
             //将用户名和密码存入数据库：Register()
-            User[] users = new User[] { new User { Name = "阿泰", Password = "YxWq12@#" },
-                new User { Name = "阿泰", Password = "YxWq12@#" } };
-            User.SaveSome(users);
+            //User[] users = new User[] { new User { Name = "阿泰", Password = "YxWq12@#" },
+            //    new User { Name = "阿泰", Password = "YxWq12@#" } };
+            //User.SaveSome(users);
 
-
-
+            //根据用户名和密码检查某用户能够成功登陆：Logon()
+            Console.WriteLine(new User() { Name = "王欣", Password = "Yq123@#q" }.Logon());
 
             //实现GetCount(string container, string target)方法，可以统计出container中有多少个target
             //string a = "123123";
