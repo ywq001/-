@@ -152,7 +152,7 @@ namespace CSharp
         {
             DbDataReader reader = _dbHelper.ExecuteReader(
                 $"SELECT * FROM Register WHERE Username=N'{Name}' AND Password=N'{Password}'");
-            if (reader.HasRows == true)
+            if (reader.HasRows)
             {
                 LatestLogonTime = DateTime.Now;
                 Console.WriteLine("登录成功");
