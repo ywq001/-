@@ -29,42 +29,58 @@ namespace CSharp._17bang
             }
         }
 
-        public int ExecuteNonQuery(string cmdText)
+        public int ExecuteNonQuery(string cmdText, DbParameter[] parameters)
         {
             if (new DBHelper().LongConnection.State == ConnectionState.Closed)
             {
                 LongConnection.Open();
             }
-                DbCommand getByUser = new SqlCommand();
-            getByUser.CommandText = cmdText;
-            getByUser.Connection = LongConnection;
-                int result= getByUser.ExecuteNonQuery();
+            DbCommand command = new SqlCommand();
+            command.CommandText = cmdText;
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                command.Parameters.Add(parameters[i]);
+            }
+            command.Connection = LongConnection;
+            int result = command.ExecuteNonQuery();
+            LongConnection.Close();
             return result;
         }
 
-        public object ExecuteScalar(string cmdText)
+        public object ExecuteScalar(string cmdText, DbParameter[] parameters)
         {
             if (new DBHelper().LongConnection.State == ConnectionState.Closed)
             {
                 LongConnection.Open();
             }
-            DbCommand getByUser = new SqlCommand();
-            getByUser.CommandText = cmdText;
-            getByUser.Connection = LongConnection;
-            object result = getByUser.ExecuteScalar();
+            DbCommand command = new SqlCommand();
+            command.CommandText = cmdText;
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                command.Parameters.Add(parameters[i]);
+            }
+            command.Connection = LongConnection;
+            object result = command.ExecuteScalar();
+            LongConnection.Close();
             return result;
         }
 
-        public DbDataReader ExecuteReader(string cmdText)
+        public DbDataReader ExecuteReader(string cmdText,params DbParameter[] parameters)
         {
             if (new DBHelper().LongConnection.State == ConnectionState.Closed)
             {
                 LongConnection.Open();
             }
-            DbCommand getByUser = new SqlCommand();
-            getByUser.CommandText = cmdText;
-            getByUser.Connection = LongConnection;
-            return getByUser.ExecuteReader();
+            DbCommand command = new SqlCommand();
+            command.CommandText = cmdText;
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                command.Parameters.Add(parameters[i]);
+            }
+            command.Connection = LongConnection;
+            DbDataReader dataReader= command.ExecuteReader();
+            LongConnection.Close();
+            return dataReader;
         }
     }
 }

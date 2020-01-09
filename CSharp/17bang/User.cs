@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Text;
 using CSharp;
+using System.Data;
 using CSharp._17bang;
 
 
@@ -91,11 +93,16 @@ namespace CSharp
             set { invitedBy = value; }
         }
 
-        
-       
-        internal static void Register()
+
+        //将用户名和密码存入数据库：Register()
+        internal void Register()
         {
-            
+            SqlParameter pUserName = new SqlParameter("@Name", Name);
+            SqlParameter pPassword = new SqlParameter("@Password", Password);
+            DbParameter[] parameters = new DbParameter[] { pUserName, pPassword };
+            _dbHelper.ExecuteNonQuery(
+                $"INSERT Register VALUES(@Name,@_password)",
+                parameters);
         }
 
         internal static void Login()
@@ -129,12 +136,7 @@ namespace CSharp
             return result;
         }
 
-        //将用户名和密码存入数据库：Register()
-        public void Save()
-        {
-            _dbHelper.ExecuteNonQuery(
-                $"INSERT Register VALUES(N'{Name}',N'{_password}')");
-        }
+       
 
         public static void SaveSome(params User[] students)
         {
@@ -150,18 +152,22 @@ namespace CSharp
         //根据用户名和密码检查某用户能够成功登陆：Logon()
         public bool Logon()
         {
-            DbDataReader reader = _dbHelper.ExecuteReader(
-                $"SELECT * FROM Register WHERE Username=N'{Name}' AND Password=N'{Password}'");
-            if (reader.HasRows)
+            SqlParameter pUserName = new SqlParameter("@Name", Name);
+            SqlParameter pPassword = new SqlParameter("@Password", Password);
+            DbParameter[] parameters = new DbParameter[] { pUserName, pPassword };
+            object reader = _dbHelper.ExecuteScalar(
+                @"SELECT * FROM Register WHERE Username=@Name AND Password=@Password",
+                parameters);
+            if (reader==null)
+            {
+                Console.WriteLine("用户名或密码输入不正确");
+                return false;
+            }
+            else
             {
                 LatestLogonTime = DateTime.Now;
                 Console.WriteLine("登录成功");
                 return true;
-            }
-            else
-            {
-                Console.WriteLine("用户名或密码输入不正确");
-                return false;
             }
         }
 
