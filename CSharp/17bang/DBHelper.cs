@@ -29,7 +29,7 @@ namespace CSharp._17bang
             }
         }
 
-        public int ExecuteNonQuery(string cmdText, DbParameter[] parameters)
+        public int ExecuteNonQuery(string cmdText, params DbParameter[] parameters)
         {
             if (new DBHelper().LongConnection.State == ConnectionState.Closed)
             {

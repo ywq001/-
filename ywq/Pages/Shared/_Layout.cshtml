@@ -1,74 +1,161 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ywq</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <style type="text/css">
+        #ad-chats {
+            position: fixed;
+        }
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+        #chat-container {
+            height: 880px;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-page="/Index" class="navbar-brand">ywq</a>
+                <a href="/Index">
+                    <img src="~/images/logo-big.png" alt="一起帮Logo" class="navbar-left" />
+                </a>
+                <p class="navbar-text navbar-left">
+                    <span style="font-size:18px;font-weight:600;">一起帮</span>
+                    <span class="visible-md-inline visible-lg-inline">·网络互助平台</span>
+                </p>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-page="/Index">Home</a></li>
-                    <li><a asp-page="/About">About</a></li>
-                    <li><a asp-page="/Contact">Contact</a></li>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav ">
+
+                    <li>
+                        <a class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">
+                            <span class="glyphicon glyphicon-question-sign" aria-hidden="true">求助</span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown-header">督导班</li>
+                            <li>
+                                <a href="#">
+                                    疑问发布
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    疑问列表
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    列表
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    发布
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                            督促
+                            <span class="sr-only">(current)</span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">
+                                    求督促
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    督促别人
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    我的目标
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    我的督促
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class=" dropdown-toggle" data-toggle="dropdown" aria-expanded="true" href="#">
+                            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+                            文章
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="/Contact">
+                                    列表
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span>
+                            APP下载
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Android</a></li>
+                            <li><a href="#">ios(越狱）</a></li>
+                        </ul>
+                    </li>
                 </ul>
+
+                <ul class="nav navbar-nav">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            未登录
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">登录</a></li>
+                            <li><a href="#">注册</a></li>
+                            <li><a href="#">忘记密码</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+
+        </div><!-- /.container-fluid -->
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8/10">
+                <p class="bg-info">
+                    <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                    友人被授予文章自由发布权限
+                    <a href="#" class="pull-right">
+                        <span></span>
+                        全部消息
+                    </a>
+                </p>
             </div>
         </div>
-    </nav>
-
-    <partial name="_CookieConsentPartial" />
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2019 - ywq</p>
-        </footer>
     </div>
-
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
-
-    @RenderSection("Scripts", required: false)
+    @RenderBody();
 </body>
 </html>

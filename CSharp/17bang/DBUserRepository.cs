@@ -15,6 +15,14 @@ namespace CSharp._17bang
             //UseSqlServer()需要添加NuGet引用：Microsoft.EntityFrameworkCore.SqlServer
             optionsBuilder.UseSqlServer(connectionString);
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Article>();
+
+            modelBuilder.Entity<Keyword>();
+        }
+
         public void Save(T entity)
         {
             entities.Add(entity);

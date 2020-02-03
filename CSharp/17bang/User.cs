@@ -101,7 +101,7 @@ namespace CSharp
             SqlParameter pPassword = new SqlParameter("@Password", Password);
             DbParameter[] parameters = new DbParameter[] { pUserName, pPassword };
             _dbHelper.ExecuteNonQuery(
-                $"INSERT Register VALUES(@Name,@_password)",
+                @"INSERT Register VALUES(@Name,@_password)",
                 parameters);
         }
 
