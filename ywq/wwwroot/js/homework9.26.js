@@ -104,7 +104,7 @@ var createTr = function (name, age, QQ, hobby, gender) {
 
 //生成两个课程对象：JavaScript和SQL
 
-var JavaScript = new Course('javaScript', '2019年10月1日', '2020年4月1日', ['两开花','王枫','王平','采铃','老程']);
+//var JavaScript = new Course('javaScript', '2019年10月1日', '2020年4月1日', ['两开花','王枫','王平','采铃','老程']);
 //var SQL = new Course();
 
 //调用对象的begin()和end()方法，可以在控制台输出开课信息，如：JavaScript于2019年5月5日开课，共有5名同学（两开花、王枫、王平、采铃、老程）报名。

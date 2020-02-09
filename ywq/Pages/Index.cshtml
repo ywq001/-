@@ -1,6 +1,8 @@
 ﻿@page
 @model IndexModel
 
+<datetime asp-showicon="true" asp-only="date">@DateTime.Now</datetime>
+
 <div class="container body-content">
     <div class="container">
         <div class="row">
@@ -86,7 +88,9 @@
 
 <span zyf-test></span>
 <a zyf-star-red></a>
-
+@*@section Ad{
+    <p>线上免费收看</p>
+}*@
 
 <script>
     //document.getElementsByTagName("body")[0].onscroll = function () {

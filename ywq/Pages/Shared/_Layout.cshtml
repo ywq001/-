@@ -142,7 +142,7 @@
 
         </div><!-- /.container-fluid -->
     </div>
-    <div class="container">
+    <div class="container" style="padding-top:60px">
         <div class="row">
             <div class="col-lg-8/10">
                 <p class="bg-info">
@@ -157,5 +157,9 @@
         </div>
     </div>
     @RenderBody();
+    <section>
+        <h1>大神小班教学</h1>
+        @RenderSection("Ad", false)
+    </section>
 </body>
 </html>
